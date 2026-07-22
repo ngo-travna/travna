@@ -1,7 +1,67 @@
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+---
+import "../styles/global.css";
+import Header from "../components/header/Header.astro";
 
-<link
-  href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap"
-  rel="stylesheet"
-/>
+interface Props {
+  title: string;
+  description?: string;
+  lang?: "bg" | "en";
+}
+
+const {
+  title,
+  description = "TRAVNA – NGO for preserving and promoting the mountain trails around Tryavna and the Central Balkan.",
+  lang = "en",
+} = Astro.props;
+---
+
+<!doctype html>
+
+<html lang={lang}>
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>{title}</title>
+
+  <meta
+    name="description"
+    content={description}
+  />
+
+  <link rel="icon" href="/favicon.svg" />
+
+  <!-- Google Fonts -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+</head>
+
+<body>
+    
+    <Header />
+    
+    <slot />
+
+</body>
+
+</html>
+
+<style is:global>
+  @import "../styles/global.css";
+</style>
