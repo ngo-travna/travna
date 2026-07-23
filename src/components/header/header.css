@@ -18,7 +18,7 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
 
-  height: 80px;
+  height: 74px;
   gap: var(--space-lg);
 }
 
@@ -30,6 +30,7 @@
   display: flex;
   align-items: center;
   flex-shrink: 0;
+  padding-inline: 2rem;
 }
 
 .logo-image {
@@ -57,7 +58,7 @@
   font-size: 0.9rem;
   font-weight: 600;
   letter-spacing: 0.06em;
-  color: var(--color-text);
+  color: var(--color-primary);
   transition: color var(--transition-fast);
 }
 
@@ -131,14 +132,19 @@
 @media (max-width: 640px) {
   .main-nav {
     display: none;
+    gap: 1rem;
   }
   .menu-button {
     display: flex;
   }
   .header-content {
-    grid-template-columns: auto 1fr auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+  }
+  .site-header .container {
+    width: 100%;
   }
   .header-controls {
     justify-self: end;
+    margin-left: auto;
   }
 }
