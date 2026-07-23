@@ -132,8 +132,13 @@
   .main-nav {
     display: none;
   }
-
   .menu-button {
     display: flex;
+  }
+  .header-content {
+    grid-template-columns: auto 1fr auto;
+  }
+  .header-controls {
+    justify-self: end;
   }
 }
