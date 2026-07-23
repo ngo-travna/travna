@@ -1,23 +1,35 @@
-.site-header {
-  background: var(--color-background);
+/* ============================================================
+   Header
+   ============================================================ */
 
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  background: var(--color-background);
   border-bottom: 1px solid var(--color-border);
+
+  backdrop-filter: blur(10px);
 }
 
 .header-content {
-  display: flex;
-
-  justify-content: space-between;
-
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   align-items: center;
 
-  min-height: 80px;
+  height: 80px;
+  gap: var(--space-lg);
 }
+
+/* ============================================================
+   Logo
+   ============================================================ */
 
 .logo {
   display: flex;
   align-items: center;
-  margin-right: 3rem;
+  flex-shrink: 0;
 }
 
 .logo-image {
@@ -31,24 +43,43 @@
   transform: scale(1.03);
 }
 
+/* ============================================================
+   Navigation
+   ============================================================ */
+
 .main-nav {
-  margin-left: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.main-nav a {
+  text-transform: uppercase;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-text);
+  transition: color var(--transition-fast);
+}
+
+.main-nav a:hover {
+  color: var(--color-secondary);
 }
 
 .nav-list {
   display: flex;
-
-  list-style: none;
-
+  align-items: center;
   gap: 2rem;
-
+  list-style: none;
+  margin: 0;
   padding: 0;
 }
 
 .nav-list a {
-  font-weight: 500;
+  position: relative;
 
   color: var(--color-text);
+  font-weight: 500;
+  text-decoration: none;
 
   transition: color var(--transition-fast);
 }
@@ -57,29 +88,52 @@
   color: var(--color-secondary);
 }
 
+/* ============================================================
+   Controls
+   ============================================================ */
+
 .header-controls {
   display: flex;
-
   align-items: center;
-
-  gap: 1rem;
-
-  margin-left: 2rem;
+  gap: var(--space-md);
 }
 
-.language-button,
+.menu-button,
 .theme-button {
-  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
 
   border: none;
+  border-radius: 50%;
+
+  background: transparent;
 
   cursor: pointer;
 
-  color: var(--color-text);
+  font-size: 1.2rem;
 
-  font-weight: 600;
+  transition: background var(--transition-fast);
 }
 
-.nav-list a {
-  position: relative;
+.menu-button:hover,
+.theme-button:hover {
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.menu-button {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .main-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: flex;
+  }
 }

@@ -1,0 +1,13 @@
+---
+import { navigation } from "../lib/navigation";
+---
+
+<nav class="main-nav">
+  <ul class="nav-list">
+    {navigation.map((item) => (
+      <li>
+        <a href={item.href}>{item.label}</a>
+      </li>
+    ))}
+  </ul>
+</nav>

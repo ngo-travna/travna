@@ -3,53 +3,46 @@
    ============================================================ */
 
 :root {
-  /* ==========================================================
-     Colors
-     ========================================================== */
-
-  --color-background: #fefae0;
-  --color-surface: #ffffff;
-
-  --color-text: #283618;
-  --color-text-light: #6b7280;
-
-  --color-primary: #606c38;
+  /* Brand */
+  --color-primary: #283618;
   --color-secondary: #bc6c25;
   --color-accent: #dda15e;
 
-  --color-border: #e6e1c8;
+  /* Light Theme */
+  --color-background: #fefae0;
+  --color-surface: #ffffff;
+  --color-text: #283618;
+  --color-text-light: #606c38;
+  --color-border: #e6dfc5;
 
-  /* ==========================================================
-     Typography
-     ========================================================== */
-
+  /* Typography */
   --font-family: 'Inter Tight', sans-serif;
 
-  /* ==========================================================
-     Border Radius
-     ========================================================== */
-
+  /* Border Radius */
   --radius-small: 6px;
   --radius-medium: 12px;
   --radius-large: 20px;
 
-  /* ==========================================================
-     Shadows
-     ========================================================== */
-
+  /* Shadows */
   --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.05);
   --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.08);
 
-  /* ==========================================================
-     Transitions
-     ========================================================== */
-
+  /* Transitions */
   --transition-fast: 0.2s ease;
   --transition-normal: 0.3s ease;
 
-  /* ==========================================================
-   Content Width
-   ========================================================== */
-
+  /* Layout */
   --container-width: 1200px;
+}
+
+/* ============================================================
+   Dark Theme
+   ============================================================ */
+
+html[data-theme='dark'] {
+  --color-background: #1b1d16;
+  --color-surface: #26291f;
+  --color-text: #f6f3e5;
+  --color-text-light: #d8d3c0;
+  --color-border: #404338;
 }

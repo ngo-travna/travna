@@ -26,6 +26,10 @@ body {
 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+
+  transition:
+    background 0.25s,
+    color 0.25s;
 }
 
 img,
