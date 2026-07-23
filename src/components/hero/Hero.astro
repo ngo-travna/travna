@@ -1,0 +1,60 @@
+---
+import "./hero.css";
+
+import heroImage from "../../assets/images/hero/hero-central-balkan.jpg";
+
+import { Image } from "astro:assets";
+---
+
+<section class="hero">
+
+    <Image
+        src={heroImage}
+        alt="Central Balkan mountains"
+        class="hero-image"
+        priority
+    />
+
+    <div class="hero-overlay">
+
+        <div class="container">
+
+            <div class="hero-content">
+
+                <img
+                    src="/logo.svg"
+                    alt="TRAVNA"
+                    class="hero-logo"
+                />
+
+                <h1>TRAVNA</h1>
+
+                <p class="hero-tagline">
+
+                    Discover • Protect • Inspire
+
+                </p>
+
+                <p class="hero-description">
+
+                    Preserving the trails of Central Balkan
+                    and the region of Tryavna.
+
+                </p>
+
+                <a
+                    href="/routes"
+                    class="hero-button"
+                >
+
+                    Explore Routes
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>

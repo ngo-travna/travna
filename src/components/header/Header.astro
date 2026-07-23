@@ -1,57 +1,32 @@
 ---
 import "./header.css";
+
+import Navigation from "./Navigation.astro";
+import HeaderControls from "./HeaderControls.astro";
 ---
 
 <header class="site-header">
 
-  <div class="container">
+    <div class="container">
 
-    <div class="header-content">
+        <div class="header-content">
 
-      <!-- Logo -->
+            <a href="/" class="logo">
 
-      <a href="/" class="logo">
-        <img
-          src="/logo.svg"
-          alt="TRAVNA logo"
-          class="logo-image"
-        />
-      </a>
+                <img
+                    src="/logo.svg"
+                    alt="TRAVNA"
+                    class="logo-image"
+                />
 
-      <!-- Navigation -->
+            </a>
 
-      <nav class="main-nav">
+            <Navigation />
 
-        <ul class="nav-list">
+            <HeaderControls />
 
-          <li><a href="/">Home</a></li>
-
-          <li><a href="/mission">Mission</a></li>
-
-          <li><a href="/routes">Routes</a></li>
-
-          <li><a href="/events">Events</a></li>
-
-        </ul>
-
-      </nav>
-
-      <!-- Controls -->
-
-      <div class="header-controls">
-
-        <button class="language-button">
-          BG
-        </button>
-
-        <button class="theme-button">
-          ☀
-        </button>
-
-      </div>
+        </div>
 
     </div>
-
-  </div>
 
 </header>
