@@ -13,7 +13,7 @@
   backdrop-filter: blur(10px);
 }
 
-.header-content {
+.header-top {
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
@@ -154,20 +154,49 @@
 
 @media (max-width: 640px) {
   .main-nav {
+    margin: 0 auto;
     display: none;
-    gap: 1rem;
   }
+
+  .main-nav.is-open {
+    display: block;
+
+    position: absolute;
+    top: 74px;
+    left: 0;
+    right: 0;
+
+    background: rgba(254, 250, 224, 0.92);
+    backdrop-filter: blur(12px);
+    border-top: 1px solid var(--color-border);
+
+    box-shadow: var(--shadow-small);
+
+    z-index: 100;
+  }
+
+  .main-nav.is-open .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 1.5rem;
+
+    padding: 1.5rem 0;
+  }
+
   .menu-button {
     display: flex;
   }
-  .header-content {
-    grid-template-columns: auto minmax(0, 1fr) auto;
-  }
+
   .site-header .container {
     width: 100%;
   }
+
   .header-controls {
-    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     margin-left: auto;
   }
 }
