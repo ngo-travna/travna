@@ -1,17 +1,28 @@
+---
+import SunIcon from '../../assets/icons/sun.svg';
+import MenuIcon from '../../assets/icons/menu.svg';
+---
+
 <div class="header-controls">
+
+  <div class="language-switch">
+    <button class="language-button active">BG</button>
+    <span class="language-divider">|</span>
+    <button class="language-button">EN</button>
+  </div>
+
   <button
     class="menu-button"
     aria-label="Open menu"
-    type="button"
-  >
-    ☰
+    type="button">
+   <MenuIcon />
   </button>
 
   <button
-    class="theme-button"
-    aria-label="Toggle theme"
-    type="button"
-  >
-    ☀
-  </button>
+  class="theme-button"
+  aria-label="Toggle theme"
+  type="button">
+  <SunIcon />
+</button>
+
 </div>

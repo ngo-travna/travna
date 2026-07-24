@@ -85,8 +85,29 @@
   transition: color var(--transition-fast);
 }
 
+.nav-list a::after {
+  content: '';
+
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--color-secondary);
+
+  transform: translateX(-50%);
+
+  transition: width var(--transition-normal);
+}
+
 .nav-list a:hover {
-  color: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.nav-list a:hover::after {
+  width: 100%;
 }
 
 /* ============================================================
@@ -96,7 +117,7 @@
 .header-controls {
   display: flex;
   align-items: center;
-  gap: var(--space-md);
+  gap: var(--space-lg);
 }
 
 .menu-button,
@@ -105,24 +126,26 @@
   align-items: center;
   justify-content: center;
 
-  width: 42px;
-  height: 42px;
+  padding: 0.25rem;
 
   border: none;
-  border-radius: 50%;
-
-  background: transparent;
+  background: none;
 
   cursor: pointer;
 
+  font: inherit;
   font-size: 1.2rem;
 
-  transition: background var(--transition-fast);
+  color: var(--color-text-light);
+
+  transition:
+    color var(--transition-fast),
+    transform var(--transition-fast);
 }
 
 .menu-button:hover,
 .theme-button:hover {
-  background: rgba(0, 0, 0, 0.08);
+  color: var(--color-primary);
 }
 
 .menu-button {
@@ -147,4 +170,65 @@
     justify-self: end;
     margin-left: auto;
   }
+}
+
+/* ==========================================
+   Language Switch
+========================================== */
+
+.language-switch {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+
+  margin-right: var(--space-md);
+}
+
+.language-button {
+  background: none;
+  border: none;
+  padding: 0.4rem;
+
+  font: inherit;
+  cursor: pointer;
+
+  color: var(--color-text-light);
+
+  transition: color var(--transition-fast);
+}
+
+.language-button:hover {
+  color: var(--color-primary);
+}
+
+.language-button.active {
+  color: var(--color-secondary);
+  font-weight: 600;
+}
+
+.language-divider {
+  color: var(--color-text-light);
+}
+
+.theme-button svg {
+  width: 22px;
+  height: 22px;
+}
+
+.theme-button svg {
+  transition: transform var(--transition-normal);
+}
+
+.theme-button:hover svg {
+  transform: rotate(20deg);
+}
+.menu-button svg {
+  width: 24px;
+  height: 24px;
+
+  transition: transform var(--transition-normal);
+}
+
+.menu-button:hover svg {
+  transform: scale(1.08);
 }
