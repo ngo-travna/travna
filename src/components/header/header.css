@@ -261,3 +261,22 @@
 .menu-button:hover svg {
   transform: scale(1.08);
 }
+
+.menu-icon,
+.close-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-icon {
+  display: none;
+}
+
+.menu-button.is-open .menu-icon {
+  display: none;
+}
+
+.menu-button.is-open .close-icon {
+  display: flex;
+}

@@ -1,6 +1,7 @@
 ---
 import SunIcon from '../../assets/icons/sun.svg';
 import MenuIcon from '../../assets/icons/menu.svg';
+import CloseIcon from '../../assets/icons/close.svg';
 ---
 
 <div class="header-controls">
@@ -11,12 +12,22 @@ import MenuIcon from '../../assets/icons/menu.svg';
     <button class="language-button">EN</button>
   </div>
 
-  <button
-    class="menu-button"
-    id="menu-toggle"
-    aria-label="Open menu"
-    type="button">
-    <MenuIcon />
+ <button
+  class="menu-button"
+  id="menu-toggle"
+  type="button"
+  aria-label="Toggle navigation menu"
+  aria-controls="main-navigation"
+  aria-expanded="false">
+
+    <span class="menu-icon">
+      <MenuIcon />
+    </span>
+
+    <span class="close-icon">
+      <CloseIcon />
+    </span>
+
   </button>
 
   <button

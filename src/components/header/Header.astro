@@ -34,6 +34,26 @@ import HeaderControls from "./HeaderControls.astro";
   const navigation = document.getElementById('main-navigation');
 
   menuButton?.addEventListener('click', () => {
-    navigation?.classList.toggle('is-open');
+  navigation?.classList.toggle('is-open');
+  menuButton.classList.toggle('is-open');
+
+  const expanded = menuButton.classList.contains('is-open');
+    menuButton.setAttribute('aria-expanded', String(expanded));
+  });
+
+  function closeMenu() {
+    navigation?.classList.remove('is-open');
+    menuButton?.classList.remove('is-open');
+    menuButton?.setAttribute('aria-expanded', 'false');
+  }
+
+  navigation?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 640) {
+      closeMenu();
+    }
   });
 </script>
