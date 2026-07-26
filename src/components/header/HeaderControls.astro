@@ -1,4 +1,6 @@
 ---
+const isEnglish = Astro.url.pathname.startsWith("/en");
+
 import SunIcon from '../../assets/icons/sun.svg';
 import MenuIcon from '../../assets/icons/menu.svg';
 import CloseIcon from '../../assets/icons/close.svg';
@@ -6,11 +8,21 @@ import CloseIcon from '../../assets/icons/close.svg';
 
 <div class="header-controls">
 
-  <div class="language-switch">
-    <button class="language-button active">BG</button>
+  <nav class="language-switch" aria-label="Language">
+    <a
+      href="/"
+      class={`language-button ${!isEnglish ? "active" : ""}`}
+    >
+      BG
+    </a>
     <span class="language-divider">|</span>
-    <button class="language-button">EN</button>
-  </div>
+    <a
+      href="/en/"
+      class={`language-button ${isEnglish ? "active" : ""}`}
+    >
+      EN
+    </a>
+  </nav>
 
  <button
   class="menu-button"
