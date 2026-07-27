@@ -7,6 +7,7 @@ const en = {
   },
 
   footer: {
+    title: 'TRAVNA',
     resources: 'Resources',
     community: 'Community',
     contact: 'Contact',

@@ -7,6 +7,7 @@ const bg = {
   },
 
   footer: {
+    title: 'ТРЪВНА',
     resources: 'Полезни връзки',
     community: 'Общност',
     contact: 'Контакти',
