@@ -1,5 +1,11 @@
 ---
 import "./footer.css";
+
+import bg from "../../i18n/bg";
+import en from "../../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
 ---
 
 <footer class="site-footer">
@@ -7,14 +13,18 @@ import "./footer.css";
   <div class="container footer-grid">
 
     <section>
-      <h3 class="main-h3">TRAVNA {" "}<strong>Mountain Sports Club </strong></h3>
+      <h3>TRAVNA</h3>
+      <p>Mountain Sports Club</p>
+      <p>Bulgaria, Tryavna</p>
       <p>
-        Caring for the mountains, outdoor trails and local communities of Central Balkan and Tryavna.
+        <a href="mailto:ngo.travna@gmail.com">
+          ngo.travna@gmail.com
+        </a>
       </p>
     </section>
 
     <section>
-      <h3>Resources</h3>
+      <h3>{t.footer.resources}</h3>
       <ul>
         <li><a href="#">Mountain Rescue Service</a></li>
         <li><a href="#">Weather Forecast</a></li>
@@ -23,7 +33,7 @@ import "./footer.css";
     </section>
 
     <section>
-      <h3>Community</h3>
+      <h3>{t.footer.community}</h3>
       <ul>
         <li><a href="#">Balkana TRY</a></li>
         <li><a href="#">Instagram</a></li>
@@ -36,7 +46,7 @@ import "./footer.css";
   <hr class="footer-divider" />
 
   <p class="footer-license">
-    © 2026 TRAVNA · Content licensed under{" "}
+    {t.footer.copyright}
     <a
       href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
       target="_blank"
