@@ -1,5 +1,9 @@
 ---
-import { navigation } from "../../lib/navigation";
+import { getNavigation } from "../../lib/navigation";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+
+const navigation = getNavigation(isEnglish);
 ---
 
 <nav id="main-navigation" class="main-nav">
@@ -8,13 +12,14 @@ import { navigation } from "../../lib/navigation";
 
     {navigation.map((item) => (
 
-    <li>
-      <a href={item.href}>
-        {item.label}
-      </a>
+      <li>
+        <a href={item.href}>
+          {item.label}
+        </a>
       </li>
 
-      ))}
+    ))}
+
   </ul>
 
 </nav>
