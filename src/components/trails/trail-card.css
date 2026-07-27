@@ -1,0 +1,57 @@
+.trail-card {
+  display: block;
+
+  overflow: hidden;
+
+  border-radius: var(--radius-large);
+
+  background: var(--color-surface);
+
+  text-decoration: none;
+
+  transition: transform 0.25s ease;
+}
+
+.trail-card:hover {
+  transform: translateY(-4px);
+}
+
+.trail-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+
+  object-fit: cover;
+}
+
+.trail-card-content {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  padding: 1rem;
+}
+
+.trail-card h3 {
+  margin: 0;
+
+  font-size: 1.1rem;
+}
+
+.trail-status {
+  width: 0.75rem;
+  height: 0.75rem;
+
+  border-radius: 50%;
+}
+
+.trail-status.green {
+  background: #2e7d32;
+}
+
+.trail-status.yellow {
+  background: #f9a825;
+}
+
+.trail-status.red {
+  background: #c62828;
+}

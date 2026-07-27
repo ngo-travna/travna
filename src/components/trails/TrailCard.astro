@@ -1,0 +1,37 @@
+---
+import "./trail-card.css";
+
+interface Props {
+  title: string;
+  image: string;
+  href: string;
+  status?: "green" | "yellow" | "red";
+}
+
+const {
+  title,
+  image,
+  href,
+  status = "green",
+} = Astro.props;
+---
+
+<a
+  href={href}
+  class="trail-card"
+>
+
+  <img
+    src={image}
+    alt={title}
+  />
+
+  <div class="trail-card-content">
+
+    <span class={`trail-status ${status}`}></span>
+
+    <h3>{title}</h3>
+
+  </div>
+
+</a>

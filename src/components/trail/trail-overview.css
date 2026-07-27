@@ -1,0 +1,42 @@
+.trail-overview {
+  padding: 4rem 0;
+}
+
+.trail-overview h2 {
+  margin-bottom: 2rem;
+
+  color: var(--color-secondary);
+}
+
+.overview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 1.5rem;
+}
+
+.overview-item {
+  padding: 1.5rem;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-large);
+
+  background: var(--color-surface);
+}
+
+.overview-item .label {
+  display: block;
+
+  margin-bottom: 0.5rem;
+
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  color: var(--color-text-light);
+}
+
+.overview-item .value {
+  font-size: 1.15rem;
+  font-weight: 600;
+}

@@ -1,0 +1,17 @@
+.trail-description {
+  padding: 4rem 0;
+}
+
+.trail-description h2 {
+  margin-bottom: 2rem;
+
+  color: var(--color-secondary);
+}
+
+.trail-description p {
+  max-width: 70ch;
+
+  margin-bottom: 1.5rem;
+
+  line-height: 1.8;
+}
