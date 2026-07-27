@@ -46,21 +46,18 @@
 
 .hero-logo {
   width: 150px;
-
   margin-bottom: 4rem;
 }
 
 .hero h1 {
-  color: white;
-
+  color: var(--color-accent);
+  font-size: 4rem;
   margin-bottom: 1rem;
 }
 
 .hero-tagline {
   font-size: 1.5rem;
-
   font-weight: 500;
-
   margin-bottom: 1rem;
 }
 

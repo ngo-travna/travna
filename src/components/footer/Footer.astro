@@ -14,8 +14,8 @@ const t = isEnglish ? en : bg;
 
     <section>
       <h3>{t.footer.title}</h3>
-      <p>Mountain Sports Club</p>
-      <p>Bulgaria, Tryavna</p>
+      <p>{t.footer.organisation}</p>
+      <p>{t.footer.location}</p>
       <p>
         <a href="mailto:ngo.travna@gmail.com">
           ngo.travna@gmail.com
@@ -26,18 +26,19 @@ const t = isEnglish ? en : bg;
     <section>
       <h3>{t.footer.resources}</h3>
       <ul>
-        <li><a href="#">Mountain Rescue Service</a></li>
-        <li><a href="#">Weather Forecast</a></li>
-        <li><a href="#">Central Balkan National Park</a></li>
+        <li><a href="https://www.pss-bg.bg/">{t.footer.pss}</a></li>
+        <li><a href="http://www.weather.bg/index.php?koiFail=bg&lng=0">{t.footer.forecast}</a></li>
+        <li><a href="https://visitcentralbalkan.net/">{t.footer.park}</a></li>
       </ul>
     </section>
 
     <section>
       <h3>{t.footer.community}</h3>
       <ul>
-        <li><a href="#">Balkana TRY</a></li>
         <li><a href="#">Instagram</a></li>
         <li><a href="#">Facebook</a></li>
+        <li><a href="https://balkana-try.vercel.app/">Balkana-TRY</a></li>
+
       </ul>
     </section>
 

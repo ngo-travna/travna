@@ -1,5 +1,10 @@
 ---
 import "./hero.css";
+import bg from "../../i18n/bg";
+import en from "../../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
 
 import heroImage from "../../assets/images/hero/hero-central-balkan.jpg";
 
@@ -7,48 +12,32 @@ import { Image } from "astro:assets";
 ---
 
 <section class="hero">
-
     <Image
         src={heroImage}
         alt="Central Balkan mountains"
         class="hero-image"
         priority
     />
-
     <div class="hero-overlay">
-
         <div class="container">
-
             <div class="hero-content">
-
                 <img
                     src="/logo.svg"
                     alt="TRAVNA"
                     class="hero-logo"
                 />
-
-                <h1>TRAVNA</h1>
-
+                <h1>{t.home.hero.title}</h1>
                 <p class="hero-tagline">
-
-                    Discover • Protect • Inspire
-
+                    {t.home.hero.tagline}
                 </p>
-
                 <p class="hero-description">
-
-                    Preserving the trails of Central Balkan
-                    and the region of Tryavna.
-
+                    {t.home.hero.description}
                 </p>
-
                 <a
                     href="/trails"
                     class="hero-button"
                 >
-
-                    Explore Trails
-
+                    {t.home.hero.button}
                 </a>
 
             </div>
