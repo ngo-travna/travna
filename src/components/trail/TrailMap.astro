@@ -1,6 +1,6 @@
 ---
-import "leaflet/dist/leaflet.css";
 import "./trail-map.css";
+import "../../scripts/trail-map";
 ---
 
 <section class="trail-map">
@@ -14,21 +14,3 @@ import "./trail-map.css";
   </div>
 
 </section>
-
-<script lang="ts">
-  import L from "leaflet";
-  import { loadGpx } from "../../lib/gpx";
-
-  const map = L.map("trail-map").setView([42.8667, 25.5000], 10);
-
-L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
-  maxZoom: 17,
-  attribution:
-    "Map data: &copy; OpenStreetMap contributors, SRTM | Map style: &copy; OpenTopoMap (CC-BY-SA)",
-}).addTo(map);
-
-const geojson = await loadGpx("/gpx/zelenika-path.gpx");
-
-console.log(geojson);
-
-</script>
