@@ -1,0 +1,18 @@
+.trail-gallery {
+  padding: 4rem 0;
+}
+
+.gallery-placeholder {
+  height: 280px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-large);
+
+  background: var(--color-surface);
+
+  color: var(--color-text-light);
+}

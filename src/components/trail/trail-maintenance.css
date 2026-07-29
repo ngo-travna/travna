@@ -1,0 +1,15 @@
+.trail-maintenance {
+  padding: 4rem 0;
+}
+
+.maintenance-card {
+  max-width: 520px;
+
+  padding: 2rem;
+
+  border-radius: var(--radius-large);
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+}
