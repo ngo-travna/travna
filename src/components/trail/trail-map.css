@@ -1,12 +1,10 @@
-.trail-map {
-  padding: 4rem 0;
-}
-
 #trail-map {
   width: 100%;
-  height: 550px;
+  height: 600px;
 
   border-radius: var(--radius-large);
 
   overflow: hidden;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
