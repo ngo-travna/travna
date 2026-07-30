@@ -1,7 +1,15 @@
 ---
+interface Props {
+  gpx: string;
+}
+
+const { gpx } = Astro.props;
 ---
 
-<div id="trail-map"></div>
+<div
+  id="trail-map"
+  data-gpx={gpx}
+></div>
 
 <script type="module">
   import { initTrailMap } from "../../scripts/trail-map";

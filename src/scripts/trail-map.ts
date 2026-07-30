@@ -7,6 +7,15 @@ export function initTrailMap() {
 
   if (!container) return;
 
+  const gpx = container.dataset.gpx;
+
+  if (!gpx) {
+    console.error('No GPX file specified.');
+    return;
+  }
+
+  if (!container) return;
+
   const map = new maplibregl.Map({
     container,
     style: 'https://tiles.openfreemap.org/styles/liberty',
@@ -14,7 +23,7 @@ export function initTrailMap() {
     zoom: 11,
   });
   map.addControl(new maplibregl.NavigationControl(), 'top-right');
-  loadGpx('/gpx/zelenika-path.gpx')
+  loadGpx(gpx)
     .then((geojson) => {
       map.on('load', () => {
         map.addSource('trail', {

@@ -1,6 +1,14 @@
 ---
 import "./trail-map.css";
 import TrailMapClient from "./TrailMapClient.astro";
+
+import type { Trail } from "../../types/trail";
+
+interface Props {
+  trail: Trail;
+}
+
+const { trail } = Astro.props;
 ---
 
 <section class="trail-map">
@@ -9,7 +17,7 @@ import TrailMapClient from "./TrailMapClient.astro";
 
     <h2>Trail Map</h2>
 
-    <TrailMapClient />
+    <TrailMapClient gpx={trail.gpx} />
 
   </div>
 
