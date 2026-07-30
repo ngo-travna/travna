@@ -16,12 +16,21 @@ export function initTrailMap() {
   map.addControl(new maplibregl.NavigationControl(), 'top-right');
   loadGpx('/gpx/zelenika-path.gpx')
     .then((geojson) => {
-      console.log('GPX loaded:', geojson);
-
       map.on('load', () => {
         map.addSource('trail', {
           type: 'geojson',
           data: geojson,
+        });
+
+        map.addLayer({
+          id: 'trail-outline',
+          type: 'line',
+          source: 'trail',
+          paint: {
+            'line-color': '#ffffff',
+            'line-width': 8,
+            'line-opacity': 0.9,
+          },
         });
 
         map.addLayer({
@@ -31,10 +40,53 @@ export function initTrailMap() {
           paint: {
             'line-color': '#d62828',
             'line-width': 4,
-            'line-opacity': 0.9,
+            'line-opacity': 1,
           },
         });
       });
+      const bounds = new maplibregl.LngLatBounds();
+
+      for (const feature of geojson.features) {
+        if (feature.geometry.type === 'LineString') {
+          for (const coord of feature.geometry.coordinates) {
+            bounds.extend(coord as [number, number]);
+          }
+        }
+
+        if (feature.geometry.type === 'MultiLineString') {
+          for (const line of feature.geometry.coordinates) {
+            for (const coord of line) {
+              bounds.extend(coord as [number, number]);
+            }
+          }
+        }
+      }
+
+      map.fitBounds(bounds, {
+        padding: 40,
+        maxZoom: 14,
+      });
+
+      const firstFeature = geojson.features[0];
+
+      if (firstFeature.geometry.type === 'LineString') {
+        const coordinates = firstFeature.geometry.coordinates;
+
+        const start = coordinates[0];
+        const finish = coordinates[coordinates.length - 1];
+
+        new maplibregl.Marker({
+          color: '#22c55e',
+        })
+          .setLngLat(start as [number, number])
+          .addTo(map);
+
+        new maplibregl.Marker({
+          color: '#ef4444',
+        })
+          .setLngLat(finish as [number, number])
+          .addTo(map);
+      }
     })
     .catch(console.error);
 }
