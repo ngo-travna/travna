@@ -11,12 +11,13 @@
 }
 
 .mission-hero h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 
-  font-size: clamp(3rem, 3vw, 2.8rem);
+  font-size: clamp(4rem, 3vw, 2.8rem);
 
   text-align: center;
-
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
   color: var(--color-secondary);
 }
 
@@ -40,7 +41,7 @@
   max-width: 65ch;
 
   text-align: center;
-
+  font-size: 1.1rem;
   color: var(--color-text-light);
 }
 
