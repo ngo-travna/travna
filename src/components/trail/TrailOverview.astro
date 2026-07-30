@@ -1,7 +1,13 @@
 ---
 import "./trail-overview.css";
----
+import type { Trail } from "../../types/trail";
 
+interface Props {
+  trail: Trail;
+}
+
+const { trail } = Astro.props;
+---
 <section class="trail-overview">
 
   <div class="container">
@@ -12,32 +18,32 @@ import "./trail-overview.css";
 
       <div class="overview-item">
         <span class="label">Distance</span>
-        <span class="value">14.2 km</span>
+        <span class="value">{trail.distance}</span>
       </div>
 
       <div class="overview-item">
         <span class="label">Elevation Gain</span>
-        <span class="value">+820 m</span>
+        <span class="value">{trail.elevationGain}</span>
       </div>
 
       <div class="overview-item">
         <span class="label">Highest Point</span>
-        <span class="value">1520 m</span>
+        <span class="value">{trail.highestPoint}</span>
       </div>
 
       <div class="overview-item">
         <span class="label">Estimated Time</span>
-        <span class="value">5–6 h</span>
+        <span class="value">{trail.estimatedTime}</span>
       </div>
 
       <div class="overview-item">
         <span class="label">Activities</span>
-        <span class="value">🥾 🏃</span>
+        <span class="value">{trail.activities}</span>
       </div>
 
       <div class="overview-item">
         <span class="label">Difficulty</span>
-        <span class="value">Moderate</span>
+        <span class="value">{trail.difficulty}</span>
       </div>
 
     </div>

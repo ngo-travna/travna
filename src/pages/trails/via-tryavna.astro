@@ -8,6 +8,7 @@ import TrailMap from "../../components/trail/TrailMap.astro";
 import TrailGallery from "../../components/trail/TrailGallery.astro"; 
 import TrailMaintenance from "../../components/trail/TrailMaintenance.astro";
 import TrailRelated from "../../components/trail/TrailRelated.astro";
+import trail from "../../data/trails/via-tryavna";
 ---
 
 <MainLayout
@@ -16,7 +17,7 @@ import TrailRelated from "../../components/trail/TrailRelated.astro";
 >
 
   <TrailHero />
-  <TrailOverview />
+  <TrailOverview trail={trail} />
   <TrailDescription />
   <TrailMap />
   <TrailGallery />
