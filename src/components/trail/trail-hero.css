@@ -1,11 +1,8 @@
 .trail-hero {
   position: relative;
-
   min-height: 520px;
-
   display: flex;
   align-items: flex-end;
-
   overflow: hidden;
 }
 
@@ -13,8 +10,19 @@
   position: absolute;
   inset: 0;
 
-  background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65))
-    url('/images/trails/via-trayana.jpg') center/cover;
+  background-size: cover;
+  background-position: center;
+
+  z-index: 1;
+}
+
+.trail-hero-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.35));
+
+  z-index: 2;
 }
 
 .trail-hero-overlay {
@@ -23,48 +31,32 @@
   width: 100%;
 
   padding: 5rem 0 4rem;
+
+  z-index: 3;
 }
 
 .trail-badge {
   display: inline-block;
-
   padding: 0.45rem 0.9rem;
-
+  background-color: var(--color-surface);
   margin-bottom: 1.5rem;
-
   border-radius: 999px;
-
-  background: rgba(255, 255, 255, 0.18);
-
-  border: 1px solid rgba(255, 255, 255, 0.25);
-
-  backdrop-filter: blur(10px);
-
-  color: white;
-
+  color: var(--color-text);
   font-size: 0.9rem;
 }
 
 .trail-hero h1 {
-  color: white;
-
+  color: var(--color-surface);
   font-size: clamp(2.6rem, 5vw, 4rem);
-
   font-weight: 800;
-
   line-height: 1.1;
-
-  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
-
   margin-bottom: 1rem;
 }
 
 .trail-hero p {
-  max-width: 700px;
-  font-size: 1.25rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.96);
+  color: var(--color-surface);
 }
-.trail-hero {
-  border-radius: 0 0 var(--radius-large) var(--radius-large);
+
+.trail-hero .container {
+  max-width: 760px;
 }

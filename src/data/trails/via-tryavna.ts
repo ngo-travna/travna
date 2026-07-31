@@ -19,9 +19,9 @@ const trail: Trail = {
 
   difficulty: 'Moderate',
 
-  gpx: '/gpx/zelenika-path.gpx',
+  gpx: '/gpx/via-tryavna.gpx',
 
-  heroImage: '/images/trails/via-tryavna/hero.jpg',
+  heroImage: '../../../public/images/trails/via-tryavna-img.jpg',
 };
 
 export default trail;

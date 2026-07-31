@@ -12,42 +12,41 @@ const { trail } = Astro.props;
 
   <div class="container">
 
-    <h2>Trail Overview</h2>
+  <div class="overview-card">
 
-    <div class="overview-grid">
+    <div class="overview-row">
+      <span class="label">Distance</span>
+      <span class="value">{trail.distance}</span>
+    </div>
 
-      <div class="overview-item">
-        <span class="label">Distance</span>
-        <span class="value">{trail.distance}</span>
-      </div>
+    <div class="overview-row">
+      <span class="label">Elevation Gain</span>
+      <span class="value">{trail.elevationGain}</span>
+    </div>
 
-      <div class="overview-item">
-        <span class="label">Elevation Gain</span>
-        <span class="value">{trail.elevationGain}</span>
-      </div>
+    <div class="overview-row">
+      <span class="label">Highest Point</span>
+      <span class="value">{trail.highestPoint}</span>
+    </div>
 
-      <div class="overview-item">
-        <span class="label">Highest Point</span>
-        <span class="value">{trail.highestPoint}</span>
-      </div>
+    <div class="overview-row">
+      <span class="label">Estimated Time</span>
+      <span class="value">{trail.estimatedTime}</span>
+    </div>
 
-      <div class="overview-item">
-        <span class="label">Estimated Time</span>
-        <span class="value">{trail.estimatedTime}</span>
-      </div>
+    <div class="overview-row">
+      <span class="label">Activities</span>
+      <span class="value">{trail.activities}</span>
+    </div>
 
-      <div class="overview-item">
-        <span class="label">Activities</span>
-        <span class="value">{trail.activities}</span>
-      </div>
-
-      <div class="overview-item">
-        <span class="label">Difficulty</span>
-        <span class="value">{trail.difficulty}</span>
-      </div>
-
+    <div class="overview-row">
+      <span class="label">Last Maintenance</span>
+      <span class="value"> July 2026</span>
     </div>
 
   </div>
+
+</div>
+
 
 </section>

@@ -1,17 +1,28 @@
 .trail-description {
-  padding: 4rem 0;
+  padding: 4rem 0 5rem;
+}
+
+.trail-description .container {
+  max-width: 760px;
+  margin: 0 auto;
 }
 
 .trail-description h2 {
-  margin-bottom: 2rem;
+  margin-bottom: 1.75rem;
 
-  color: var(--color-secondary);
+  color: var(--color-text);
 }
 
 .trail-description p {
-  max-width: 70ch;
-
   margin-bottom: 1.5rem;
 
-  line-height: 1.8;
+  color: var(--color-text);
+
+  font-size: 1.1rem;
+
+  line-height: 1.9;
+}
+
+.trail-description p:last-child {
+  margin-bottom: 0;
 }

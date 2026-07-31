@@ -1,6 +1,5 @@
 ---
 import "./trail-hero.css";
-
 import type { Trail } from "../../types/trail";
 
 interface Props {
@@ -11,11 +10,11 @@ const { trail } = Astro.props;
 ---
 
 <section class="trail-hero">
+
   <div
     class="trail-hero-image"
     style={`background-image: url(${trail.heroImage})`}
   ></div>
-
   <div class="trail-hero-overlay">
     <div class="container">
       <span class="trail-badge">
