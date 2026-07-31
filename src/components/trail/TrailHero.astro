@@ -1,29 +1,30 @@
 ---
 import "./trail-hero.css";
+
+import type { Trail } from "../../types/trail";
+
+interface Props {
+  trail: Trail;
+}
+
+const { trail } = Astro.props;
 ---
 
 <section class="trail-hero">
-
-  <div class="trail-hero-image"></div>
+  <div
+    class="trail-hero-image"
+    style={`background-image: url(${trail.heroImage})`}
+  ></div>
 
   <div class="trail-hero-overlay">
-
     <div class="container">
-
       <span class="trail-badge">
         🟢 Maintained by TRAVNA
       </span>
-
-      <h1>Via Trayana</h1>
-
+      <h1>{trail.title}</h1>
       <p>
-        Ancient mountain route connecting the villages
-        of the Tryavna region with the ridges of the
-        Balkan Mountains.
+        {trail.description}
       </p>
-
     </div>
-
   </div>
-
 </section>

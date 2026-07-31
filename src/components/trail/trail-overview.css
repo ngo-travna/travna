@@ -2,41 +2,54 @@
   padding: 4rem 0;
 }
 
-.trail-overview h2 {
-  margin-bottom: 2rem;
+.overview-card {
+  background: #ffffff;
 
-  color: var(--color-secondary);
+  border-radius: 20px;
+
+  padding: 2rem;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+
+  max-width: 760px;
 }
 
-.overview-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+.overview-row {
+  display: flex;
 
-  gap: 1.5rem;
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 2rem;
+
+  padding: 0.9rem 0;
 }
 
-.overview-item {
-  padding: 1.5rem;
-
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-large);
-
-  background: var(--color-surface);
-}
-
-.overview-item .label {
-  display: block;
-
-  margin-bottom: 0.5rem;
-
-  font-size: 0.85rem;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-
-  color: var(--color-text-light);
-}
-
-.overview-item .value {
-  font-size: 1.15rem;
+.label {
   font-weight: 600;
+
+  color: #475569;
+}
+
+.value {
+  font-weight: 700;
+
+  color: #1f2937;
+
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .overview-row {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 0.3rem;
+  }
+
+  .value {
+    text-align: left;
+  }
 }

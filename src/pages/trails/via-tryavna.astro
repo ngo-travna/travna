@@ -16,7 +16,7 @@ import trail from "../../data/trails/via-tryavna";
   lang="bg"
 >
 
-  <TrailHero />
+  <TrailHero trail={trail} />
   <TrailOverview trail={trail} />
   <TrailDescription />
   <TrailMap trail={trail} />
@@ -24,3 +24,4 @@ import trail from "../../data/trails/via-tryavna";
   <TrailMaintenance />
   <TrailRelated />
 </MainLayout>
+<!-- I would like to tell you that I prefer a different look of via-tryavna.astro layout. 1. TrailOverview to be one card with separate fields not six different cards. 2. Without difficulty, but with Trail Care and Last maintenance is enough for it. 3. TrailHero need to be more visual, now the font color is similar as the background color.   -->
