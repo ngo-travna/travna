@@ -4,10 +4,15 @@
 
 .gallery-grid {
   display: grid;
-
+  margin-top: 2rem;
   grid-template-columns: repeat(4, 1fr);
 
   gap: 1rem;
+}
+.trail-gallery h2 {
+  margin-bottom: 2rem;
+  color: var(--color-text);
+  text-align: center;
 }
 
 .gallery-image {

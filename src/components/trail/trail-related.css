@@ -2,6 +2,12 @@
   padding: 5rem 0;
 }
 
+.trail-related h2 {
+  margin-bottom: 2rem;
+  color: var(--color-text);
+  text-align: center;
+}
+
 .related-list {
   display: flex;
   flex-wrap: wrap;
@@ -10,19 +16,12 @@
 
 .related-link {
   display: inline-block;
-
   padding: 0.8rem 1.2rem;
-
   background: var(--color-surface);
-
   border: 1px solid var(--color-border);
-
   border-radius: 999px;
-
   color: var(--color-text);
-
   text-decoration: none;
-
   transition: all 0.2s ease;
 }
 
