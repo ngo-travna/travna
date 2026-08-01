@@ -5,9 +5,21 @@ import TrailHero from "../../components/trail/TrailHero.astro";
 import TrailOverview from "../../components/trail/TrailOverview.astro";
 import TrailDescription from "../../components/trail/TrailDescription.astro";
 import TrailMap from "../../components/trail/TrailMap.astro";
-import TrailGallery from "../../components/trail/TrailGallery.astro"; 
+import TrailGallery from "../../components/trail/TrailGallery.astro";
 import TrailRelated from "../../components/trail/TrailRelated.astro";
+
 import trail from "../../data/trails/via-tryavna";
+
+const relatedTrails = [
+  {
+    title: "Bozhentsi",
+    href: "/trails/bozhentsi",
+  },
+  {
+    title: "Buzludzha Ridge",
+    href: "/trails/buzludzha-ridge",
+  },
+];
 ---
 
 <MainLayout
@@ -19,6 +31,7 @@ import trail from "../../data/trails/via-tryavna";
   <TrailOverview trail={trail} />
   <TrailDescription />
   <TrailMap trail={trail} />
-  <TrailGallery />
-  <TrailRelated />
+  <TrailGallery trail={trail} />
+  <TrailRelated trails={relatedTrails} />
+
 </MainLayout>

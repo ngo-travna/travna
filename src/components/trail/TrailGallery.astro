@@ -1,5 +1,14 @@
 ---
 import "./trail-gallery.css";
+import TrailGalleryClient from "../../components/trail/TrailGalleryClient.astro";
+
+import type { Trail } from "../../types/trail";
+
+interface Props {
+  trail: Trail;
+}
+
+const { trail } = Astro.props;
 ---
 
 <section class="trail-gallery">
@@ -8,11 +17,21 @@ import "./trail-gallery.css";
 
     <h2>Gallery</h2>
 
-    <div class="gallery-placeholder">
+    <div class="gallery-grid">
 
-      Trail photographs will appear here.
+      {trail.gallery.map((image, index) => (
+
+        <img
+          src={image}
+          alt={`${trail.title} ${index + 1}`}
+          class="gallery-image"
+        />
+
+      ))}
 
     </div>
+
+    <TrailGalleryClient />
 
   </div>
 

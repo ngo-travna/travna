@@ -1,0 +1,35 @@
+.trail-related {
+  padding: 5rem 0;
+}
+
+.related-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.related-link {
+  display: inline-block;
+
+  padding: 0.8rem 1.2rem;
+
+  background: var(--color-surface);
+
+  border: 1px solid var(--color-border);
+
+  border-radius: 999px;
+
+  color: var(--color-text);
+
+  text-decoration: none;
+
+  transition: all 0.2s ease;
+}
+
+.related-link:hover {
+  border-color: var(--color-secondary);
+
+  color: var(--color-secondary);
+
+  transform: translateY(-2px);
+}

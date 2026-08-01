@@ -1,14 +1,36 @@
+---
+import "./trail-related.css";
+
+interface Props {
+  trails: {
+    title: string;
+    href: string;
+  }[];
+}
+
+const { trails } = Astro.props;
+---
+
 <section class="trail-related">
 
   <div class="container">
 
     <h2>Continue Exploring</h2>
 
-    <p>
+    <div class="related-list">
 
-      More mountain trails will be added soon.
+      {trails.map((trail) => (
 
-    </p>
+        <a
+          href={trail.href}
+          class="related-link"
+        >
+          {trail.title}
+        </a>
+
+      ))}
+
+    </div>
 
   </div>
 
