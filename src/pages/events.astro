@@ -1,0 +1,22 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+import EventHero from "../components/events/EventHero.astro";
+import EventActivities from "../components/events/EventActivities.astro";
+import CompetitionList from "../components/events/CompetitionList.astro";
+import UpcomingEvent from "../components/events/UpcomingEvent.astro";
+import PreviousEvents from "../components/events/PreviousEvents.astro";
+---
+
+<MainLayout
+  title="Events | TRAVNA"
+  lang="en"
+>
+
+  <EventHero />
+  <EventActivities />
+  <CompetitionList />
+  <UpcomingEvent />
+  <PreviousEvents />
+
+</MainLayout>
