@@ -38,11 +38,23 @@ const {
     href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
+  
+  <script>
+    import { initializeTheme } from "../lib/theme.js";
+    initializeTheme();
+  </script>
+
 </head>
 <body>
     <Header />
     <slot />
     <Footer />
+
+    <script>
+  import { toggleTheme } from "../lib/theme";
+  document.getElementById("theme-toggle")?.addEventListener("click", toggleTheme);
+</script>
+
 </body>
 </html>
 

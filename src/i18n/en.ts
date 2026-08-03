@@ -106,7 +106,7 @@ const en = {
     },
 
     activities: {
-      title: 'Our activities',
+      title: 'Our events',
       maintenance: {
         title: 'Trail Maintenance',
         description:

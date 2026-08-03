@@ -26,6 +26,7 @@
   /* Shadows */
   --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.05);
   --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-large: 0 10px 30px rgba(0, 0, 0, 0.12);
 
   /* Transitions */
   --transition-fast: 0.2s ease;
@@ -45,4 +46,8 @@ html[data-theme='dark'] {
   --color-text: #f6f3e5;
   --color-text-light: #d8d3c0;
   --color-border: #404338;
+
+  --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.35);
+  --shadow-large: 0 10px 30px rgba(0, 0, 0, 0.45);
 }

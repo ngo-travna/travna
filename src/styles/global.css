@@ -78,3 +78,23 @@ ol {
 .site-footer {
   margin-top: auto;
 }
+
+.theme-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Default (light theme): show sun, hide moon */
+.theme-button .moon-icon {
+  display: none;
+}
+
+/* Dark theme: show moon, hide sun */
+[data-theme='dark'] .theme-button .sun-icon {
+  display: none;
+}
+
+[data-theme='dark'] .theme-button .moon-icon {
+  display: block;
+}

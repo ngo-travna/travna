@@ -2,6 +2,7 @@
 const isEnglish = Astro.url.pathname.startsWith("/en");
 
 import SunIcon from '../../assets/icons/sun.svg';
+import MoonIcon from '../../assets/icons/moon.svg';
 import MenuIcon from '../../assets/icons/menu.svg';
 import CloseIcon from '../../assets/icons/close.svg';
 ---
@@ -43,10 +44,16 @@ import CloseIcon from '../../assets/icons/close.svg';
   </button>
 
   <button
+    id="theme-toggle"
     class="theme-button"
     aria-label="Toggle theme"
     type="button">
-    <SunIcon />
+    <span class="sun-icon">
+      <SunIcon />
+    </span>
+    <span class="moon-icon">
+      <MoonIcon />
+    </span>
   </button>
 
 </div>
