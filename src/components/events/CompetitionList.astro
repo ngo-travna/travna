@@ -1,16 +1,20 @@
 ---
 import "./events.css";
+
+import bg from "../../i18n/bg";
+import en from "../../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
 ---
 
 <section class="event-section">
 
   <div class="container">
 
-    <h2>Competitions</h2>
-    <p>TRAVNA members regularly participate in mountain,
-      trail running and endurance competitions, representing
-      our community and gaining valuable experience.
-    </p>
+    <h2>{t.events.competitions.title}</h2>
+    <p>{t.events.competitions.description}</p>
+
 
     <div class="competition-list">
 

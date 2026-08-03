@@ -1,18 +1,17 @@
 ---
-import TrailCard from "./TrailsCard.astro";
+import "./trails-hero.css";
+
+import bg from "../../i18n/bg";
+import en from "../../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
 ---
 <section class="trails-hero">
   <div class="container">
-    <h1>Пътеки</h1>
+    <h1>{t.trails.hero.title}</h1>
     <p>
-      Ние изследваме планинските пътеки, които свързват населените места, горите и билата на Стара планина и региона на Трявна. 
-      <br>Присъединете се към нас. Присъединете се към планината.
+      {t.trails.hero.description}
     </p>
-    <TrailCard
-      title="Via Tryavna"
-      image="/public/images/trails/via-tryavna-img.jpg"
-      href="/trails/via-tryavna"
-      status="green"
-    />
   </div>
 </section>

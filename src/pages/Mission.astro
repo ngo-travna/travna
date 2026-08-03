@@ -1,52 +1,56 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import "../styles/mission.css";
+
+import bg from "../i18n/bg";
+
+const t = bg;
 ---
 
 <MainLayout
   title="Mission | TRAVNA"
-  description="Learn about the mission and values of TRAVNA."
+  description="Learn about the mission and values of TRAVNA"
 >
 
   <main>
     <section class="mission-hero">
       <div class="container">
-        <h1>Мисия</h1>
+        <h1>{t.mission.hero.title}</h1>
         <p class="mission-lead">
-          Грижа за пътеките и местните общности на Стара планина и региона на Трявна
+          {t.mission.hero.lead}
         </p>
         <p class="mission-intro">
-          ТРЪВНА е сдружение, посветено на поддържането на планинските пътеки, насърчаването на отговорното отношение към природата и активностите на открито, както и популяризирането на природното и културното наследство на региона.
+          {t.mission.hero.intro}
         </p>
       </div>
     </section>
 
     <section class="mission-values">
       <div class="container">
-        <h2>Нашите ценности</h2>
+        <h2>{t.mission.values.title}</h2>
         <div class="values-grid">
           
           <article class="value-card">
             <div class="value-icon">🌿</div>
-            <h3>Природа</h3>
+            <h3>{t.mission.values.nature.title}</h3>
             <p>
-              Грижим се за горите и природните богатства, които правят Балкана уникален.
-            </p>
+                We care for the forests and landscapes that make the Balkan unique.
+              </p>
           </article>
 
           <article class="value-card">
             <div class="value-icon">🥾</div>
-            <h3>Пътеки</h3>
+            <h3>{t.mission.values.trails.title}</h3>
             <p>
-              Поддържаме и подобряваме туристически, бегачески и колоездачни маршрути, за да могат всички да ги изследват безопасно.
+              {t.mission.values.trails.description}
             </p>
           </article>
 
           <article class="value-card">
             <div class="value-icon">🤝</div>
-            <h3>Общонст</h3>
+            <h3>{t.mission.values.community.title}</h3>
             <p>
-              Обединяваме местните хора и любителите на планината, за да се грижим за местата, които обичаме.
+              {t.mission.values.community.description}
             </p>
           </article>
         </div>
@@ -55,40 +59,36 @@ import "../styles/mission.css";
 
     <section class="mission-work">
       <div class="container">
-        <h2>Какво правим</h2>
+        <h2>{t.mission.work.title}</h2>
         <div class="work-grid">
           <article class="work-item">
             <div class="work-icon">🌿</div>
-            <h3>Опазване на природата</h3>
+            <h3>{t.mission.work.conservation.title}</h3>
             <p>
-              Насърчаваме отговорното отношение към природата и активностите на открито, с уважение към дивата природа, горите и планинските екосистеми.
+              {t.mission.work.conservation.description}
             </p>
           </article>
-
           <article class="work-item">
             <div class="work-icon">🗺️</div>
-            <h3>Поддръжка на пътеки</h3>
+            <h3>{t.mission.work.maintenance.title}</h3>
             <p>
-              Поддържаме и подобряваме планинските пътеки, за да бъдат безопасни, достъпни и приятни за ползване през цялата година.
+              {t.mission.work.maintenance.description}
             </p>
           </article>
-
           <article class="work-item">
             <div class="work-icon">🤝</div>
-            <h3>Доброволчески инициативи</h3>
+            <h3>{t.mission.work.volunteers.title}</h3>
             <p>
-              Организираме събития за общността и насърчаваме хората да бъдат активни и да се включват в грижата за местата, които обичат.
+              {t.mission.work.volunteers.description}
             </p>
           </article>
-
           <article class="work-item">
             <div class="work-icon">🏡</div>
-            <h3>Местни общности</h3>
+            <h3>{t.mission.work.communities.title}</h3>
             <p>
-              Подкрепяме устойчивия туризъм и съхраняваме културата и традициите в региона на Централен Балкан.
+              {t.mission.work.communities.description}
             </p>
           </article>
-
         </div>
       </div>
     </section>
@@ -97,12 +97,12 @@ import "../styles/mission.css";
 
   <div class="container">
 
-    <h2>Контаки с нас</h2>
+    <h2>{t.mission.contact.title}</h2>
 
     <div class="contact-grid">
 
       <div class="contact-item">
-        <h3>Е-поща</h3>
+        <h3>{t.mission.contact.email}</h3>
         <p>
           <a href="mailto:ngo.travna@gmail.com">
             ngo.travna@gmail.com
@@ -111,7 +111,7 @@ import "../styles/mission.css";
       </div>
 
       <div class="contact-item">
-        <h3>Инстаграм</h3>
+        <h3>{t.mission.contact.instagram}</h3>
         <p>
           <a href="#">
             @travna
@@ -120,10 +120,10 @@ import "../styles/mission.css";
       </div>
 
       <div class="contact-item">
-        <h3>Фейсбук</h3>
+        <h3>{t.mission.contact.facebook}</h3>
         <p>
           <a href="#">
-            TRAVNA
+            ТРЪВНА
           </a>
         </p>
       </div>

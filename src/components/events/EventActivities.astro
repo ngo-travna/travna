@@ -1,37 +1,45 @@
+---
+import "./events.css";
+
+import bg from "../../i18n/bg";
+import en from "../../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
+---
+
+
 <section class="event-section">
 
   <div class="container">
 
-    <h2>What We Do</h2>
+    <h2>{t.events.activities.title}</h2>
 
     <div class="activities-grid">
 
-  <div class="activity-card">
-    <h3>🛠 Trail Maintenance</h3>
-    <p>
-      We clean, restore and improve mountain trails to keep them
-      safe, accessible and enjoyable throughout the year.
-    </p>
-  </div>
+      <div class="activity-card">
+        <h3>🛠 {t.events.activities.maintenance.title}</h3>
+        <p>
+          {t.events.activities.maintenance.description}
+        </p>
+      </div>
 
-  <div class="activity-card">
-    <h3>🥾 Outdoor Activities</h3>
-    <p>
-      We organize hiking, trail running and cycling events that
-      encourage people to discover nature and stay active.
-    </p>
-  </div>
+      <div class="activity-card">
+        <h3>🥾 {t.events.activities.outdoor.title}</h3>
+        <p>
+          {t.events.activities.outdoor.description}
+        </p>
+      </div>
 
-  <div class="activity-card">
-    <h3>🎓 Education & Information</h3>
-    <p>
-      We share knowledge about local history, navigation,
-      responsible outdoor recreation and mountain safety.
-    </p>
-  </div>
+      <div class="activity-card">
+        <h3>🎓 {t.events.activities.education.title}</h3>
+        <p>
+          {t.events.activities.education.description}
+        </p>
+      </div>
 
-</div>
+    </div> 
 
   </div>
-
+  
 </section>

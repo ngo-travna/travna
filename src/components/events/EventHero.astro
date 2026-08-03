@@ -1,17 +1,21 @@
 ---
 import "./events.css";
+
+import bg from "../../i18n/bg";
+import en from "../../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
 ---
 
 <section class="events-hero">
 
   <div class="container">
 
-    <h1>Events</h1>
+    <h1>{t.events.hero.title}</h1>
 
     <p>
-      TRAVNA organizes, supports and participates in outdoor
-      activities that connect people with mountains, nature and
-      local communities.
+      {t.events.hero.description}
     </p>
 
   </div>

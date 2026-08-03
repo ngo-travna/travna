@@ -1,8 +1,18 @@
+---
+import "./events.css";
+
+import bg from "../../i18n/bg";
+import en from "../../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
+---
+
 <section class="event-section">
 
   <div class="container">
 
-    <h2>Next Event</h2>
+    <h2>{t.events.upcoming.title}</h2>
 
     <div class="upcoming-card">
 

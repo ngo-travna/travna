@@ -1,0 +1,17 @@
+.trails-hero {
+  padding: 4rem 0 3rem;
+}
+
+.trails-hero .container {
+  max-width: 760px;
+}
+
+.trails-hero h1 {
+  margin-bottom: 1rem;
+}
+
+.trails-hero p {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: var(--color-text-light);
+}
