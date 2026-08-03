@@ -83,7 +83,7 @@ const en = {
       communities: {
         title: 'Local Communities',
         description:
-          'We support sustainable tourism and celebrate the culture and traditions of the Central Balkan region.',
+          'We support sustainable tourism and celebrate the culture and traditions of the Central Balkan and the Tryavna region.',
       },
     },
 
@@ -106,7 +106,7 @@ const en = {
     },
 
     activities: {
-      title: 'What We Do',
+      title: 'Our activities',
       maintenance: {
         title: 'Trail Maintenance',
         description:
@@ -139,6 +139,19 @@ const en = {
 
     archive: {
       title: 'Archive',
+    },
+  },
+  trails: {
+    hero: {
+      title: 'Trails',
+      description:
+        'Discover hiking, trail running and cycling routes created, explored and maintained by TRAVNA.',
+    },
+
+    list: {
+      title: 'Via Tryavna',
+      viewTrail: 'View Trail',
+      noTrails: 'More routes coming soon.',
     },
   },
 };

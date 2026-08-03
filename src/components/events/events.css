@@ -1,13 +1,23 @@
 .events-hero,
 .event-section {
-  padding: 3rem 0;
+  padding: 4rem 0;
 }
 
 .events-hero h1 {
   margin-bottom: 2rem;
+  font-size: clamp(4rem, 3vw, 2.8rem);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: var(--color-secondary);
 }
 .events-hero p {
-  max-width: 100%;
+  max-width: 840px;
+  margin: 2rem auto 0;
+  line-height: 1.8;
+  font-size: 1.15rem;
+  line-height: 1.8;
+  text-align: center;
 }
 
 .event-section h1 {

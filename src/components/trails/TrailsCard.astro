@@ -1,36 +1,40 @@
 ---
-import "./trail-card.css";
-
 interface Props {
-  title: string;
-  image: string;
-  href: string;
-  status?: "green" | "yellow" | "red";
+  trail: {
+    title: string;
+    slug: string;
+    thumbnail: string;
+    distance: string;
+    elevationGain: string;
+    difficulty: string;
+  };
 }
 
-const {
-  title,
-  image,
-  href,
-  status = "green",
-} = Astro.props;
+const { trail } = Astro.props;
 ---
 
 <a
-  href={href}
+  href={`/trails/${trail.slug}`}
   class="trail-card"
 >
 
   <img
-    src={image}
-    alt={title}
+    src={trail.thumbnail}
+    alt={trail.title}
+    loading="lazy"
   />
 
   <div class="trail-card-content">
 
-    <span class={`trail-status ${status}`}></span>
+    <h2>{trail.title}</h2>
 
-    <h3>{title}</h3>
+    <div class="trail-meta">
+
+      <span>📏 {trail.distance}</span>
+
+      <span>⛰ {trail.elevationGain}</span>
+
+    </div>
 
   </div>
 

@@ -1,14 +1,16 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
 import TrailsHero from "../../components/trails/TrailsHero.astro";
+import TrailList from "../../components/trails/TrailList.astro";
 
-import bg from "../../i18n/bg";
+import en from "../../i18n/en";
 
-const t = bg;
+const t = en;
 ---
 <MainLayout
   title="Trails | TRAVNA"
   lang="bg"
 >
   <TrailsHero />
+  <TrailList />
 </MainLayout>

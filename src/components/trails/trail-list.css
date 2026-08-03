@@ -1,0 +1,66 @@
+.trail-list {
+  padding: 2rem 0 4rem;
+}
+
+.trail-list .container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.trail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--color-border);
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+}
+
+.trail-row:first-child {
+  border-top: 1px solid var(--color-border);
+}
+
+.trail-row:hover {
+  color: var(--color-secondary);
+}
+
+.trail-info h2 {
+  margin-bottom: 0.35rem;
+
+  font-size: 1.35rem;
+
+  font-weight: 700;
+}
+
+.trail-info p {
+  font-size: 0.9rem;
+
+  letter-spacing: 0.02em;
+}
+
+.trail-arrow {
+  font-size: 1.4rem;
+
+  color: var(--color-text-light);
+
+  transition: transform 0.2s ease;
+}
+
+.trail-row:hover .trail-arrow {
+  transform: translateX(4px);
+
+  color: var(--color-secondary);
+}
+
+@media (max-width: 640px) {
+  .trail-row {
+    gap: 1rem;
+  }
+
+  .trail-info h2 {
+    font-size: 1.15rem;
+  }
+}
