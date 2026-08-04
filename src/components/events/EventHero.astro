@@ -3,7 +3,6 @@ import "./events.css";
 
 import bg from "../../i18n/bg";
 import en from "../../i18n/en";
-import CommunityIcon from "../../assets/icons/community.svg";
 
 const isEnglish = Astro.url.pathname.startsWith("/en");
 const t = isEnglish ? en : bg;
@@ -12,7 +11,6 @@ const t = isEnglish ? en : bg;
 <section class="events-hero">
 
   <div class="container">
-    <CommunityIcon class="page-icon" />
 
     <h1>{t.events.hero.title}</h1>
 
