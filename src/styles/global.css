@@ -98,3 +98,11 @@ ol {
 [data-theme='dark'] .theme-button .moon-icon {
   display: block;
 }
+
+.hero-icon {
+  display: block;
+  margin: 1rem auto;
+  width: 6rem;
+  height: 6rem;
+  color: var(--color-secondary);
+}
