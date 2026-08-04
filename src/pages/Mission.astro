@@ -1,7 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import "../styles/mission.css";
-import {Compass} from "../lib/icons";
+import {Compass, Sprout, Leaf, Signpost, Footprints, MapPlus, HeartHandshake, Users } from "../lib/icons";
 
 import bg from "../i18n/bg";
 
@@ -33,7 +33,9 @@ const t = bg;
         <div class="values-grid">
           
           <article class="value-card">
-            <div class="value-icon">🌿</div>
+            <div class="value-icon">
+              <Sprout class="icon-svg" />
+            </div>
             <h3>{t.mission.values.nature.title}</h3>
             <p>
                 {t.mission.values.nature.description}
@@ -41,7 +43,9 @@ const t = bg;
           </article>
 
           <article class="value-card">
-            <div class="value-icon">🥾</div>
+            <div class="value-icon">
+              <Footprints class="icon-svg" />
+            </div>
             <h3>{t.mission.values.trails.title}</h3>
             <p>
               {t.mission.values.trails.description}
@@ -49,7 +53,9 @@ const t = bg;
           </article>
 
           <article class="value-card">
-            <div class="value-icon">🤝</div>
+            <div class="value-icon">
+              <HeartHandshake class="icon-svg" />
+            </div>
             <h3>{t.mission.values.community.title}</h3>
             <p>
               {t.mission.values.community.description}
@@ -64,28 +70,36 @@ const t = bg;
         <h2>{t.mission.work.title}</h2>
         <div class="work-grid">
           <article class="work-item">
-            <div class="work-icon">🌿</div>
+            <div class="work-icon">
+              <Leaf class="icon-svg" />
+            </div>
             <h3>{t.mission.work.conservation.title}</h3>
             <p>
               {t.mission.work.conservation.description}
             </p>
           </article>
           <article class="work-item">
-            <div class="work-icon">🗺️</div>
+            <div class="work-icon">
+              <Signpost class="icon-svg" />
+            </div>
             <h3>{t.mission.work.maintenance.title}</h3>
             <p>
               {t.mission.work.maintenance.description}
             </p>
           </article>
           <article class="work-item">
-            <div class="work-icon">🤝</div>
+            <div class="work-icon">
+              <HeartHandshake class="icon-svg" />
+            </div>
             <h3>{t.mission.work.volunteers.title}</h3>
             <p>
               {t.mission.work.volunteers.description}
             </p>
           </article>
           <article class="work-item">
-            <div class="work-icon">🏡</div>
+            <div class="work-icon">
+              <Users class="icon-svg" />
+            </div>
             <h3>{t.mission.work.communities.title}</h3>
             <p>
               {t.mission.work.communities.description}

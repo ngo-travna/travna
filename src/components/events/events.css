@@ -264,3 +264,9 @@
 .event-year li:last-child {
   border-bottom: none;
 }
+
+.event-icon {
+  width: 2rem;
+  height: 2rem;
+  color: var(--color-secondary);
+}

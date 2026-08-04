@@ -106,3 +106,10 @@ ol {
   height: 6rem;
   color: var(--color-secondary);
 }
+
+.icon-svg {
+  display: block;
+  margin: 0 auto;
+  width: 4rem;
+  height: 4rem;
+}
