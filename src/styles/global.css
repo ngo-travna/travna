@@ -85,6 +85,23 @@ ol {
   justify-content: center;
 }
 
+.page-icon {
+  display: block;
+
+  width: 128px;
+  height: 128px;
+
+  margin: 0 auto 1rem;
+
+  color: var(--color-secondary);
+}
+
+.page-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: currentColor;
+}
+
 /* Default (light theme): show sun, hide moon */
 .theme-button .moon-icon {
   display: none;
