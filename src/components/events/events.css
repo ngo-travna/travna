@@ -4,8 +4,7 @@
 }
 
 .events-hero h1 {
-  margin-bottom: 2rem;
-  font-size: clamp(4rem, 3vw, 2.8rem);
+  font-size: clamp(2.8rem, 3vw, 4rem);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
@@ -16,12 +15,7 @@
   margin: 2rem auto 0;
   line-height: 1.8;
   font-size: 1.15rem;
-  line-height: 1.8;
   text-align: center;
-}
-
-.event-section h1 {
-  margin-bottom: 2rem;
 }
 
 .event-section h2 {
@@ -30,16 +24,6 @@
 
 .event-section p {
   margin-bottom: 2rem;
-}
-
-.activities-grid {
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-
-  gap: 1.5rem;
-
-  margin-top: 2rem;
 }
 
 .activity-card {
@@ -63,11 +47,8 @@
 
 .activities-grid {
   display: grid;
-
   grid-template-columns: repeat(3, 1fr);
-
   gap: 1.5rem;
-
   margin-top: 2rem;
 }
 
@@ -95,36 +76,25 @@
 
 .competition-item h3 {
   margin-bottom: 0.35rem;
-
   font-size: 1.25rem;
-
   font-weight: 700;
-
   color: var(--color-text);
 }
 
 .competition-item p {
   margin-bottom: 0.9rem;
-
   font-size: 0.95rem;
-
   color: var(--color-text-light);
 }
 
 .competition-item a {
   display: inline-flex;
-
   align-items: center;
-
   gap: 0.35rem;
-
   color: var(--color-secondary);
-
   font-weight: 600;
-
   text-decoration: none;
-
-  transition: color 0.2s ease;
+  transition: color var(--transition-fast);
 }
 
 .competition-item a:hover {
@@ -133,79 +103,54 @@
 
 .upcoming-card {
   display: grid;
-
   grid-template-columns: 130px 1fr;
-
   gap: 2rem;
-
   align-items: center;
-
   max-width: 100%;
-
   margin: 2rem auto 0;
-
   padding: 2.5rem;
-
   background: var(--color-surface);
-
   border: 1px solid var(--color-border);
-
   border-radius: 20px;
-
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--shadow-medium);
 }
 
 .event-date-box {
   display: flex;
-
   flex-direction: column;
-
   justify-content: center;
-
   align-items: center;
-
   padding: 1.5rem;
-
   border-radius: 16px;
-
   background: var(--color-accent);
-
   color: white;
 }
 
 .day {
   font-size: 3rem;
-
   font-weight: 800;
-
   line-height: 1;
 }
 
 .month {
   margin-top: 0.4rem;
-
   letter-spacing: 0.12em;
-
   font-weight: 700;
 }
 
 .year {
   margin-top: 0.3rem;
-
   opacity: 0.9;
 }
 
 .event-content h3 {
   margin-bottom: 0.6rem;
-
   font-size: 2rem;
 }
 
 .event-location {
   margin-bottom: 1.25rem;
-
   color: var(--color-text-light);
-
   font-weight: 600;
 }
 
@@ -216,14 +161,13 @@
 @media (max-width: 640px) {
   .upcoming-card {
     grid-template-columns: 1fr;
-
     text-align: center;
   }
 }
 
-.container {
+/* .container {
   width: min(100% - 2rem, var(--container-width));
-}
+} */
 
 .previous-events {
   margin-top: 2rem;
@@ -239,25 +183,19 @@
 
 .event-year h3 {
   margin-bottom: 1rem;
-
   color: var(--color-secondary);
-
   font-size: 1.4rem;
 }
 
 .event-year ul {
   list-style: none;
-
   padding: 0;
-
   margin: 0;
 }
 
 .event-year li {
   padding: 0.8rem 0;
-
   border-bottom: 1px solid var(--color-border);
-
   color: var(--color-text);
 }
 

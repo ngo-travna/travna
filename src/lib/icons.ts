@@ -24,4 +24,6 @@ export {
   CalendarClock,
   Library,
   Award,
+  TentTree,
+  ClockArrowUp,
 } from 'lucide-astro';
