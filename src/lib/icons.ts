@@ -25,5 +25,6 @@ export {
   Library,
   Award,
   TentTree,
+  Waypoints,
   ClockArrowUp,
 } from 'lucide-astro';
