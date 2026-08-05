@@ -7,19 +7,14 @@ const navigation = getNavigation(isEnglish);
 ---
 
 <nav id="main-navigation" class="main-nav">
-
   <ul class="nav-list">
 
     {navigation.map((item) => (
-
       <li>
         <a href={item.href}>
           {item.label}
         </a>
       </li>
-
     ))}
-
   </ul>
-
 </nav>
