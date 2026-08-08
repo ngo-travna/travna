@@ -145,13 +145,19 @@ const en = {
     hero: {
       title: 'Trails',
       description:
-        'Discover hiking, trail running and cycling routes created, explored and maintained by TRAVNA.',
+        'We explore, maintain and promote the mountain trails of the Tryavna region and the Central Balkan Mountains.',
     },
 
     list: {
-      title: 'Via Tryavna',
-      viewTrail: 'View Trail',
-      noTrails: 'More routes coming soon.',
+      title: '...',
+      viewTrail: '...',
+      noTrails: '...',
+
+      status: {
+        maintained: 'Maintained',
+        partly_maintained: 'Partly Maintained',
+        passed_by_travna: 'Passed by TRAVNA',
+      },
     },
   },
 };
