@@ -17,15 +17,10 @@
 
 .gallery-image {
   width: 100%;
-
   aspect-ratio: 1 / 1;
-
   object-fit: cover;
-
   border-radius: 18px;
-
   cursor: pointer;
-
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
@@ -33,7 +28,6 @@
 
 .gallery-image:hover {
   transform: translateY(-2px);
-
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -44,15 +38,10 @@
 }
 .lightbox {
   position: fixed;
-
   inset: 0;
-
   background: var(--color-border);
-
   display: flex;
-
   justify-content: center;
-
   align-items: center;
 
   z-index: 1000;
@@ -64,29 +53,21 @@
 
 .lightbox-image {
   max-width: 90vw;
-
   max-height: 90vh;
-
   border-radius: 12px;
 }
 
 .lightbox button {
   position: absolute;
-
   background: none;
-
   border: none;
-
   color: var(--color-surface);
-
   font-size: 2rem;
-
   cursor: pointer;
 }
 
 .lightbox-close {
   top: 2rem;
-
   right: 2rem;
 }
 

@@ -12,26 +12,17 @@ const { trails } = Astro.props;
 ---
 
 <section class="trail-related">
-
   <div class="container">
-
     <h2>Continue Exploring</h2>
-
     <div class="related-list">
-
       {trails.map((trail) => (
-
         <a
           href={trail.href}
           class="related-link"
         >
           {trail.title}
         </a>
-
       ))}
-
     </div>
-
   </div>
-
 </section>

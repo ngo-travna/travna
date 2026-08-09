@@ -12,27 +12,18 @@ const { trail } = Astro.props;
 ---
 
 <section class="trail-gallery">
-
   <div class="container">
-
     <h2>Gallery</h2>
-
     <div class="gallery-grid">
-
       {trail.gallery.map((image, index) => (
-
         <img
           src={image}
           alt={`${trail.title} ${index + 1}`}
           class="gallery-image"
         />
-
       ))}
-
     </div>
-
     <TrailGalleryClient />
-
   </div>
 
 </section>
