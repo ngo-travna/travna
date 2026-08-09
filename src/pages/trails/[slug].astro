@@ -7,23 +7,30 @@ import TrailDescription from "../../components/trail/TrailDescription.astro";
 import TrailMap from "../../components/trail/TrailMap.astro";
 import TrailGallery from "../../components/trail/TrailGallery.astro";
 import TrailRelated from "../../components/trail/TrailRelated.astro";
-
 import trail from "../../data/trails/via-tryavna";
+import { supabase } from "../../lib/supabase";
+const { slug } = Astro.params;
 
-const relatedTrails = [
-  {
-    title: "Bozhentsi",
-    href: "/trails/bozhentsi",
-  },
-  {
-    title: "Buzludzha Ridge",
-    href: "/trails/buzludzha-ridge",
-  },
-];
+export async function getStaticPaths() {
+  const { data: trails, error } = await supabase
+    .from("trails")
+    .select("slug");
+
+  if (error) {
+    console.error(error);
+    return [];
+  }
+
+  return trails.map((trail) => ({
+    params: {
+      slug: trail.slug,
+    },
+  }));
+}
 ---
 
 <MainLayout
-  title="Via Tryavna | TRAVNA"
+  title="Обиколката на Трявна | ТРЪВНА"
   lang="bg"
 >
 
@@ -32,6 +39,6 @@ const relatedTrails = [
   <TrailDescription />
   <TrailMap trail={trail} />
   <TrailGallery trail={trail} />
-  <TrailRelated trails={relatedTrails} />
+  <TrailRelated trails={[]} />
 
 </MainLayout>

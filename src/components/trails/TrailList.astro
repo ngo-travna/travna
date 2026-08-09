@@ -29,7 +29,7 @@ const { trails } = Astro.props;
 <section class="trail-list">
   <div class="container">
     <a
-      href="/trails/via-tryavna"
+      href={`/trails/${trails[0].slug}`}
       class="trail-row"
     >
       <div class="trail-info">

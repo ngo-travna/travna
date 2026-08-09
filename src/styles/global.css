@@ -102,8 +102,8 @@ ol {
 .hero-icon {
   display: block;
   margin: 1rem auto;
-  width: 6rem;
-  height: 6rem;
+  width: 4rem;
+  height: 4rem;
   color: var(--color-secondary);
 }
 

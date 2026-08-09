@@ -2,15 +2,33 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import TrailsHero from "../../components/trails/TrailsHero.astro";
 import TrailList from "../../components/trails/TrailList.astro";
+import bg from "../../i18n/en";
+import { supabase } from "../../lib/supabase";
 
-import en from "../../i18n/en";
+const { data: trails, error } = await supabase
+  .from("trails")
+  .select(`
+    id,
+    slug,
+    status,
+    last_visited,
+    distance_km,
+    elevation_gain,
+    trail_translations (
+      language,
+      title,
+      description
+    )
+  `);
 
-const t = en;
+const trail = trails?.[0];
+
+// const t = en;
 ---
 <MainLayout
   title="Trails | TRAVNA"
-  lang="bg"
+  lang="en"
 >
-  <TrailsHero />
-  <TrailList />
+  <TrailsHero  />
+  <TrailList trails={trails ?? []} />
 </MainLayout>
