@@ -1,5 +1,7 @@
 ---
 import "./trail-related.css";
+import bg from "../../i18n/bg";
+const t = bg;
 
 interface Props {
   trails: {
@@ -13,7 +15,7 @@ const { trails } = Astro.props;
 
 <section class="trail-related">
   <div class="container">
-    <h2>Continue Exploring</h2>
+    <h2>{t.trails.related.title}</h2>
     <div class="related-list">
       {trails.map((trail) => (
         <a

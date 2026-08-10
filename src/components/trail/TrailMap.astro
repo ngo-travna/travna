@@ -1,24 +1,18 @@
 ---
 import "./trail-map.css";
 import TrailMapClient from "./TrailMapClient.astro";
-
 import type { Trail } from "../../types/trail";
-
+import bg from "../../i18n/bg";
+const t = bg;
 interface Props {
   trail: Trail;
 }
-
 const { trail } = Astro.props;
 ---
 
 <section class="trail-map">
-
   <div class="container">
-
-    <h2>Trail Map</h2>
-
+    <h2>{t.trails.map.title}</h2>
     <TrailMapClient gpx={trail.gpx} />
-
   </div>
-
 </section>

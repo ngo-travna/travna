@@ -1,54 +1,50 @@
 ---
 import "./trail-overview.css";
 import type { Trail } from "../../types/trail";
-
+import bg from "../../i18n/bg";
+const t = bg;
 interface Props {
   trail: Trail;
 }
-
 const { trail } = Astro.props;
+const formattedLastVisited = new Date(trail.lastVisited).toLocaleDateString(
+  "bg-BG",
+  {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  },
+);
 ---
 <section class="trail-overview">
-
   <div class="container">
+    <h2>{t.trails.overview.title}</h2>
 
-    <h2>Overview</h2>
+    <div class="overview-card">
+      <div class="overview-row">
+        <span class="label">{t.trails.overview.distance}</span>
+        <span class="value">{trail.distance}K</span>
+      </div>
 
-  <div class="overview-card">
+      <div class="overview-row">
+        <span class="label">{t.trails.overview.elevationGain}</span>
+        <span class="value">{trail.elevationGain}D+</span>
+      </div>
 
-    <div class="overview-row">
-      <span class="label">Distance</span>
-      <span class="value">{trail.distance}</span>
+      <div class="overview-row">
+        <span class="label">{t.trails.overview.highestPoint}</span>
+        <span class="value">{trail.highestPoint} м.</span>
+      </div>
+
+      <div class="overview-row">
+        <span class="label">{t.trails.overview.estimatedTime}</span>
+        <span class="value">{trail.durationHours} ч.</span>
+      </div>
+
+      <div class="overview-row">
+        <span class="label">{t.trails.overview.lastMaintenance}</span>
+        <span class="value">{formattedLastVisited}</span>
+      </div>
     </div>
-
-    <div class="overview-row">
-      <span class="label">Elevation Gain</span>
-      <span class="value">{trail.elevationGain}</span>
-    </div>
-
-    <div class="overview-row">
-      <span class="label">Highest Point</span>
-      <span class="value">{trail.highestPoint}</span>
-    </div>
-
-    <div class="overview-row">
-      <span class="label">Estimated Time</span>
-      <span class="value">{trail.durationHours}</span>
-    </div>
-
-    <div class="overview-row">
-      <span class="label">Activities</span>
-      <span class="value">{trail.activities}</span>
-    </div>
-
-    <div class="overview-row">
-      <span class="label">Last Maintenance</span>
-      <span class="value"> July 2026</span>
-    </div>
-
   </div>
-
-</div>
-
-
 </section>

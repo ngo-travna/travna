@@ -1,8 +1,8 @@
 ---
 import "./trail-description.css";
-
 import type { Trail } from "../../types/trail";
-
+import bg from "../../i18n/bg";
+const t = bg;
 interface Props {
   trail: Trail;
 }
@@ -11,7 +11,7 @@ const { trail } = Astro.props;
 
 <section class="trail-description">
   <div class="container">
-    <h2>About the Trail</h2>
+    <h2>{t.trails.description.title}</h2>
     <p>{trail.description}</p>
   </div>
 

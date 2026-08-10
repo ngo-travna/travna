@@ -138,12 +138,30 @@ const bg = {
       description:
         'Ние проучваме, поддържаме и популяризираме планинските пътеки в района на Трявна и Централна Стара планина.',
     },
-
+    overview: {
+      title: 'Обзор',
+      distance: 'Разстояние',
+      elevationGain: 'Денивелация',
+      highestPoint: 'Най-висока точка',
+      estimatedTime: 'Продължителност',
+      lastMaintenance: 'Последна поддръжка',
+    },
+    description: {
+      title: 'Описание',
+    },
+    map: {
+      title: 'Карта на пътеката',
+    },
+    gallery: {
+      title: 'Галерия',
+    },
+    related: {
+      title: 'Продължи да откриваш',
+    },
     list: {
-      title: '...',
-      viewTrail: '...',
-      noTrails: '...',
-
+      title: 'Име',
+      viewTrail: 'Виж пътека',
+      noTrails: 'Няма пътеки',
       status: {
         maintained: 'Поддържан',
         partly_maintained: 'Частично поддържан',
