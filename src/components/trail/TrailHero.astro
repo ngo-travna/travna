@@ -12,7 +12,7 @@ const { trail } = Astro.props;
 <section class="trail-hero">
   <div
     class="trail-hero-image"
-    style={`background-image: url(${trail.heroImage})`}
+    style={`background-image: url('${trail.heroImage}')`}
   ></div>
   <div class="trail-hero-overlay">
     <div class="container">
@@ -20,9 +20,6 @@ const { trail } = Astro.props;
         🟢 Maintained by TRAVNA
       </span>
       <h1>{trail.title}</h1>
-      <p>
-        {trail.description}
-      </p>
     </div>
   </div>
 </section>

@@ -1,15 +1,13 @@
 ---
 import MainLayout from "../../layouts/MainLayout.astro";
-
 import TrailHero from "../../components/trail/TrailHero.astro";
 import TrailOverview from "../../components/trail/TrailOverview.astro";
 import TrailDescription from "../../components/trail/TrailDescription.astro";
 import TrailMap from "../../components/trail/TrailMap.astro";
 import TrailGallery from "../../components/trail/TrailGallery.astro";
 import TrailRelated from "../../components/trail/TrailRelated.astro";
-import trail from "../../data/trails/via-tryavna";
 import { supabase } from "../../lib/supabase";
-const { slug } = Astro.params;
+import { mapSupabaseTrail } from "../../types/mapTrail";
 
 export async function getStaticPaths() {
   const { data: trails, error } = await supabase
@@ -22,23 +20,54 @@ export async function getStaticPaths() {
   }
 
   return trails.map((trail) => ({
-    params: {
-      slug: trail.slug,
-    },
+    params: { slug: trail.slug },
   }));
 }
+
+const { slug } = Astro.params;
+
+const { data: supabaseTrail, error } = await supabase
+  .from("trails")
+  .select(`
+    id,
+    slug,
+    status,
+    last_visited,
+    distance_km,
+    elevation_gain,
+    highest_point,
+    duration_hours,
+    gpx_file,
+    trail_translations (
+      language,
+      title,
+      description
+    ),
+    trail_images (
+      id,
+      image_path,
+      display_order,
+      caption
+    )
+  `)
+  .eq("slug", slug)
+  .single();
+
+if (error || !supabaseTrail) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Trail not found",
+  });
+}
+
+const trailData = mapSupabaseTrail(supabaseTrail);
 ---
 
-<MainLayout
-  title="Обиколката на Трявна | ТРЪВНА"
-  lang="bg"
->
-
-  <TrailHero trail={trail} />
-  <TrailOverview trail={trail} />
-  <TrailDescription />
-  <TrailMap trail={trail} />
-  <TrailGallery trail={trail} />
+<MainLayout title="Обиколката на Трявна | ТРЪВНА" lang="bg">
+  <TrailHero trail={trailData} />
+  <TrailOverview trail={trailData} />
+  <TrailDescription trail={trailData} />
+  <TrailMap trail={trailData} />
+  <TrailGallery trail={trailData} images={trailData.gallery} />
   <TrailRelated trails={[]} />
-
 </MainLayout>

@@ -1,29 +1,18 @@
 ---
 import "./trail-description.css";
+
+import type { Trail } from "../../types/trail";
+
+interface Props {
+  trail: Trail;
+}
+const { trail } = Astro.props;
 ---
 
 <section class="trail-description">
-
   <div class="container">
-
     <h2>About the Trail</h2>
-
-    <p>
-
-      Via Trayana follows one of the historic mountain routes
-      connecting the villages around Tryavna with the ridges of
-      the Balkan Mountains. Forest paths, open meadows and
-      panoramic viewpoints make this trail one of the most
-      rewarding journeys in the region.
-
-    </p>
-
-    <p>
-
-      Today the route is maintained by TRAVNA volunteers together with local communities, preserving safe access while respecting nature, history and local traditions.
-
-    </p>
-
+    <p>{trail.description}</p>
   </div>
 
 </section>

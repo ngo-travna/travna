@@ -20,7 +20,7 @@ const en = {
   home: {
     hero: {
       title: 'TRAVNA',
-      tagline: 'Discover • Protect • Inspire',
+      tagline: 'Discover • Maintain • Inspire',
       description:
         'Maintaining and developing the mountain trails of the Central Balkan and the Tryavna region.',
       button: 'Explore Trails',

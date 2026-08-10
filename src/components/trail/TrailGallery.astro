@@ -1,29 +1,32 @@
 ---
 import "./trail-gallery.css";
 import TrailGalleryClient from "../../components/trail/TrailGalleryClient.astro";
-
 import type { Trail } from "../../types/trail";
 
 interface Props {
   trail: Trail;
+  images: {
+    id: string;
+    url: string;
+    caption: string | null;
+  }[];
 }
 
-const { trail } = Astro.props;
+const { trail, images } = Astro.props;
 ---
 
 <section class="trail-gallery">
   <div class="container">
     <h2>Gallery</h2>
     <div class="gallery-grid">
-      {trail.gallery.map((image, index) => (
+      {images.map((image, index) => (
         <img
-          src={image}
-          alt={`${trail.title} ${index + 1}`}
+          src={image.url}
+          alt={image.caption ?? `${trail.title} ${index + 1}`}
           class="gallery-image"
         />
       ))}
     </div>
     <TrailGalleryClient />
   </div>
-
 </section>

@@ -1,0 +1,116 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+
+import TrailHero from "../../components/trail/TrailHero.astro";
+import TrailOverview from "../../components/trail/TrailOverview.astro";
+import TrailDescription from "../../components/trail/TrailDescription.astro";
+import TrailMap from "../../components/trail/TrailMap.astro";
+import TrailGallery from "../../components/trail/TrailGallery.astro";
+import TrailRelated from "../../components/trail/TrailRelated.astro";
+// import trail from "../../data/trails/via-tryavna";
+import { supabase } from "../../lib/supabase";
+import { mapSupabaseTrail } from "../../types/mapTrail";
+const { slug } = Astro.params;
+const { trail, images } = Astro.props;
+
+
+const { data: supabaseTrail, error } = await supabase
+  .from("trails")
+  .select(`
+    id,
+    slug,
+    status,
+    last_visited,
+    distance_km,
+    elevation_gain,
+    highest_point,
+    duration_hours,
+    gpx_file,
+    trail_translations (
+      language,
+      title,
+      description
+    ),
+    trail_images (
+      id,
+      image_path,
+      display_order,
+      caption
+    )
+  `)
+  .eq("slug", slug)
+  .single();
+
+  
+export async function getStaticPaths() {
+  const { data: trails, error } = await supabase
+    .from("trails")
+    .select("slug");
+
+  if (error) {
+    console.error(error);
+    return [];
+  }
+
+  return trails.map((trail) => ({
+    params: {
+      slug: trail.slug,
+    },
+  }));
+}
+if (!supabaseTrail) {
+  return new Response(null, {
+    status: 404,
+    statusText: "Trail not found",
+  });
+}
+// console.log(JSON.stringify(supabaseTrail, null, 2));
+
+const { data: trailImages, error: trailImagesError } = await supabase
+  .from("trail_images")
+  .select("id, image_path, display_order, caption")
+  .eq("trail_id", supabaseTrail.id)
+  .order("display_order", { ascending: true });
+
+if (trailImagesError) {
+  console.error("TRAIL IMAGES ERROR:", trailImagesError);
+}
+// console.log("TRAIL IMAGES:", JSON.stringify(trailImages, null, 2));
+function getTrailImageUrl(imagePath: string) {
+  return supabase.storage
+    .from("trail_images") // check exact name in Supabase dashboard > Storage
+    .getPublicUrl(imagePath).data.publicUrl;
+}
+
+const heroImageUrl = supabaseTrail.trail_images?.[0]
+  ? getTrailImageUrl(supabaseTrail.trail_images[0].image_path)
+  : "";
+
+const galleryImages = (supabaseTrail.trail_images ?? []).map((img) => ({
+  id: img.id,
+  url: getTrailImageUrl(img.image_path),
+  caption: img.caption,
+}));
+
+const trailData = mapSupabaseTrail(supabaseTrail);
+trailData.heroImage = heroImageUrl;
+console.log("HERO URL:", heroImageUrl);
+console.log("GALLERY URLS:", galleryImages.map(g => g.url));
+
+---
+
+<MainLayout
+  title="Обиколката на Трявна | ТРЪВНА"
+  lang="bg"
+>
+
+<h2>{supabaseTrail?.trail_translations?.[0]?.title}</h2>
+
+  <TrailHero trail={trailData} />
+  <TrailOverview trail={trailData} />
+  <TrailDescription />
+  <TrailMap trail={trailData} />
+  <TrailGallery trail={trailData} images={galleryImages ?? []} />
+  <TrailRelated trails={[]} />
+
+</MainLayout>
