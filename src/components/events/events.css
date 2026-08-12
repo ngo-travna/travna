@@ -20,12 +20,14 @@
 }
 
 .event-section h2 {
-  margin-bottom: 2rem;
+  text-align: center;
+  margin-bottom: 2.5rem;
   color: var(--color-secondary);
 }
 
 .event-section p {
   margin-bottom: 2rem;
+  /* text-align: center; */
 }
 
 .activity-card {
@@ -35,16 +37,27 @@
   background: var(--color-surface);
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  /* justify-content: center; */
   height: 100%;
 }
 
 .activity-card h3 {
+  text-align: center;
   margin-bottom: 0.75rem;
 }
 
 .activity-card p {
   color: var(--color-text-light);
+  text-align: center;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+  transform: scale(2);
+  color: var(--color-secondary);
 }
 
 .activities-grid {

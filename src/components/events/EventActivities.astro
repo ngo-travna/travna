@@ -11,23 +11,26 @@ const t = isEnglish ? en : bg;
 
 <section class="event-section">
   <div class="container">
-    <CalendarClock class="event-icon" />
-    <h2>{t.events.activities.title}</h2>
+    
+    <h2>{t.events.activities.title} <CalendarClock class="event-icon" /></h2>
     <div class="activities-grid">
       <article class="activity-card">
-        <h3><Signpost /> {t.events.activities.maintenance.title}</h3>
+        <div class="icon"><Signpost /></div>
+        <h3> {t.events.activities.maintenance.title}</h3>
         <p>
           {t.events.activities.maintenance.description}
         </p>
       </article>
       <article class="activity-card">
-        <h3><TentTree /> {t.events.activities.outdoor.title}</h3>
+        <div class="icon"><TentTree /></div>
+        <h3>{t.events.activities.outdoor.title}</h3>
         <p>
           {t.events.activities.outdoor.description}
         </p>
       </article>
       <article class="activity-card">
-        <h3><Library /> {t.events.activities.education.title}</h3>
+        <div class="icon"><Library /></div>
+        <h3>{t.events.activities.education.title}</h3>
         <p>
           {t.events.activities.education.description}
         </p>
