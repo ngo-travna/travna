@@ -29,29 +29,23 @@
 
 .trail-info h2 {
   margin-bottom: 0.35rem;
-
   font-size: 1.35rem;
-
   font-weight: 700;
 }
 
 .trail-info p {
   font-size: 0.9rem;
-
   letter-spacing: 0.02em;
 }
 
 .trail-arrow {
   font-size: 1.4rem;
-
   color: var(--color-text-light);
-
   transition: transform 0.2s ease;
 }
 
 .trail-row:hover .trail-arrow {
   transform: translateX(4px);
-
   color: var(--color-secondary);
 }
 

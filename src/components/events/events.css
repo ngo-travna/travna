@@ -4,7 +4,7 @@
 }
 
 .events-hero h1 {
-  font-size: clamp(2.8rem, 3vw, 4rem);
+  font-size: clamp(4rem, 3vw, 2.8rem);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
@@ -16,10 +16,12 @@
   line-height: 1.8;
   font-size: 1.15rem;
   text-align: center;
+  color: var(--color-text-light);
 }
 
 .event-section h2 {
   margin-bottom: 2rem;
+  color: var(--color-secondary);
 }
 
 .event-section p {
@@ -60,7 +62,6 @@
 
 .competition-item {
   padding: 1.75rem 0;
-
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -70,7 +71,6 @@
 
 .competition-item:last-child {
   border-bottom: none;
-
   padding-bottom: 0;
 }
 

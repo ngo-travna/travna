@@ -61,6 +61,47 @@ if (error || !supabaseTrail) {
 }
 
 const trailData = mapSupabaseTrail(supabaseTrail);
+
+const { data: trailRelations, error: relationsError } = await supabase
+  .from("trail_relations")
+  .select(`
+    id,
+    related_trail_id,
+    external_title,
+    external_url,
+    relation_type,
+    display_order,
+    related_trail:trails!trail_relations_related_trail_id_fkey (
+      id,
+      slug,
+      status,
+      distance_km,
+      elevation_gain,
+      highest_point,
+      duration_hours,
+      trail_translations (
+        language,
+        title,
+        description
+      ),
+      trail_images (
+        id,
+        image_path,
+        display_order,
+        caption
+      )
+    )
+  `)
+  .eq("trail_id", supabaseTrail.id)
+  .order("display_order", { ascending: true });
+
+if (relationsError) {
+  console.error("TRAIL RELATIONS ERROR:", relationsError);
+}
+console.log(
+  "TRAIL RELATIONS:",
+  JSON.stringify(trailRelations, null, 2)
+);
 ---
 
 <MainLayout title="Обиколката на Трявна | ТРЪВНА" lang="bg">
