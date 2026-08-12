@@ -5,11 +5,11 @@ const t = bg;
 
 interface Props {
   trails: {
+    type: "internal" | "external";
     title: string;
     href: string;
   }[];
 }
-
 const { trails } = Astro.props;
 ---
 

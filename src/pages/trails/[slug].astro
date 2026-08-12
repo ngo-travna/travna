@@ -102,6 +102,35 @@ console.log(
   "TRAIL RELATIONS:",
   JSON.stringify(trailRelations, null, 2)
 );
+
+const relatedTrails = (trailRelations ?? []).map(
+  (relation): {
+    type: "internal" | "external";
+    title: string;
+    href: string;
+  } => {
+    const relatedTrail = Array.isArray(relation.related_trail)
+      ? relation.related_trail[0]
+      : relation.related_trail;
+
+    if (relatedTrail) {
+      const translation = relatedTrail.trail_translations?.[0];
+
+      return {
+        type: "internal",
+        title: translation?.title ?? relatedTrail.slug,
+        href: `/trails/${relatedTrail.slug}`,
+      };
+    }
+
+    return {
+      type: "external",
+      title: relation.external_title ?? "Related trail",
+      href: relation.external_url ?? "#",
+    };
+  },
+);
+
 ---
 
 <MainLayout title="Обиколката на Трявна | ТРЪВНА" lang="bg">
@@ -110,5 +139,5 @@ console.log(
   <TrailDescription trail={trailData} />
   <TrailMap trail={trailData} />
   <TrailGallery trail={trailData} images={trailData.gallery} />
-  <TrailRelated trails={[]} />
+  <TrailRelated trails={relatedTrails} />
 </MainLayout>
