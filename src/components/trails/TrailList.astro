@@ -1,3 +1,5 @@
+
+
 ---
 import "./trail-list.css";
 import bg from "../../i18n/bg";
@@ -5,42 +7,46 @@ import en from "../../i18n/en";
 
 const isEnglish = Astro.url.pathname.startsWith("/en");
 const t = isEnglish ? en : bg;
+const lang = isEnglish ? "en" : "bg";
 
 type TrailStatus = keyof typeof bg.trails.list.status;
 
 interface Props {
   trails: {
-  id: string;
-  slug: string;
-  status: TrailStatus;
-  last_visited: string;
-  distance_km: number;
-  elevation_gain: number;
-  trail_translations: {
-    language: string;
-    title: string;
-    description: string;
+    id: string;
+    slug: string;
+    status: TrailStatus;
+    last_visited: string;
+    distance_km: number;
+    elevation_gain: number;
+    trail_translations: {
+      language: string;
+      title: string;
+      description: string;
+    }[];
   }[];
-}[];
 }
+
 const { trails } = Astro.props;
 ---
 
 <section class="trail-list">
   <div class="container">
-    <a
-      href={`/trails/${trails[0].slug}`}
-      class="trail-row"
-    >
-      <div class="trail-info">
-        <h2>{trails[0].trail_translations[0].title}</h2>
-        <p>{t.trails.list.status[trails[0].status]}</p>
-        <p>{trails[0].distance_km}K • {trails[0].elevation_gain}D+</p>
-      </div>
-      <span class="trail-arrow">
-        →
-      </span>
-    </a>
-    <!-- More trails will come from Supabase -->
+    {trails.map((trail) => {
+      const translation =
+        trail.trail_translations.find((tr) => tr.language === lang) ??
+        trail.trail_translations[0];
+
+      return (
+        <a href={`/trails/${trail.slug}`} class="trail-row">
+          <div class="trail-info">
+            <h2>{translation?.title}</h2>
+            <p>{t.trails.list.status[trail.status]}</p>
+            <p>{trail.distance_km}K • {trail.elevation_gain}D+</p>
+          </div>
+          <span class="trail-arrow">→</span>
+        </a>
+      );
+    })}
   </div>
 </section>

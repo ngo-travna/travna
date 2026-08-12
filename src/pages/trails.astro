@@ -2,7 +2,6 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import TrailsHero from "../components/trails/TrailsHero.astro";
 import TrailList from "../components/trails/TrailList.astro";
-import bg from "../i18n/bg";
 import { supabase } from "../lib/supabase";
 
 const { data: trails, error } = await supabase
@@ -21,14 +20,12 @@ const { data: trails, error } = await supabase
     )
   `);
 
-const trail = trails?.[0];
+if (error) {
+  console.error("Failed to fetch trails:", error);
+}
 ---
 
-<MainLayout
-  title="Trails | TRAVNA"
-  lang="bg"
->
-  <TrailsHero  />
-  <!-- <h2>{trail?.trail_translations?.[0]?.title}</h2> -->
+<MainLayout title="Trails | TRAVNA" lang="bg">
+  <TrailsHero />
   <TrailList trails={trails ?? []} />
 </MainLayout>
