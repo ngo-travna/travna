@@ -98,10 +98,10 @@ const { data: trailRelations, error: relationsError } = await supabase
 if (relationsError) {
   console.error("TRAIL RELATIONS ERROR:", relationsError);
 }
-console.log(
-  "TRAIL RELATIONS:",
-  JSON.stringify(trailRelations, null, 2)
-);
+// console.log(
+//   "TRAIL RELATIONS:",
+//   JSON.stringify(trailRelations, null, 2)
+// );
 
 const relatedTrails = (trailRelations ?? []).map(
   (relation): {

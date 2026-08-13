@@ -18,13 +18,19 @@ const { trails } = Astro.props;
     <h2>{t.trails.related.title}</h2>
     <div class="related-list">
       {trails.map((trail) => (
-        <a
-          href={trail.href}
-          class="related-link"
-        >
-          {trail.title}
-        </a>
-      ))}
+  <a
+    href={trail.href}
+    class:list={[
+      "related-link",
+      { "external-link": trail.type === "external" },
+    ]}
+    target={trail.type === "external" ? "_blank" : undefined}
+    rel={trail.type === "external" ? "noopener noreferrer" : undefined}
+  >
+    {trail.title}
+    {trail.type === "external" && <span class="external-icon">↗</span>}
+  </a>
+))}
     </div>
   </div>
 </section>

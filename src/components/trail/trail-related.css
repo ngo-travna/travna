@@ -32,3 +32,14 @@
 
   transform: translateY(-2px);
 }
+.external-link {
+  opacity: 0.8;
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 3px;
+}
+
+.external-link .external-icon {
+  margin-left: 0.35rem;
+  font-size: 0.9em;
+}

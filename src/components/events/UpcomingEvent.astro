@@ -1,50 +1,74 @@
 ---
 import "./events.css";
 import {MapPin, ClockArrowUp} from "../../lib/icons";
+import {supabase} from "../../lib/supabase";
 
 import bg from "../../i18n/bg";
 import en from "../../i18n/en";
 
 const isEnglish = Astro.url.pathname.startsWith("/en");
 const t = isEnglish ? en : bg;
+const lang = isEnglish ? "en" : "bg";
+
+const { data: events, error } = await supabase
+  .from("events")
+  .select(`
+    id,
+    location,
+    date,
+    event_translations (
+      title,
+      description,
+      place,
+      language
+    )
+  `)
+  .gte("date", new Date().toISOString())
+  .order("date", { ascending: true })
+  .limit(1);
+
+if (error) {
+  console.error("Error fetching upcoming event:", error);
+}
+
+const event = events?.[0] ?? null;
+
+const translation = event
+  ? (event.event_translations.find((tr) => tr.language === lang) ??
+     event.event_translations.find((tr) => tr.language === "bg"))
+  : null;
+
+const eventDate = event ? new Date(event.date) : null;
+
+const day = eventDate?.getDate();
+const month = eventDate
+  ? new Intl.DateTimeFormat(isEnglish ? "en-GB" : "bg-BG", { month: "short" })
+      .format(eventDate)
+      .toUpperCase()
+  : null;
+const year = eventDate?.getFullYear();
 ---
 
 <section class="event-section">
-
   <div class="container">
-    
-    <h2>{t.events.upcoming.title} <ClockArrowUp class="event-icon" /></h2>
-
-    <div class="upcoming-card">
-
-      <div class="event-date-box">
-
-        <span class="day">17</span>
-
-        <span class="month">OCT</span>
-
-        <span class="year">2026</span>
-
+    <h2>{t.events.upcoming.title}</h2>
+    {event && translation && (
+      <div class="upcoming-card">
+        <div class="event-date-box">
+          <span class="day">{day}</span>
+          <span class="month">{month}</span>
+          <span class="year">{year}</span>
+        </div>
+        <div class="event-content">
+          <h3>{translation.title}</h3>
+          <p class="event-location">
+            <MapPin /> <a href={event.location} target="_blank">{translation.place}</a>
+          </p>
+          <p>
+            {translation.description}
+          </p>
+        </div>
       </div>
-
-      <div class="event-content">
-
-        <h3>Autumn Trail Maintenance</h3>
-
-        <p class="event-location">
-          <MapPin /> Tryavna, Bulgaria
-        </p>
-
-        <p>
-          Join us for a day dedicated to maintaining mountain trails,
-          meeting like-minded people and enjoying the Balkan Mountains
-          together.
-        </p>
-
-      </div>
-
-    </div>
-
+    )}
   </div>
-
 </section>

@@ -221,3 +221,13 @@
   height: 2rem;
   color: var(--color-secondary);
 }
+
+.no-upcoming-event {
+  margin-top: 2rem;
+  padding: 2.5rem;
+  text-align: center;
+  color: var(--color-text-light);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+}
