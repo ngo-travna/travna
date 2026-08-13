@@ -7,14 +7,14 @@
   margin: 0 auto;
 }
 
-.trails-hero h1 {
+/* .trails-hero h1 {
   margin-bottom: 1rem;
   font-size: clamp(4rem, 3vw, 2.8rem);
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
   color: var(--color-secondary);
-}
+} */
 
 .trails-hero p {
   font-size: 1.15rem;

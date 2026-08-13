@@ -20,7 +20,7 @@ html {
 }
 
 body {
-  background-color: var(--color-background);
+  background-color: var(--color-surface);
   color: var(--color-text);
   min-height: 100vh;
   display: flex;
@@ -112,9 +112,4 @@ ol {
   margin: 0 auto;
   width: 4rem;
   height: 4rem;
-}
-
-.travna {
-  text-transform: capitalize;
-  font-weight: 700;
 }

@@ -34,9 +34,7 @@
 }
 
 .hero h1 {
-  color: var(--color-accent);
-  font-size: 4rem;
-  margin-bottom: 1rem;
+  color: var(--color-background);
 }
 
 .hero-tagline {
