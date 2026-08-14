@@ -1,12 +1,18 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Hero from "../components/hero/Hero.astro";
+import bg from "../i18n/bg";
+import en from "../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
+const lang = isEnglish ? "en" : "bg";
 
 ---
 
 <MainLayout
-    title="TRAVNA"
-    lang="bg"
+  title={t.home.pageTitle}
+  lang={lang}
 >
     <Hero />
 </MainLayout>

@@ -1,6 +1,5 @@
 ---
 import "./events.css";
-import {Award} from "../../lib/icons";
 import {supabase} from "../../lib/supabase";
 
 import bg from "../../i18n/bg";
@@ -78,9 +77,15 @@ const items: CompetitionCard[] = (competitions ?? [])
         <article class="competition-item">
           <h3>{item.title}</h3>
           <p>{item.place} · {item.date}</p>
-          <a href={item.resultLink} target="_blank">
-            {isEnglish ? "View" : "Виж"} {item.result} →
-          </a>
+          {item.resultLink && (
+            <a
+              href={item.resultLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {isEnglish ? "View" : "Виж"} {item.result} →
+            </a>
+          )}
         </article>
       ))}
     </div>

@@ -9,6 +9,13 @@ import TrailRelated from "../../components/trail/TrailRelated.astro";
 import { supabase } from "../../lib/supabase";
 import { mapSupabaseTrail } from "../../types/mapTrail";
 
+import bg from "../../i18n/bg";
+import en from "../../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
+const lang = isEnglish ? "en" : "bg";
+
 export async function getStaticPaths() {
   const { data: trails, error } = await supabase
     .from("trails")
@@ -133,7 +140,10 @@ const relatedTrails = (trailRelations ?? []).map(
 
 ---
 
-<MainLayout title="Обиколката на Трявна | ТРЪВНА" lang="bg">
+<MainLayout
+  title={`${trailData.title} | ${lang === "bg" ? "ТРЪВНА" : "TRAVNA"}`}
+  lang={lang}
+>
   <TrailHero trail={trailData} />
   <TrailOverview trail={trailData} />
   <TrailDescription trail={trailData} />

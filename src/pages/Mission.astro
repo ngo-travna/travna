@@ -4,12 +4,17 @@ import "../styles/mission.css";
 import {Compass, Sprout, Leaf, Signpost, Waypoints, MapPlus, HeartHandshake, Users } from "../lib/icons";
 
 import bg from "../i18n/bg";
-const t = bg;
+import en from "../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
+const lang = isEnglish ? "en" : "bg";
+
 ---
 
 <MainLayout
-  title="Mission | TRAVNA"
-  description="Learn about the mission and values of TRAVNA"
+  title={t.mission.pageTitle}
+  lang={lang}
 >
 
   <main>

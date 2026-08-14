@@ -2,11 +2,17 @@
 import "./trail-hero.css";
 import type { Trail } from "../../types/trail";
 
+import bg from "../../i18n/bg";
+import en from "../../i18n/en";
+
 interface Props {
   trail: Trail;
 }
 
 const { trail } = Astro.props;
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
 ---
 
 <section class="trail-hero">
@@ -14,12 +20,26 @@ const { trail } = Astro.props;
     class="trail-hero-image"
     style={`background-image: url('${trail.heroImage}')`}
   ></div>
+
   <div class="trail-hero-overlay">
     <div class="container">
-      <span class="trail-badge">
-        🟢 Maintained by TRAVNA
+
+      <span class:list={[
+        "trail-badge",
+        `status-${trail.status}`,
+      ]}>
+        {trail.status === "maintained" &&
+          `🟢 ${t.trails.list.status.maintained}`}
+
+        {trail.status === "partly_maintained" &&
+          `🟡 ${t.trails.list.status.partly_maintained}`}
+
+        {trail.status === "passed_by_travna" &&
+          `🔵 ${t.trails.list.status.passed_by_travna}`}
       </span>
+
       <h1>{trail.title}</h1>
+
     </div>
   </div>
 </section>
