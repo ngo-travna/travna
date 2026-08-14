@@ -23,7 +23,7 @@ const t = isEnglish ? en : bg;
 
   <div class="trail-hero-overlay">
     <div class="container">
-
+      <h1>{trail.title}</h1>
       <span class:list={[
         "trail-badge",
         `status-${trail.status}`,
@@ -37,9 +37,6 @@ const t = isEnglish ? en : bg;
         {trail.status === "passed_by_travna" &&
           `🔵 ${t.trails.list.status.passed_by_travna}`}
       </span>
-
-      <h1>{trail.title}</h1>
-
     </div>
   </div>
 </section>
