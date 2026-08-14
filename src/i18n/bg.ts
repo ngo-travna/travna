@@ -144,6 +144,7 @@ const bg = {
       elevationGain: 'Денивелация',
       highestPoint: 'Най-висока точка',
       estimatedTime: 'Продължителност',
+      status: 'Състояние',
       lastMaintenance: 'Последна поддръжка',
     },
     description: {
@@ -156,7 +157,7 @@ const bg = {
       title: 'Галерия',
     },
     related: {
-      title: 'Продължи да откриваш',
+      title: 'Продължи свързването',
     },
     list: {
       title: 'Име',

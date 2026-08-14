@@ -144,6 +144,7 @@ const en = {
       elevationGain: 'Elevatioin Gain',
       highestPoint: 'Highest point',
       estimatedTime: 'Etimated time',
+      status: 'Status',
       lastMaintenance: 'Last Maintenance',
     },
     description: {

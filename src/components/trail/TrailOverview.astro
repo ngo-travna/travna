@@ -2,7 +2,11 @@
 import "./trail-overview.css";
 import type { Trail } from "../../types/trail";
 import bg from "../../i18n/bg";
-const t = bg;
+import en from "../../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
+
 interface Props {
   trail: Trail;
 }
@@ -39,6 +43,18 @@ const formattedLastVisited = new Date(trail.lastVisited).toLocaleDateString(
       <div class="overview-row">
         <span class="label">{t.trails.overview.estimatedTime}</span>
         <span class="value">{trail.durationHours} ч.</span>
+      </div>
+
+      <div class="overview-row">
+        <span class="label">{t.trails.overview.status}</span>
+        <span class="value">{trail.status === "maintained" &&
+          `🟢  ${t.trails.list.status.maintained}`}
+
+        {trail.status === "partly_maintained" &&
+          `🟡  ${t.trails.list.status.partly_maintained}`}
+
+        {trail.status === "passed_by_travna" &&
+          `🔵  ${t.trails.list.status.passed_by_travna}`}</span>
       </div>
 
       <div class="overview-row">
