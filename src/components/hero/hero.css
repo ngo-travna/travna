@@ -34,7 +34,7 @@
 }
 
 .hero h1 {
-  color: var(--color-background);
+  color: var(--color-accent);
 }
 
 .hero-tagline {

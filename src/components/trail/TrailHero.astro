@@ -13,6 +13,14 @@ const { trail } = Astro.props;
 
 const isEnglish = Astro.url.pathname.startsWith("/en");
 const t = isEnglish ? en : bg;
+
+const statusConfig = {
+  maintained: { icon: "🟢", label: t.trails.list.status.maintained },
+  partly_maintained: { icon: "🟡", label: t.trails.list.status.partly_maintained },
+  passed_by_travna: { icon: "🔵", label: t.trails.list.status.passed_by_travna },
+} as const;
+
+const status = statusConfig[trail.status];
 ---
 
 <section class="trail-hero">
@@ -24,18 +32,8 @@ const t = isEnglish ? en : bg;
   <div class="trail-hero-overlay">
     <div class="container">
       <h1>{trail.title}</h1>
-      <span class:list={[
-        "trail-badge",
-        `status-${trail.status}`,
-      ]}>
-        {trail.status === "maintained" &&
-          `🟢 ${t.trails.list.status.maintained}`}
-
-        {trail.status === "partly_maintained" &&
-          `🟡 ${t.trails.list.status.partly_maintained}`}
-
-        {trail.status === "passed_by_travna" &&
-          `🔵 ${t.trails.list.status.passed_by_travna}`}
+      <span class:list={["trail-badge", `status-${trail.status}`]}>
+        {status.icon} {status.label}
       </span>
     </div>
   </div>

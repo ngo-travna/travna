@@ -31,22 +31,14 @@
   z-index: 3;
 }
 
-.trail-badge {
-  order: 2;
-  align-self: flex-end;
-  margin-top: -0.5rem;
-  display: inline-flex;
-  align-items: center;
-  padding: 0.35rem 0.75rem;
-  font-size: 0.9rem;
-  font-weight: 400;
-  border-radius: 999px;
-  color: var(--color-text);
-  background-color: var(--color-surface);
+.trail-hero .container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 760px;
 }
 
 .trail-hero h1 {
-  order: 1;
   color: var(--color-surface);
   font-size: clamp(2.6rem, 5vw, 4rem);
   font-weight: 800;
@@ -58,6 +50,14 @@
   color: var(--color-surface);
 }
 
-.trail-hero .container {
-  max-width: 760px;
+.trail-badge {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 400;
+  border-radius: 999px;
+  color: var(--color-text);
+  background-color: var(--color-surface);
 }

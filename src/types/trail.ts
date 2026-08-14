@@ -1,7 +1,7 @@
 export interface Trail {
   id: string;
   slug: string;
-  status: string;
+  status: 'maintained' | 'partly_maintained' | 'passed_by_travna';
   lastVisited: string | Date;
   title: string;
   description: string;
