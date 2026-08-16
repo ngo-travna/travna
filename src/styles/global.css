@@ -100,9 +100,9 @@ ol {
 .hero-icon {
   display: block;
   margin: 1rem auto;
-  width: 4rem;
-  height: 4rem;
-  color: var(--color-secondary);
+  width: 5rem;
+  height: 5rem;
+  color: var(--color-heading);
 }
 
 .icon-svg {

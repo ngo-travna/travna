@@ -16,7 +16,10 @@ body {
 }
 
 h1,
-h2,
+h2 {
+  color: var(--color-heading);
+}
+
 h3,
 h4,
 h5,
@@ -50,10 +53,11 @@ h4 {
 p {
   margin: 0;
   letter-spacing: 0.5px;
+  color: var(--color-text);
 }
 
 a {
-  color: var(--color-primary);
+  color: var(--color-text-light);
   text-decoration: none;
   transition: color var(--transition-fast);
 }

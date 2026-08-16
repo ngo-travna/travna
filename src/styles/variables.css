@@ -14,7 +14,7 @@
   --color-text: #283618;
   --color-text-light: #606c38;
   --color-border: #e6dfc5;
-
+  --color-heading: var(--color-secondary);
   /* Typography */
   --font-family: 'Inter Tight', sans-serif;
 
@@ -46,8 +46,9 @@ html[data-theme='dark'] {
   --color-text: #f6f3e5;
   --color-text-light: #d8d3c0;
   --color-border: #404338;
+  --color-heading: var(--color-text);
 
-  --shadow-small: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-small: 0 2px 8px rgba(8, 7, 7, 0.25);
   --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.35);
   --shadow-large: 0 10px 30px rgba(0, 0, 0, 0.45);
 }

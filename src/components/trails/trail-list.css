@@ -15,16 +15,12 @@
   padding: 1.6rem 0;
   border-bottom: 1px solid var(--color-border);
   text-decoration: none;
-  color: inherit;
+  /* color: inherit; */
   transition: color 0.2s ease;
 }
 
 .trail-row:first-child {
   border-top: 1px solid var(--color-border);
-}
-
-.trail-row:hover {
-  color: var(--color-secondary);
 }
 
 .trail-info h2 {
@@ -34,8 +30,9 @@
 }
 
 .trail-info p {
-  font-size: 0.9rem;
+  font-size: 1.1rem;
   letter-spacing: 0.02em;
+  color: var(--color-text-light);
 }
 
 .trail-arrow {
@@ -47,6 +44,10 @@
 .trail-row:hover .trail-arrow {
   transform: translateX(4px);
   color: var(--color-secondary);
+}
+.trail-row:hover .trail-info p {
+  color: #bc6c25;
+  font-weight: 500;
 }
 
 @media (max-width: 640px) {

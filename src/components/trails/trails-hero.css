@@ -7,14 +7,19 @@
   margin: 0 auto;
 }
 
-/* .trails-hero h1 {
-  margin-bottom: 1rem;
-  font-size: clamp(4rem, 3vw, 2.8rem);
+.trail-lead {
+  margin: 0 auto;
+  max-width: 48ch;
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.3;
   text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-  color: var(--color-secondary);
-} */
+}
+
+.trails-hero h2 {
+  font-size: 1.5rem;
+  color: var(--color-text-light);
+}
 
 .trails-hero p {
   font-size: 1.15rem;
