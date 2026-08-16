@@ -75,6 +75,16 @@ const lang = isEnglish ? "en" : "bg";
         <div class="work-grid">
           <article class="work-item">
             <div class="work-icon">
+              <HeartHandshake class="icon-svg" />
+            </div>
+            <h3>{t.mission.work.volunteers.title}</h3>
+            <p>
+              {t.mission.work.volunteers.description}
+            </p>
+          </article>
+          
+          <article class="work-item">
+            <div class="work-icon">
               <Leaf class="icon-svg" />
             </div>
             <h3>{t.mission.work.conservation.title}</h3>
@@ -91,15 +101,7 @@ const lang = isEnglish ? "en" : "bg";
               {t.mission.work.maintenance.description}
             </p>
           </article>
-          <article class="work-item">
-            <div class="work-icon">
-              <HeartHandshake class="icon-svg" />
-            </div>
-            <h3>{t.mission.work.volunteers.title}</h3>
-            <p>
-              {t.mission.work.volunteers.description}
-            </p>
-          </article>
+          
           <article class="work-item">
             <div class="work-icon">
               <Users class="icon-svg" />

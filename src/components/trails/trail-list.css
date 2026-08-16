@@ -45,6 +45,10 @@
   transform: translateX(4px);
   color: var(--color-secondary);
 }
+.trail-row:hover .trail-info h3 {
+  color: #bc6c25;
+  font-weight: 800;
+}
 .trail-row:hover .trail-info p {
   color: #bc6c25;
   font-weight: 500;

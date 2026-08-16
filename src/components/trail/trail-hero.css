@@ -1,6 +1,6 @@
 .trail-hero {
   position: relative;
-  min-height: 520px;
+  min-height: 560px;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
@@ -39,7 +39,7 @@
 }
 
 .trail-hero h1 {
-  color: var(--color-surface);
+  color: #fefae0;
   font-size: clamp(2.6rem, 5vw, 4rem);
   font-weight: 800;
   line-height: 1.1;

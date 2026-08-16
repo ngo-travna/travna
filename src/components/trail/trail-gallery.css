@@ -39,7 +39,7 @@
 .lightbox {
   position: fixed;
   inset: 0;
-  background: var(--color-border);
+  background: var(--color-background);
   display: flex;
   justify-content: center;
   align-items: center;

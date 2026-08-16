@@ -40,7 +40,7 @@ const { trails } = Astro.props;
       return (
         <a href={`/trails/${trail.slug}`} class="trail-row">
           <div class="trail-info">
-            <h2>{translation?.title}</h2>
+            <h3>{translation?.title}</h3>
             <p>{t.trails.list.status[trail.status]}</p>
             <p>{trail.distance_km}K • {trail.elevation_gain}D+</p>
           </div>
