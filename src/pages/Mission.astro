@@ -1,7 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import "../styles/mission.css";
-import {Compass, Sprout, Leaf, Signpost, Waypoints, MapPlus, HeartHandshake, Users } from "../lib/icons";
+import {Compass, Sprout, Leaf, Signpost, Waypoints, HeartHandshake, Users } from "../lib/icons";
 
 import bg from "../i18n/bg";
 import en from "../i18n/en";
@@ -77,9 +77,9 @@ const lang = isEnglish ? "en" : "bg";
             <div class="work-icon">
               <HeartHandshake class="icon-svg" />
             </div>
-            <h3>{t.mission.work.volunteers.title}</h3>
+            <h3>{t.mission.work.lifestyle.title}</h3>
             <p>
-              {t.mission.work.volunteers.description}
+              {t.mission.work.lifestyle.description}
             </p>
           </article>
           
@@ -146,6 +146,5 @@ const lang = isEnglish ? "en" : "bg";
         </div>
       </article>
     </section>
-
   </main>
 </MainLayout>

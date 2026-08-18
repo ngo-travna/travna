@@ -5,81 +5,92 @@ const en = {
     trails: 'Trails',
     events: 'Events',
   },
+
   footer: {
     title: 'TRAVNA',
-    resources: 'Useful Links',
+    resources: 'Useful links',
     community: 'Community',
     contact: 'Contact',
     copyright: '© 2026 TRAVNA · Content licensed under',
     organisation: 'Mountain Sports Club',
-    location: 'Bulgaria, Tryavna',
+    location: 'Tryavna, Bulgaria',
     pss: 'Mountain Rescue Service',
-    forecast: 'Weather Forecast',
+    forecast: 'Weather forecast',
     park: 'Central Balkan National Park',
   },
+
   site: {
     name: 'TRAVNA',
   },
+
   home: {
     pageTitle: 'Home | TRAVNA',
+
     hero: {
       title: 'TRAVNA',
       tagline: 'Discover • Maintain • Inspire',
       description:
-        'Maintaining and developing the mountain trails of the Central Balkan and the Tryavna region.',
-      button: 'Explore Trails',
-      subtitle: '...',
-      buttonPrimary: '...',
-      buttonSecondary: '...',
+        'We explore, maintain and hike the mountain trails in the Balkan Mountains and the Tryavna area',
+      button: 'Discover the trails',
     },
   },
+
   mission: {
     pageTitle: 'Mission | TRAVNA',
+
     hero: {
       title: 'Mission',
-      lead: 'Caring for the trails and local communities of the Balkan Mountains and the Tryavna region.',
+      lead: 'Caring for mountain trails and local communities in the Balkan Mountains and the Tryavna area',
       intro:
-        'TRAVNA is a non-governmental organization dedicated to maintaining mountain trails, supporting responsible outdoor recreation and promoting the natural and cultural heritage of the region. TRAVNA was created by people who believe that mountain trails are more than routes on a map. They connect landscapes, history and communities, and they deserve to be preserved for everyone.',
+        'TRAVNA Mountain Sports Club is an association dedicated to promoting responsible sport and tourism, maintaining mountain trails, and promoting the natural and cultural heritage of the region. TRAVNA was founded by people who believe that mountain trails connect nature, history and local communities and deserve to be preserved for generations to come.',
     },
+
     values: {
-      title: 'Our Values',
+      title: 'Our values',
+
       nature: {
         title: 'Nature',
         description:
-          'We care for the forests and landscapes that make the Balkan Mountains unique.',
+          'The mountains and the unique natural treasures of the Balkans',
       },
+
       trails: {
         title: 'Trails',
-        description:
-          'We maintain hiking, trail running and cycling routes so everyone can explore them safely.',
+        description: 'Accessible and safe trails and routes for everyone',
       },
+
       community: {
         title: 'Community',
         description:
-          'We bring together local people and outdoor enthusiasts to care for the places we love.',
+          'Bringing together local people and mountain enthusiasts around a common mission',
       },
     },
+
     work: {
-      title: 'What We Do',
+      title: 'Our goals',
+
       conservation: {
-        title: 'Nature Conservation',
+        title: 'Nature conservation',
         description:
-          'We promote responsible outdoor recreation that respects wildlife, forests and mountain ecosystems.',
+          'Promoting responsible recreation in nature with respect for wildlife, forests and mountain ecosystems',
       },
+
       maintenance: {
-        title: 'Trail Maintenance',
+        title: 'Trail maintenance',
         description:
-          'We maintain and improve mountain trails to keep them safe, accessible and enjoyable throughout the year.',
+          'Maintaining and improving mountain trails so they remain safe, accessible and usable throughout the year',
       },
-      volunteers: {
-        title: 'Volunteer Initiatives',
+
+      lifestyle: {
+        title: 'Healthy lifestyle',
         description:
-          'We organize community events and encourage people to stay active, enjoy outdoor sports and take part in caring for the places they love.',
+          'Promoting hiking and mountain sports, supporting an active lifestyle and care for the places we love',
       },
+
       communities: {
-        title: 'Local Communities',
+        title: 'Local communities',
         description:
-          'We support sustainable tourism and celebrate the culture and traditions of the Central Balkan and the Tryavna region.',
+          'Promoting sustainable sport and tourism and organising events that support local communities',
       },
     },
 
@@ -93,38 +104,46 @@ const en = {
 
   events: {
     pageTitle: 'Events | TRAVNA',
+
     hero: {
       title: 'Events',
       description:
-        'TRAVNA organizes, supports and participates in outdoor activities that connect people with mountains, nature and local communities.',
+        'TRAVNA organises, supports and participates in outdoor activities that connect local communities with nature',
     },
+
     activities: {
-      title: 'Our events',
+      title: 'TRAVNA events',
+
       maintenance: {
-        title: 'Trail Maintenance',
+        title: 'Trail maintenance',
         description:
-          'We clean, restore and improve the mountain trails to ensure they are safe and accessible.',
+          'We clean, restore and improve mountain trails to keep them safe and accessible',
       },
+
       outdoor: {
-        title: 'Outdoor Events',
+        title: 'Outdoor events',
         description:
-          'We organize hiking, trail and cycling events for people of all ages.',
+          'We organise sports and outdoor activities for people of all ages',
       },
+
       education: {
-        title: 'Educational Events',
+        title: 'Educational events',
         description:
-          'We share knowledge about nature, local history, navigation and safety in the mountains.',
+          'We share knowledge about nature, navigation and mountain safety, as well as local history and culture',
       },
     },
+
     competitions: {
       title: 'Competitions',
       description:
-        'TRAVNA members regularly participate in mountain, trail running and endurance competitions, representing our community and gaining valuable experience.',
-      results: 'View Results →',
+        'TRAVNA members participate in trail running, ski mountaineering, triathlon (swimming, cycling and running), representing our community. Officially published results from recent years:',
+      results: 'View results →',
     },
+
     upcoming: {
-      title: 'Upcoming Event',
+      title: 'Upcoming event',
     },
+
     archive: {
       title: 'Archive',
     },
@@ -132,41 +151,48 @@ const en = {
 
   trails: {
     pageTitle: 'Trails | TRAVNA',
+
     hero: {
       title: 'Trails',
       description:
-        'We explore, maintain and promote the mountain trails of the Tryavna region and the Central Balkan Mountains.',
+        'We explore, maintain and promote mountain trails in the Tryavna area and the Central Balkan Mountains.',
     },
 
     overview: {
       title: 'Overview',
       distance: 'Distance',
-      elevationGain: 'Elevatioin Gain',
+      elevationGain: 'Elevation gain',
       highestPoint: 'Highest point',
-      estimatedTime: 'Etimated time',
+      estimatedTime: 'Duration',
       status: 'Status',
-      lastMaintenance: 'Last Maintenance',
+      lastMaintenance: 'Last maintenance',
     },
+
     description: {
       title: 'Description',
     },
+
     map: {
-      title: 'Map of the trail',
+      title: 'Trail map',
     },
+
     gallery: {
       title: 'Gallery',
     },
+
     related: {
-      title: 'Continue trailing',
+      title: 'Related trails',
     },
+
     list: {
       title: 'Title',
       viewTrail: 'View trail',
-      noTrails: 'No trail',
+      noTrails: 'No trails',
+
       status: {
         maintained: 'Maintained',
         partly_maintained: 'Partly maintained',
-        passed_by_travna: 'Passed by Travna',
+        passed_by_travna: 'Passed by TRAVNA',
       },
     },
   },

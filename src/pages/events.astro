@@ -5,15 +5,13 @@ import EventActivities from "../components/events/EventActivities.astro";
 import CompetitionList from "../components/events/CompetitionList.astro";
 import UpcomingEvent from "../components/events/UpcomingEvent.astro";
 // import PreviousEvents from "../components/events/PreviousEvents.astro";
-import { supabase } from "../lib/supabase";
+
 import bg from "../i18n/bg";
 import en from "../i18n/en";
 
 const isEnglish = Astro.url.pathname.startsWith("/en");
 const t = isEnglish ? en : bg;
 const lang = isEnglish ? "en" : "bg";
-
-
 ---
 
 <MainLayout

@@ -2,8 +2,13 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 import TrailsHero from "../../components/trails/TrailsHero.astro";
 import TrailList from "../../components/trails/TrailList.astro";
-import bg from "../../i18n/en";
 import { supabase } from "../../lib/supabase";
+
+import bg from "../../i18n/bg";
+import en from "../../i18n/en";
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
+const lang = isEnglish ? "en" : "bg";
 
 const { data: trails, error } = await supabase
   .from("trails")
@@ -21,14 +26,15 @@ const { data: trails, error } = await supabase
     )
   `);
 
-const trail = trails?.[0];
-
-// const t = en;
+if (error) {
+  console.error("Failed to fetch trails:", error);
+}
 ---
+
 <MainLayout
-  title="Trails | TRAVNA"
-  lang="en"
+  title={t.trails.pageTitle}
+  lang={lang}
 >
-  <TrailsHero  />
+  <TrailsHero />
   <TrailList trails={trails ?? []} />
 </MainLayout>

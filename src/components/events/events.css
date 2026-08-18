@@ -79,6 +79,20 @@ v .event-section p {
   }
 }
 
+.competitions-hero {
+  margin-bottom: 2.5rem;
+}
+
+.competitions-hero h2 {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.competitions-hero p {
+  margin-bottom: 4rem;
+  text-align: center;
+}
+
 .competition-item {
   padding: 1.75rem 0;
   border-bottom: 1px solid var(--color-border);

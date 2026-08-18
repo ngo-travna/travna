@@ -69,9 +69,12 @@ const items: CompetitionCard[] = (competitions ?? [])
 
 <section class="event-section">
   <div class="container">
-
-    <h2>{t.events.competitions.title}</h2>
-    <p>{t.events.competitions.description}</p>
+    <article class="competitions-hero">
+      <h2>{t.events.competitions.title}</h2>
+      <p>{t.events.competitions.description}</p>
+    </article>
+    
+    
     <div class="competition-list">
       {items.map((item) => (
         <article class="competition-item">
