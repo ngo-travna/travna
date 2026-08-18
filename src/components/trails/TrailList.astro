@@ -1,5 +1,3 @@
-
-
 ---
 import "./trail-list.css";
 import bg from "../../i18n/bg";
@@ -38,7 +36,7 @@ const { trails } = Astro.props;
         trail.trail_translations[0];
 
       return (
-        <a href={`/trails/${trail.slug}`} class="trail-row">
+        <a href={`${isEnglish ? "/en" : ""}/trails/${trail.slug}`} class="trail-row">
           <div class="trail-info">
             <h3>{translation?.title}</h3>
             <p>{t.trails.list.status[trail.status]}</p>

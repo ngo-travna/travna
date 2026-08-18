@@ -2,7 +2,11 @@
 import "./trail-description.css";
 import type { Trail } from "../../types/trail";
 import bg from "../../i18n/bg";
-const t = bg;
+import en from "../../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
+
 interface Props {
   trail: Trail;
 }
@@ -14,5 +18,4 @@ const { trail } = Astro.props;
     <h2>{t.trails.description.title}</h2>
     <p>{trail.description}</p>
   </div>
-
 </section>

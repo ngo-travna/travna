@@ -1,8 +1,18 @@
 import type { Trail } from './trail';
 import { getTrailImageUrl } from '../lib/images';
 
-export function mapSupabaseTrail(row: any): Trail {
-  const translation = row.trail_translations?.[0] ?? {};
+export function mapSupabaseTrail(
+  row: any,
+  language: 'bg' | 'en' = 'bg',
+): Trail {
+  const translation =
+    row.trail_translations?.find(
+      (tr: { language: string }) => tr.language === language,
+    ) ??
+    row.trail_translations?.find(
+      (tr: { language: string }) => tr.language === 'bg',
+    ) ??
+    {};
 
   const sortedImages = [...(row.trail_images ?? [])].sort(
     (a, b) => a.display_order - b.display_order,

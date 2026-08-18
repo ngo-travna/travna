@@ -1,21 +1,18 @@
 ---
-import MainLayout from "../../layouts/MainLayout.astro";
-import TrailHero from "../../components/trail/TrailHero.astro";
-import TrailOverview from "../../components/trail/TrailOverview.astro";
-import TrailDescription from "../../components/trail/TrailDescription.astro";
-import TrailMap from "../../components/trail/TrailMap.astro";
-import TrailGallery from "../../components/trail/TrailGallery.astro";
-import TrailRelated from "../../components/trail/TrailRelated.astro";
+import MainLayout from "../../../layouts/MainLayout.astro";
+import TrailHero from "../../../components/trail/TrailHero.astro";
+import TrailOverview from "../../../components/trail/TrailOverview.astro";
+import TrailDescription from "../../../components/trail/TrailDescription.astro";
+import TrailMap from "../../../components/trail/TrailMap.astro";
+import TrailGallery from "../../../components/trail/TrailGallery.astro";
+import TrailRelated from "../../../components/trail/TrailRelated.astro";
 
-import { supabase } from "../../lib/supabase";
-import { mapSupabaseTrail } from "../../types/mapTrail";
+import { supabase } from "../../../lib/supabase";
+import { mapSupabaseTrail } from "../../../types/mapTrail";
 
-import bg from "../../i18n/bg";
-import en from "../../i18n/en";
-
-const isEnglish = Astro.url.pathname.startsWith("/en");
-const t = isEnglish ? en : bg;
-const lang = isEnglish ? "en" : "bg";
+import en from "../../../i18n/en";
+const t = en;
+const lang = "en";
 
 export async function getStaticPaths() {
   const { data: trails, error } = await supabase
@@ -131,15 +128,12 @@ const relatedTrails = (trailRelations ?? []).map(
       const translation =
         relatedTrail.trail_translations?.find(
           (tr: { language: string }) => tr.language === lang,
-        ) ??
-        relatedTrail.trail_translations?.find(
-          (tr: { language: string }) => tr.language === "bg",
-        );
+        )
 
       return {
         type: "internal",
         title: translation?.title ?? relatedTrail.slug,
-        href: `${lang === "en" ? "/en" : ""}/trails/${relatedTrail.slug}`,
+        href: `/en/trails/${relatedTrail.slug}`,
       };
     }
 
@@ -160,7 +154,7 @@ const relatedTrails = (trailRelations ?? []).map(
 ---
 
 <MainLayout
-  title={`${trailData.title} | ${lang === "bg" ? "ТРЪВНА" : "TRAVNA"}`}
+  title={`${trailData.title} | TRAVNA`}
   lang={lang}
 >
   <TrailHero trail={trailData} />

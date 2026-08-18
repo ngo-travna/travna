@@ -6,7 +6,6 @@ import TrailDescription from "../../components/trail/TrailDescription.astro";
 import TrailMap from "../../components/trail/TrailMap.astro";
 import TrailGallery from "../../components/trail/TrailGallery.astro";
 import TrailRelated from "../../components/trail/TrailRelated.astro";
-
 import { supabase } from "../../lib/supabase";
 import { mapSupabaseTrail } from "../../types/mapTrail";
 
@@ -23,7 +22,7 @@ export async function getStaticPaths() {
     .select("slug");
 
   if (error) {
-    console.error("Error fetching trail slugs:", error);
+    console.error(error);
     return [];
   }
 
@@ -70,10 +69,6 @@ if (error || !supabaseTrail) {
 
 const trailData = mapSupabaseTrail(supabaseTrail, lang);
 
-// ------------------------------------------------------------
-// Related trails
-// ------------------------------------------------------------
-
 const { data: trailRelations, error: relationsError } = await supabase
   .from("trail_relations")
   .select(`
@@ -108,7 +103,7 @@ const { data: trailRelations, error: relationsError } = await supabase
   .order("display_order", { ascending: true });
 
 if (relationsError) {
-  console.error("Error fetching trail relations:", relationsError);
+  console.error("TRAIL RELATIONS ERROR:", relationsError);
 }
 
 const relatedTrails = (trailRelations ?? []).map(
@@ -117,41 +112,27 @@ const relatedTrails = (trailRelations ?? []).map(
     title: string;
     href: string;
   } => {
-    // Supabase may return the relation as an array
-    // or as a single object depending on the relationship.
     const relatedTrail = Array.isArray(relation.related_trail)
       ? relation.related_trail[0]
       : relation.related_trail;
 
-    // --------------------------------------------------------
-    // Internal relation
-    // --------------------------------------------------------
-
     if (relatedTrail) {
-      const translation =
-        relatedTrail.trail_translations?.find(
-          (tr: { language: string }) => tr.language === lang,
-        ) ??
-        relatedTrail.trail_translations?.find(
-          (tr: { language: string }) => tr.language === "bg",
-        );
+      const translation = relatedTrail.trail_translations?.find((tr: { language: string }) => tr.language === lang,) ??
+      relatedTrail.trail_translations?.find(
+        (tr: { language: string }) => tr.language === "bg",
+      );
 
       return {
         type: "internal",
         title: translation?.title ?? relatedTrail.slug,
-        href: `${lang === "en" ? "/en" : ""}/trails/${relatedTrail.slug}`,
+        href: `/trails/${relatedTrail.slug}`,
+        
       };
     }
 
-    // --------------------------------------------------------
-    // External relation
-    // --------------------------------------------------------
-
     return {
       type: "external",
-      title:
-        relation.external_title ??
-        (lang === "en" ? "Related trail" : "Свързана пътека"),
+      title: relation.external_title ?? "Related trail",
       href: relation.external_url ?? "#",
     };
   },
@@ -164,17 +145,9 @@ const relatedTrails = (trailRelations ?? []).map(
   lang={lang}
 >
   <TrailHero trail={trailData} />
-
   <TrailOverview trail={trailData} />
-
   <TrailDescription trail={trailData} />
-
   <TrailMap trail={trailData} />
-
-  <TrailGallery
-    trail={trailData}
-    images={trailData.gallery}
-  />
-
+  <TrailGallery trail={trailData} images={trailData.gallery} />
   <TrailRelated trails={relatedTrails} />
 </MainLayout>

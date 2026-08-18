@@ -1,7 +1,10 @@
 ---
 import "./trail-related.css";
 import bg from "../../i18n/bg";
-const t = bg;
+import en from "../../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
 
 interface Props {
   trails: {
@@ -17,9 +20,9 @@ const { trails } = Astro.props;
   <div class="container">
     <h2>{t.trails.related.title}</h2>
     <div class="related-list">
-      {trails.map((trail) => (
-  <a
-    href={trail.href}
+{trails.map((trail) => (
+  
+    <a href={trail.href}
     class:list={[
       "related-link",
       { "external-link": trail.type === "external" },

@@ -12,7 +12,7 @@ interface Props {
 }
 const { trail } = Astro.props;
 const formattedLastVisited = new Date(trail.lastVisited).toLocaleDateString(
-  "bg-BG",
+  isEnglish ? "en-GB" : "bg-BG",
   {
     day: "numeric",
     month: "long",
@@ -26,24 +26,24 @@ const formattedLastVisited = new Date(trail.lastVisited).toLocaleDateString(
 
     <div class="overview-card">
       <div class="overview-row">
-        <span class="label">{t.trails.overview.distance}</span>
-        <span class="value">{trail.distance} км.</span>
-      </div>
+  <span class="label">{t.trails.overview.distance}</span>
+  <span class="value">{trail.distance} {isEnglish ? "km" : "км."}</span>
+</div>
 
-      <div class="overview-row">
-        <span class="label">{t.trails.overview.elevationGain}</span>
-        <span class="value">{trail.elevationGain} м.</span>
-      </div>
+<div class="overview-row">
+  <span class="label">{t.trails.overview.elevationGain}</span>
+  <span class="value">{trail.elevationGain} {isEnglish ? "m" : "м."}</span>
+</div>
 
-      <div class="overview-row">
-        <span class="label">{t.trails.overview.highestPoint}</span>
-        <span class="value">{trail.highestPoint} м.</span>
-      </div>
+<div class="overview-row">
+  <span class="label">{t.trails.overview.highestPoint}</span>
+  <span class="value">{trail.highestPoint} {isEnglish ? "m" : "м."}</span>
+</div>
 
-      <div class="overview-row">
-        <span class="label">{t.trails.overview.estimatedTime}</span>
-        <span class="value">{trail.durationHours} ч.</span>
-      </div>
+<div class="overview-row">
+  <span class="label">{t.trails.overview.estimatedTime}</span>
+  <span class="value">{trail.durationHours} {isEnglish ? "h" : "ч."}</span>
+</div>
 
       <div class="overview-row">
         <span class="label">{t.trails.overview.status}</span>

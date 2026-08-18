@@ -3,7 +3,10 @@ import "./trail-gallery.css";
 import TrailGalleryClient from "../../components/trail/TrailGalleryClient.astro";
 import type { Trail } from "../../types/trail";
 import bg from "../../i18n/bg";
-const t = bg;
+import en from "../../i18n/en";
+
+const isEnglish = Astro.url.pathname.startsWith("/en");
+const t = isEnglish ? en : bg;
 
 interface Props {
   trail: Trail;
