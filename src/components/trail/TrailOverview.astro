@@ -1,16 +1,16 @@
 ---
 import "./trail-overview.css";
 import type { Trail } from "../../types/trail";
-import bg from "../../i18n/bg";
-import en from "../../i18n/en";
-
-const isEnglish = Astro.url.pathname.startsWith("/en");
-const t = isEnglish ? en : bg;
+import type { Lang } from "../../i18n";
+import { getTranslations } from "../../i18n";
 
 interface Props {
   trail: Trail;
+  lang: Lang;
 }
-const { trail } = Astro.props;
+const { trail, lang } = Astro.props;
+const t = getTranslations(lang);
+const isEnglish = lang === "en";
 const formattedLastVisited = new Date(trail.lastVisited).toLocaleDateString(
   isEnglish ? "en-GB" : "bg-BG",
   {

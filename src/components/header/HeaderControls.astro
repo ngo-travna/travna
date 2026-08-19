@@ -1,24 +1,29 @@
 ---
-const isEnglish = Astro.url.pathname.startsWith("/en");
-
+import type { Lang } from "../../i18n";
 import SunIcon from '../../assets/icons/sun.svg';
 import MoonIcon from '../../assets/icons/moon.svg';
 import MenuIcon from '../../assets/icons/menu.svg';
 import CloseIcon from '../../assets/icons/close.svg';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const isEnglish = lang === "en";
 ---
 
 <div class="header-controls">
 
   <nav class="language-switch" aria-label="Language">
-    <a
-      href="/"
+    
+     <a href="/"
       class={`language-button ${!isEnglish ? "active" : ""}`}
     >
       BG
     </a>
     <span class="language-divider">|</span>
-    <a
-      href="/en/"
+    
+      <a href="/en/"
       class={`language-button ${isEnglish ? "active" : ""}`}
     >
       EN

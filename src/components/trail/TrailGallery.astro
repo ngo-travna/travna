@@ -2,11 +2,8 @@
 import "./trail-gallery.css";
 import TrailGalleryClient from "../../components/trail/TrailGalleryClient.astro";
 import type { Trail } from "../../types/trail";
-import bg from "../../i18n/bg";
-import en from "../../i18n/en";
-
-const isEnglish = Astro.url.pathname.startsWith("/en");
-const t = isEnglish ? en : bg;
+import type { Lang } from "../../i18n";
+import { getTranslations } from "../../i18n";
 
 interface Props {
   trail: Trail;
@@ -15,9 +12,11 @@ interface Props {
     url: string;
     caption: string | null;
   }[];
+  lang: Lang;
 }
 
-const { trail, images } = Astro.props;
+const { trail, images, lang } = Astro.props;
+const t = getTranslations(lang);
 ---
 
 <section class="trail-gallery">

@@ -1,10 +1,7 @@
 ---
 import "./trail-related.css";
-import bg from "../../i18n/bg";
-import en from "../../i18n/en";
-
-const isEnglish = Astro.url.pathname.startsWith("/en");
-const t = isEnglish ? en : bg;
+import type { Lang } from "../../i18n";
+import { getTranslations } from "../../i18n";
 
 interface Props {
   trails: {
@@ -12,28 +9,29 @@ interface Props {
     title: string;
     href: string;
   }[];
+  lang: Lang;
 }
-const { trails } = Astro.props;
+const { trails, lang } = Astro.props;
+const t = getTranslations(lang);
 ---
 
 <section class="trail-related">
   <div class="container">
     <h2>{t.trails.related.title}</h2>
     <div class="related-list">
-{trails.map((trail) => (
-  
-    <a href={trail.href}
-    class:list={[
-      "related-link",
-      { "external-link": trail.type === "external" },
-    ]}
-    target={trail.type === "external" ? "_blank" : undefined}
-    rel={trail.type === "external" ? "noopener noreferrer" : undefined}
-  >
-    {trail.title}
-    {trail.type === "external" && <span class="external-icon">↗</span>}
-  </a>
-))}
+      {trails.map((trail) => (
+          <a href={trail.href}
+          class:list={[
+            "related-link",
+            { "external-link": trail.type === "external" },
+          ]}
+          target={trail.type === "external" ? "_blank" : undefined}
+          rel={trail.type === "external" ? "noopener noreferrer" : undefined}
+        >
+          {trail.title}
+          {trail.type === "external" && <span class="external-icon">↗</span>}
+        </a>
+      ))}
     </div>
   </div>
 </section>

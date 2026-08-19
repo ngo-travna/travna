@@ -10,12 +10,12 @@ import TrailRelated from "../../components/trail/TrailRelated.astro";
 import { supabase } from "../../lib/supabase";
 import { mapSupabaseTrail } from "../../types/mapTrail";
 
-import bg from "../../i18n/bg";
-import en from "../../i18n/en";
+import { getTranslations, isEnglish } from "../../i18n";
+import type { Lang } from "../../i18n";
 
-const isEnglish = Astro.url.pathname.startsWith("/en");
-const t = isEnglish ? en : bg;
-const lang = isEnglish ? "en" : "bg";
+const lang: Lang = "bg";
+const t = getTranslations(lang);
+const isLangEnglish = isEnglish(lang);
 
 export async function getStaticPaths() {
   const { data: trails, error } = await supabase
@@ -117,15 +117,9 @@ const relatedTrails = (trailRelations ?? []).map(
     title: string;
     href: string;
   } => {
-    // Supabase may return the relation as an array
-    // or as a single object depending on the relationship.
     const relatedTrail = Array.isArray(relation.related_trail)
       ? relation.related_trail[0]
       : relation.related_trail;
-
-    // --------------------------------------------------------
-    // Internal relation
-    // --------------------------------------------------------
 
     if (relatedTrail) {
       const translation =
@@ -139,42 +133,27 @@ const relatedTrails = (trailRelations ?? []).map(
       return {
         type: "internal",
         title: translation?.title ?? relatedTrail.slug,
-        href: `${lang === "en" ? "/en" : ""}/trails/${relatedTrail.slug}`,
+        href: `${isLangEnglish  ? "/en" : ""}/trails/${relatedTrail.slug}`,
       };
     }
 
-    // --------------------------------------------------------
-    // External relation
-    // --------------------------------------------------------
-
     return {
       type: "external",
-      title:
-        relation.external_title ??
-        (lang === "en" ? "Related trail" : "Свързана пътека"),
+      title: relation.external_title ?? (isLangEnglish  ? "Related trail" : "Свързана пътека"),
       href: relation.external_url ?? "#",
     };
   },
 );
-
 ---
 
 <MainLayout
-  title={`${trailData.title} | ${lang === "bg" ? "ТРЪВНА" : "TRAVNA"}`}
+  title={`${trailData.title} | ${t.siteName}`}
   lang={lang}
 >
-  <TrailHero trail={trailData} />
-
-  <TrailOverview trail={trailData} />
-
-  <TrailDescription trail={trailData} />
-
-  <TrailMap trail={trailData} />
-
-  <TrailGallery
-    trail={trailData}
-    images={trailData.gallery}
-  />
-
-  <TrailRelated trails={relatedTrails} />
+  <TrailHero trail={trailData} lang={lang} />
+  <TrailOverview trail={trailData} lang={lang} />
+  <TrailDescription trail={trailData} lang={lang} />
+  <TrailMap trail={trailData} lang={lang} />
+  <TrailGallery trail={trailData} images={trailData.gallery} lang={lang} />
+  <TrailRelated trails={relatedTrails} lang={lang} />
 </MainLayout>

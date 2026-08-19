@@ -1,8 +1,14 @@
 ---
 import "./header.css";
+import type { Lang } from "../../i18n";
 
 import Navigation from "./Navigation.astro";
 import HeaderControls from "./HeaderControls.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
 ---
 
 <header class="site-header">
@@ -15,8 +21,8 @@ import HeaderControls from "./HeaderControls.astro";
           class="logo-image"
         />
       </a>
-      <Navigation />
-      <HeaderControls />
+      <Navigation lang={lang} />
+      <HeaderControls lang={lang} />
     </div>
   </div>
 </header>

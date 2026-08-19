@@ -19,9 +19,7 @@ const en = {
     park: 'Central Balkan National Park',
   },
 
-  site: {
-    name: 'TRAVNA',
-  },
+  siteName: 'TRAVNA',
 
   home: {
     pageTitle: 'Home | TRAVNA',

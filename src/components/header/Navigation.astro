@@ -1,9 +1,13 @@
 ---
 import { getNavigation } from "../../lib/navigation";
+import type { Lang } from "../../i18n";
 
-const isEnglish = Astro.url.pathname.startsWith("/en");
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
 
-const navigation = getNavigation(isEnglish);
+const navigation = getNavigation(lang === "en");
 ---
 
 <nav id="main-navigation" class="main-nav">
