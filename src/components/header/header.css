@@ -18,7 +18,7 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
 
-  height: 74px;
+  height: 80px;
   gap: var(--space-lg);
 }
 
