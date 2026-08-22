@@ -121,7 +121,7 @@ const en = {
       outdoor: {
         title: 'Outdoor events',
         description:
-          'We organise sports and outdoor activities for people of all ages',
+          'We organize sporting and outdoor events for people who love the mountains and an active lifestyle.',
       },
 
       education: {
@@ -134,7 +134,7 @@ const en = {
     competitions: {
       title: 'Competitions',
       description:
-        'TRAVNA members participate in trail running, ski mountaineering, triathlon (swimming, cycling and running), representing our community. Officially published results from recent years:',
+        'TRAVNA Mountain Sports Club was founded by people who share a love for the mountains, sport, and a healthy lifestyle, with a particular focus on mountain running and cycling, triathlon, ski mountaineering, hiking, and outdoor recreation. The association is not focused on the development of professional sport. Members of TRAVNA participate in mountain running, ski mountaineering, and triathlon competitions (swimming, cycling, and running), representing our community. Officially published results from recent years:',
       results: 'View results →',
     },
 

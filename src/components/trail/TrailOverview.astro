@@ -57,10 +57,12 @@ const formattedLastVisited = new Date(trail.lastVisited).toLocaleDateString(
           `🔵  ${t.trails.list.status.passed_by_travna}`}</span>
       </div>
 
-      <div class="overview-row">
-        <span class="label">{t.trails.overview.lastMaintenance}</span>
-        <span class="value">{formattedLastVisited}</span>
-      </div>
+      {trail.status !== "passed_by_travna" && (
+        <div class="overview-row">
+          <span class="label">{t.trails.overview.lastMaintenance}</span>
+          <span class="value">{formattedLastVisited}</span>
+        </div>
+      )}
     </div>
   </div>
 </section>
