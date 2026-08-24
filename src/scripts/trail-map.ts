@@ -1,6 +1,14 @@
+// import * as maplibregl from 'maplibre-gl';
+// import 'maplibre-gl/dist/maplibre-gl.css';
+// import { loadGpx } from '../lib/gpx';
+
 import * as maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import { loadGpx } from '../lib/gpx';
+
+import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
+
+maplibregl.setWorkerUrl(maplibreWorkerUrl);
 
 export function initTrailMap() {
   const container = document.getElementById('trail-map');
