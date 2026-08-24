@@ -136,7 +136,7 @@
   font: inherit;
   font-size: 1.2rem;
 
-  color: var(--color-text-light);
+  color: var(--color-text);
 
   transition:
     color var(--transition-fast),
@@ -145,7 +145,7 @@
 
 .menu-button:hover,
 .theme-button:hover {
-  color: var(--color-primary);
+  color: var(--color-accent);
 }
 
 .menu-button {
