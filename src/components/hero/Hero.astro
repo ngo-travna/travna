@@ -34,11 +34,11 @@ import { Image } from "astro:assets";
                     {t.home.hero.description}
                 </p>
                 <a
-                    href="/trails"
+                    href={isEnglish ? "/en/trails" : "/trails"}
                     class="hero-button"
-                >
+                    >
                     {t.home.hero.button}
-                </a>
+                    </a>
             </div>
         </div>
     </div>
