@@ -26,13 +26,15 @@ import { Image } from "astro:assets";
                     alt="TRAVNA"
                     class="hero-logo"
                 />
-                <h1>{t.home.hero.title}</h1>
-                <p class="hero-tagline">
-                    {t.home.hero.tagline}
-                </p>
-                <p class="hero-description">
-                    {t.home.hero.description}
-                </p>
+                <div class="hero-text">
+                    <h1>{t.home.hero.title}</h1>
+                    <p class="hero-tagline">
+                        {t.home.hero.tagline}
+                    </p>
+                    <p class="hero-description">
+                        {t.home.hero.description}
+                    </p>
+                </div>
                 <a
                     href={isEnglish ? "/en/trails" : "/trails"}
                     class="hero-button"
