@@ -14,7 +14,8 @@
 
 .events-hero h2 {
   font-size: 1.5rem;
-  color: var(--color-text-light);
+  letter-spacing: 0.02rem;
+  color: var(--color-text);
 }
 
 .events-hero p {
@@ -23,7 +24,7 @@
   line-height: 1.8;
   font-size: 1.15rem;
   text-align: center;
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
 .event-section h2 {
@@ -31,9 +32,8 @@
   color: var(--color-heading);
 }
 
-v .event-section p {
+.event-section p {
   margin-bottom: 2rem;
-  /* text-align: center; */
 }
 
 .activity-card {
@@ -50,11 +50,14 @@ v .event-section p {
 .activity-card h3 {
   text-align: center;
   margin-bottom: 0.75rem;
+  letter-spacing: 0.04rem;
 }
 
 .activity-card p {
-  color: var(--color-text-light);
+  color: var(--color-text);
   text-align: center;
+  line-height: 1.6;
+  letter-spacing: 0.02rem;
 }
 
 .icon {
@@ -126,7 +129,8 @@ v .event-section p {
   gap: 0.35rem;
   color: var(--color-heading);
   font-weight: 600;
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
   transition: color var(--transition-fast);
 }
 
@@ -155,8 +159,8 @@ v .event-section p {
   align-items: center;
   padding: 1.5rem;
   border-radius: var(--radius-medium);
-  background: var(--color-accent);
-  color: white;
+  background: var(--color-secondary);
+  color: var(--color-surface);
 }
 
 .day {
@@ -182,7 +186,6 @@ v .event-section p {
 }
 
 .event-location {
-  margin-bottom: 1.25rem;
   color: var(--color-text-light);
   font-weight: 600;
 }
@@ -245,5 +248,5 @@ v .event-section p {
   color: var(--color-text-light);
   background: var(--color-surface);
   border: 1px solid var(--color-border);
-  border-radius: 20px;
+  border-radius: var(--radius-medium);
 }
