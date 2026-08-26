@@ -100,8 +100,8 @@ ol {
 .hero-icon {
   display: block;
   margin: 1rem auto;
-  width: 8rem;
-  height: 8rem;
+  width: 4rem;
+  height: 4rem;
   color: var(--color-heading);
 }
 
