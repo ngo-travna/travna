@@ -1,10 +1,9 @@
 ---
 import "./trail-list.css";
-import bg from "../../i18n/bg";
 import type { Lang } from "../../i18n";
 import { getTranslations } from "../../i18n";
-
-type TrailStatus = keyof typeof bg.trails.list.status;
+import type { TrailStatus } from "../../types/trail";
+import TrailFilters from "./TrailFilters.astro";
 
 interface Props {
   trails: {
@@ -30,21 +29,31 @@ const isEnglish = lang === "en";
 
 <section class="trail-list">
   <div class="container">
-    {trails.map((trail) => {
-      const translation =
-        trail.trail_translations.find((tr) => tr.language === lang) ??
-        trail.trail_translations[0];
+    <TrailFilters lang={lang} />
 
-      return (
-        <a href={`${isEnglish ? "/en" : ""}/trails/${trail.slug}`} class="trail-row">
-          <div class="trail-info">
-            <h3>{translation?.title}</h3>
-            <p>{t.trails.list.status[trail.status]}</p>
-            <p>{trail.distance_km}K • {trail.elevation_gain}D+</p>
-          </div>
-          <span class="trail-arrow">→</span>
-        </a>
-      );
-    })}
+    <div class="trail-rows">
+      {trails.map((trail) => {
+        const translation =
+          trail.trail_translations.find((tr) => tr.language === lang) ??
+          trail.trail_translations[0];
+        const title = translation?.title ?? "";
+
+        return (
+          <a
+            href={`${isEnglish ? "/en" : ""}/trails/${trail.slug}`}
+            class="trail-row"
+            data-title={title.toLowerCase()}
+            data-status={trail.status}
+          >
+            <div class="trail-info">
+              <h3>{title}</h3>
+              <p>{t.trails.list.status[trail.status]}</p>
+              <p>{trail.distance_km}K • {trail.elevation_gain}D+</p>
+            </div>
+            <span class="trail-arrow">→</span>
+          </a>
+        );
+      })}
+    </div>
   </div>
 </section>
