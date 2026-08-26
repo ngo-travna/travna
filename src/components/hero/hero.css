@@ -37,7 +37,7 @@
 
 .hero-logo {
   width: 10rem;
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 
 .hero h1 {
@@ -81,18 +81,18 @@
 @media (max-width: 640px) {
   .hero-overlay {
     align-items: flex-start;
-    padding-top: 1.25rem;
+    padding-top: 2rem;
   }
 
   .hero-logo {
     width: 8rem;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
   }
 
   .hero h1 {
     font-size: clamp(2.5rem, 12vw, 3.5rem);
     line-height: 1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
   }
   .hero-tagline {
     font-size: clamp(1.4rem, 6vw, 1.8rem);
