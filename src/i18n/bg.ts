@@ -159,6 +159,9 @@ const bg = {
         partly_maintained: 'Частично поддържана',
         passed_by_travna: 'Премината от ТРЪВНА',
       },
+      searchPlaceholder: 'Търсене на пътека...',
+      filterAll: 'Всички',
+      noResults: 'Няма намерени пътеки',
     },
   },
 };

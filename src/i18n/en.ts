@@ -192,6 +192,10 @@ const en = {
         partly_maintained: 'Partly maintained',
         passed_by_travna: 'Passed by TRAVNA',
       },
+
+      searchPlaceholder: 'Search trails...',
+      filterAll: 'All',
+      noResults: 'No trails found',
     },
   },
 };
