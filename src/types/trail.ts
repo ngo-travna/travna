@@ -1,7 +1,9 @@
+export type TrailStatus = 'maintained' | 'partly_maintained' | 'passed_by_travna';
+
 export interface Trail {
   id: string;
   slug: string;
-  status: 'maintained' | 'partly_maintained' | 'passed_by_travna';
+  status: TrailStatus;
   lastVisited: string | Date;
   title: string;
   description: string;

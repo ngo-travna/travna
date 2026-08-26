@@ -1,0 +1,79 @@
+---
+import "./trail-filters.css";
+import type { Lang } from "../../i18n";
+import { getTranslations } from "../../i18n";
+import type { TrailStatus } from "../../types/trail";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = getTranslations(lang);
+
+const statuses: TrailStatus[] = [
+  "maintained",
+  "partly_maintained",
+  "passed_by_travna",
+];
+---
+
+<div class="trail-controls">
+  <input
+    type="text"
+    class="trail-search"
+    placeholder={t.trails.list.searchPlaceholder}
+    aria-label={t.trails.list.searchPlaceholder}
+  />
+  <div class="trail-status-filter" role="group">
+    <button type="button" class="status-pill is-active" data-status-filter="all">
+      {t.trails.list.filterAll}
+    </button>
+    {statuses.map((status) => (
+      <button type="button" class="status-pill" data-status-filter={status}>
+        {t.trails.list.status[status]}
+      </button>
+    ))}
+  </div>
+</div>
+
+<p class="trail-no-results" hidden>{t.trails.list.noResults}</p>
+
+<script>
+  // Filters .trail-row elements rendered elsewhere on the page (see TrailList.astro)
+  // by matching against their data-title / data-status attributes.
+  const searchInput = document.querySelector<HTMLInputElement>(".trail-search");
+  const filterButtons = document.querySelectorAll<HTMLButtonElement>("[data-status-filter]");
+  const noResults = document.querySelector<HTMLElement>(".trail-no-results");
+
+  let activeStatus = "all";
+
+  function applyFilters() {
+    const rows = document.querySelectorAll<HTMLAnchorElement>(".trail-row");
+    const query = (searchInput?.value ?? "").trim().toLowerCase();
+    let visibleCount = 0;
+
+    rows.forEach((row) => {
+      const matchesSearch = !query || (row.dataset.title ?? "").includes(query);
+      const matchesStatus = activeStatus === "all" || row.dataset.status === activeStatus;
+      const isVisible = matchesSearch && matchesStatus;
+
+      row.hidden = !isVisible;
+      if (isVisible) visibleCount++;
+    });
+
+    if (noResults) {
+      noResults.hidden = visibleCount !== 0;
+    }
+  }
+
+  searchInput?.addEventListener("input", applyFilters);
+
+  filterButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      activeStatus = button.dataset.statusFilter ?? "all";
+      filterButtons.forEach((b) => b.classList.toggle("is-active", b === button));
+      applyFilters();
+    });
+  });
+</script>
