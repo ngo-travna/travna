@@ -14,15 +14,13 @@
 
 .mission-hero h2 {
   font-size: 1.5rem;
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
 .mission-hero p {
-  max-width: 840px;
   margin: 2rem auto 0;
   line-height: 1.8;
   font-size: 1.1rem;
-  line-height: 1.8;
   text-align: center;
 }
 
@@ -83,7 +81,7 @@
 .value-card p {
   max-width: none;
   line-height: 1.6;
-  color: var(--color-text-light);
+  color: var(--color-text);
 }
 
 .work-icon {
@@ -182,6 +180,8 @@
 }
 
 .contact-item a {
+  color: var(--color-secondary);
+  font-weight: 500;
   transition: color var(--transition-fast);
 }
 
