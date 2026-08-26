@@ -19,6 +19,10 @@
   transition: color 0.2s ease;
 }
 
+.trail-row[hidden] {
+  display: none;
+}
+
 .trail-row:first-child {
   border-top: 1px solid var(--color-border);
 }
