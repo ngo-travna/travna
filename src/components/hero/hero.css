@@ -64,14 +64,14 @@
   font-weight: 400;
   letter-spacing: 0.04rem;
   margin-bottom: 1rem;
-  color: var(--color-surface);
+  color: white;
 }
 
 .hero-description {
   max-width: 600px;
   line-height: 1.8;
   letter-spacing: 0.02rem;
-  color: var(--color-surface);
+  color: white;
   font-size: clamp(1rem, 1.4vw, 1.2rem);
 }
 
@@ -83,7 +83,7 @@
   padding: 0.9rem 2rem;
   border-radius: 999px;
   background: var(--color-secondary);
-  color: var(--color-surface);
+  color: white;
   font-weight: 600;
   letter-spacing: 0.04em;
 }
