@@ -3,12 +3,11 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import TrailsHero from "../../components/trails/TrailsHero.astro";
 import TrailList from "../../components/trails/TrailList.astro";
 import { supabase } from "../../lib/supabase";
+import type { Lang } from "../../i18n";
+import { getTranslations } from "../../i18n";
 
-import bg from "../../i18n/bg";
-import en from "../../i18n/en";
-const isEnglish = Astro.url.pathname.startsWith("/en");
-const t = isEnglish ? en : bg;
-const lang = isEnglish ? "en" : "bg";
+const lang: Lang = "en";
+const t = getTranslations(lang);
 
 const { data: trails, error } = await supabase
   .from("trails")
@@ -35,6 +34,6 @@ if (error) {
   title={t.trails.pageTitle}
   lang={lang}
 >
-  <TrailsHero />
+  <TrailsHero lang={lang} />
   <TrailList trails={trails ?? []} lang={lang} />
 </MainLayout>

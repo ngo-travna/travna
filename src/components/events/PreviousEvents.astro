@@ -1,12 +1,14 @@
 ---
 import "./events.css";
-import {Library} from "../../lib/icons";
+import { Library } from "../../lib/icons";
+import type { Lang } from "../../i18n";
+import { getTranslations } from "../../i18n";
 
-import bg from "../../i18n/bg";
-import en from "../../i18n/en";
-
-const isEnglish = Astro.url.pathname.startsWith("/en");
-const t = isEnglish ? en : bg;
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = getTranslations(lang);
 ---
 
 <section class="event-section">

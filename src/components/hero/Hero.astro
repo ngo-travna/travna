@@ -1,10 +1,13 @@
 ---
 import "./hero.css";
-import bg from "../../i18n/bg";
-import en from "../../i18n/en";
+import type { Lang } from "../../i18n";
+import { getTranslations, isEnglish } from "../../i18n";
 
-const isEnglish = Astro.url.pathname.startsWith("/en");
-const t = isEnglish ? en : bg;
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = getTranslations(lang);
 
 import heroImage from "../../assets/images/hero/hero-central-balkan.jpg";
 
@@ -36,7 +39,7 @@ import { Image } from "astro:assets";
                     </p>
                 </div>
                 <a
-                    href={isEnglish ? "/en/trails" : "/trails"}
+                    href={isEnglish(lang) ? "/en/trails" : "/trails"}
                     class="hero-button"
                     >
                     {t.home.hero.button}
