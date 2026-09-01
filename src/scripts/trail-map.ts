@@ -1,16 +1,10 @@
-// import * as maplibregl from 'maplibre-gl';
-// import 'maplibre-gl/dist/maplibre-gl.css';
-// import { loadGpx } from '../lib/gpx';
-
-import * as maplibregl from 'maplibre-gl';
-import 'maplibre-gl/dist/maplibre-gl.css';
 import { loadGpx } from '../lib/gpx';
 
-import maplibreWorkerUrl from 'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url';
-
-maplibregl.setWorkerUrl(maplibreWorkerUrl);
-
-export function initTrailMap() {
+// maplibre-gl (~1.4MB uncompressed with its worker) is dynamically imported
+// so it's only downloaded once initTrailMap() actually runs, not bundled
+// eagerly into every trail detail page load. See TrailMapClient.astro,
+// which only calls this once the map section scrolls near the viewport.
+export async function initTrailMap() {
   const container = document.getElementById('trail-map');
 
   if (!container) return;
@@ -22,7 +16,16 @@ export function initTrailMap() {
     return;
   }
 
-  if (!container) return;
+  const [maplibregl] = await Promise.all([
+    import('maplibre-gl'),
+    import('maplibre-gl/dist/maplibre-gl.css'),
+  ]);
+
+  const { default: maplibreWorkerUrl } = await import(
+    'maplibre-gl/dist/maplibre-gl-worker.mjs?worker&url'
+  );
+
+  maplibregl.setWorkerUrl(maplibreWorkerUrl);
 
   const map = new maplibregl.Map({
     container,

@@ -1,5 +1,6 @@
 ---
 import "./trail-gallery.css";
+import { Image } from "astro:assets";
 import TrailGalleryClient from "../../components/trail/TrailGalleryClient.astro";
 import type { Trail } from "../../types/trail";
 import type { Lang } from "../../i18n";
@@ -24,9 +25,13 @@ const t = getTranslations(lang);
     <h2>{t.trails.gallery.title}</h2>
     <div class="gallery-grid">
       {images.map((image, index) => (
-        <img
+        <Image
           src={image.url}
           alt={image.caption ?? `${trail.title} ${index + 1}`}
+          width={1280}
+          height={720}
+          fit="inside"
+          loading="lazy"
           class="gallery-image"
         />
       ))}

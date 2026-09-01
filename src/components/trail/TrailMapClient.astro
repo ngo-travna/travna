@@ -14,5 +14,27 @@ const { gpx } = Astro.props;
 <script>
   import { initTrailMap } from "../../scripts/trail-map";
 
-  initTrailMap();
+  const container = document.getElementById("trail-map");
+
+  if (container) {
+    if ("IntersectionObserver" in window) {
+      // Load maplibre-gl only once the map is about to come into view,
+      // instead of on every trail page load regardless of scroll position.
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              observer.disconnect();
+              initTrailMap();
+            }
+          }
+        },
+        { rootMargin: "300px" }
+      );
+      observer.observe(container);
+    } else {
+      // Fallback for browsers without IntersectionObserver support
+      initTrailMap();
+    }
+  }
 </script>
