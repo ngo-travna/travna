@@ -83,12 +83,6 @@
   color: var(--color-text);
 }
 
-.work-icon {
-  margin-bottom: 1rem;
-  line-height: 1;
-  color: var(--color-text-light);
-}
-
 @media (max-width: 640px) {
   .values-grid {
     grid-template-columns: 1fr;
