@@ -15,7 +15,7 @@ export function initGallery() {
   function show(i: number) {
     index = i;
 
-    preview.src = images[index].src;
+    preview.src = images[index].dataset.fullSrc || images[index].src;
 
     lightbox.classList.remove('hidden');
   }
