@@ -90,5 +90,4 @@
 
 .hero-button:hover {
   background: var(--color-primary);
-  color: var(--color-surface);
 }

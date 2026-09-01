@@ -160,7 +160,7 @@
   padding: 1.5rem;
   border-radius: var(--radius-medium);
   background: var(--color-secondary);
-  color: var(--color-surface);
+  color: white;
 }
 
 .day {
