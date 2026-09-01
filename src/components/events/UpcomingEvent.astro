@@ -1,14 +1,15 @@
 ---
 import "./events.css";
-import {MapPin} from "../../lib/icons";
-import {supabase} from "../../lib/supabase";
+import { MapPin } from "../../lib/icons";
+import { supabase } from "../../lib/supabase";
+import type { Lang } from "../../i18n";
+import { getTranslations, isEnglish } from "../../i18n";
 
-import bg from "../../i18n/bg";
-import en from "../../i18n/en";
-
-const isEnglish = Astro.url.pathname.startsWith("/en");
-const t = isEnglish ? en : bg;
-const lang = isEnglish ? "en" : "bg";
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = getTranslations(lang);
 
 const { data: events, error } = await supabase
   .from("events")
@@ -42,7 +43,7 @@ const eventDate = event ? new Date(event.date) : null;
 
 const day = eventDate?.getDate();
 const month = eventDate
-  ? new Intl.DateTimeFormat(isEnglish ? "en-GB" : "bg-BG", { month: "short" })
+  ? new Intl.DateTimeFormat(isEnglish(lang) ? "en-GB" : "bg-BG", { month: "short" })
       .format(eventDate)
       .toUpperCase()
   : null;
