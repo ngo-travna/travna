@@ -1,6 +1,6 @@
 ---
 import "./trail-gallery.css";
-import { Image } from "astro:assets";
+import { Image, getImage } from "astro:assets";
 import TrailGalleryClient from "../../components/trail/TrailGalleryClient.astro";
 import type { Trail } from "../../types/trail";
 import type { Lang } from "../../i18n";
@@ -18,21 +18,42 @@ interface Props {
 
 const { trail, images, lang } = Astro.props;
 const t = getTranslations(lang);
+
+// Thumbnails stay small (1280x720 max) for a fast-loading grid; the lightbox
+// gets a separate, larger variant (1920x1080 max) so full-screen viewing
+// isn't limited to thumbnail resolution. Both are still compressed/converted
+// to WebP by Astro's image pipeline - neither serves the raw original.
+const galleryImages = await Promise.all(
+  images.map(async (image, index) => {
+    const full = await getImage({
+      src: image.url,
+      width: 1920,
+      height: 1080,
+      fit: "inside",
+    });
+    return {
+      ...image,
+      alt: image.caption ?? `${trail.title} ${index + 1}`,
+      fullSrc: full.src,
+    };
+  })
+);
 ---
 
 <section class="trail-gallery">
   <div class="container">
     <h2>{t.trails.gallery.title}</h2>
     <div class="gallery-grid">
-      {images.map((image, index) => (
+      {galleryImages.map((image) => (
         <Image
           src={image.url}
-          alt={image.caption ?? `${trail.title} ${index + 1}`}
+          alt={image.alt}
           width={1280}
           height={720}
           fit="inside"
           loading="lazy"
           class="gallery-image"
+          data-full-src={image.fullSrc}
         />
       ))}
     </div>
