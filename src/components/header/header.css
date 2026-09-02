@@ -6,10 +6,8 @@
   position: sticky;
   top: 0;
   z-index: 100;
-
   background: var(--color-background);
   border-bottom: 1px solid var(--color-border);
-
   backdrop-filter: blur(10px);
 }
 
@@ -17,7 +15,6 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-
   height: 80px;
   gap: var(--space-lg);
 }
@@ -36,7 +33,6 @@
 .logo-image {
   height: 70px;
   width: auto;
-
   transition: transform var(--transition-normal);
 }
 
@@ -63,7 +59,7 @@
 }
 
 .main-nav a:hover {
-  color: var(--color-heading);
+  color: var(--color-secondary);
 }
 
 .nav-list {
@@ -77,33 +73,26 @@
 
 .nav-list a {
   position: relative;
-
   color: var(--color-text);
   font-weight: 500;
   text-decoration: none;
-
   transition: color var(--transition-fast);
 }
 
 .nav-list a::after {
   content: '';
-
   position: absolute;
   left: 50%;
   bottom: -6px;
-
   width: 0;
   height: 2px;
-
   background: var(--color-secondary);
-
   transform: translateX(-50%);
-
   transition: width var(--transition-normal);
 }
 
 .nav-list a:hover {
-  color: var(--color-accent);
+  color: var(--color-secondary);
 }
 
 .nav-list a:hover::after {
@@ -125,19 +114,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0.25rem;
-
   border: none;
   background: none;
-
   cursor: pointer;
-
   font: inherit;
   font-size: 1.2rem;
-
   color: var(--color-text);
-
   transition:
     color var(--transition-fast),
     transform var(--transition-fast);
@@ -165,13 +148,10 @@
     top: 74px;
     left: 0;
     right: 0;
-
     background: var(--color-background);
     backdrop-filter: blur(12px);
     border-top: 1px solid var(--color-border);
-
     box-shadow: var(--shadow-small);
-
     z-index: 100;
   }
 
@@ -179,9 +159,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
     gap: 1.5rem;
-
     padding: 1.5rem 0;
   }
 
@@ -209,7 +187,6 @@
   display: flex;
   align-items: center;
   gap: 0.2rem;
-
   margin-right: var(--space-md);
 }
 
@@ -217,17 +194,14 @@
   background: none;
   border: none;
   padding: 0.2rem;
-
   font: inherit;
   cursor: pointer;
-
   color: var(--color-text-light);
-
   transition: color var(--transition-fast);
 }
 
 .language-button:hover {
-  color: var(--color-accent);
+  color: var(--color-secondary);
 }
 
 .language-button.active {
@@ -251,10 +225,10 @@
 .theme-button:hover svg {
   transform: rotate(20deg);
 }
+
 .menu-button svg {
   width: 24px;
   height: 24px;
-
   transition: transform var(--transition-normal);
 }
 
