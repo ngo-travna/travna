@@ -53,7 +53,7 @@ export function initGallery() {
     updateTransform();
   }
 
-  function show(i: number) {
+  const show = (i: number) => {
     index = i;
 
     resetZoom();
@@ -61,12 +61,12 @@ export function initGallery() {
     preview.src = images[index].dataset.fullSrc || images[index].src;
 
     lightbox.classList.remove('hidden');
-  }
+  };
 
-  function closeLightbox() {
+  const closeLightbox = () => {
     lightbox.classList.add('hidden');
     resetZoom();
-  }
+  };
 
   images.forEach((img, i) => {
     img.addEventListener('click', () => show(i));

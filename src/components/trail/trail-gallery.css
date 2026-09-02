@@ -46,10 +46,6 @@
   }
 }
 
-.hidden {
-  display: none;
-}
-
 .lightbox {
   position: fixed;
   inset: 0;
@@ -58,6 +54,10 @@
   justify-content: center;
   align-items: center;
   background: var(--color-background);
+}
+
+.lightbox.hidden {
+  display: none;
 }
 
 .lightbox-image {
