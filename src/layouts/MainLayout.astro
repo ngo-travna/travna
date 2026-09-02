@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import "@fontsource-variable/inter-tight";
 import Header from "../components/header/Header.astro";
 import Footer from "../components/footer/Footer.astro";
 import Analytics from '@vercel/analytics/astro'
@@ -30,16 +31,6 @@ const {
   />
   <link rel="icon" href="/favicon.ico" />
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  />
-  
   <script>
     import { initializeTheme } from "../lib/theme.js";
     initializeTheme();
@@ -59,7 +50,3 @@ const {
     <Analytics />
 </body>
 </html>
-
-<style is:global>
-  @import "../styles/global.css";
-</style>

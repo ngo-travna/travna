@@ -1,5 +1,6 @@
 ---
 import "./trail-hero.css";
+import { Image } from "astro:assets";
 import type { Trail } from "../../types/trail";
 import type { Lang } from "../../i18n";
 import { getTranslations } from "../../i18n";
@@ -23,10 +24,17 @@ const status = statusConfig[trail.status];
 ---
 
 <section class="trail-hero">
-  <div
-    class="trail-hero-image"
-    style={`background-image: url('${trail.heroImage}')`}
-  ></div>
+  <div class="trail-hero-image-wrap">
+    <Image
+      src={trail.heroImage}
+      alt=""
+      class="trail-hero-image"
+      layout="full-width"
+      priority
+      width={2400}
+      height={1200}
+    />
+  </div>
 
   <div class="trail-hero-overlay">
     <div class="container">

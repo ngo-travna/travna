@@ -16,7 +16,7 @@
   --color-border: #e6dfc5;
   --color-heading: var(--color-secondary);
   /* Typography */
-  --font-family: 'Inter Tight', sans-serif;
+  --font-family: 'Inter Tight Variable', 'Inter Tight', sans-serif;
 
   /* Border Radius */
   --radius-small: 6px;
