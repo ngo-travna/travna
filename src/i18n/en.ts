@@ -17,6 +17,9 @@ const en = {
     pss: 'Mountain Rescue Service',
     forecast: 'Weather forecast',
     park: 'Central Balkan National Park',
+    instagram: 'Instagram',
+    facebook: 'Facebook',
+    balkanatry: 'Balkana-TRY',
   },
 
   siteName: 'TRAVNA',
