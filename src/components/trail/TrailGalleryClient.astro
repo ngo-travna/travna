@@ -7,5 +7,10 @@
 </div>
 <script>
   import { initGallery } from "../../scripts/gallery";
-  initGallery();
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initGallery);
+  } else {
+    initGallery();
+  }
 </script>
