@@ -45,16 +45,18 @@ const galleryImages = await Promise.all(
     <h2>{t.trails.gallery.title}</h2>
     <div class="gallery-grid">
       {galleryImages.map((image) => (
-        <Image
-          src={image.url}
-          alt={image.alt}
-          width={1280}
-          height={720}
-          fit="inside"
-          loading="lazy"
-          class="gallery-image"
-          data-full-src={image.fullSrc}
-        />
+        <div class="gallery-image-wrap">
+          <Image
+            src={image.url}
+            alt={image.alt}
+            width={1280}
+            height={720}
+            fit="inside"
+            loading="lazy"
+            class="gallery-image"
+            data-full-src={image.fullSrc}
+          />
+        </div>
       ))}
     </div>
     <TrailGalleryClient />
