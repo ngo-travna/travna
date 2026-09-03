@@ -8,11 +8,9 @@ import { getTranslations, isEnglish } from "../../i18n";
 interface Props {
   lang: Lang;
 }
-
 const { lang } = Astro.props;
 const t = getTranslations(lang);
 
-/* Get the next upcoming event */
 const { data: events, error } = await supabase
   .from("events")
   .select(`
@@ -23,8 +21,7 @@ const { data: events, error } = await supabase
       title,
       description,
       place,
-      language,
-      document_link_text
+      language
     )
   `)
   .gte("date", new Date().toISOString())
@@ -37,57 +34,25 @@ if (error) {
 
 const event = events?.[0] ?? null;
 
-/* Select the correct translation */
 const translation = event
-  ? (
-      event.event_translations.find((tr) => tr.language === lang) ??
-      event.event_translations.find((tr) => tr.language === "bg")
-    )
+  ? (event.event_translations.find((tr) => tr.language === lang) ??
+     event.event_translations.find((tr) => tr.language === "bg"))
   : null;
 
-/* Get the PDF separately */
-let documentUrl: string | null = null;
-
-if (event) {
-  const { data: document, error: documentError } = await supabase
-    .from("event_documents")
-    .select("file_path")
-    .eq("event_id", event.id)
-    .maybeSingle();
-
-  if (documentError) {
-    console.error("Error fetching event document:", documentError);
-  }
-
-  if (document) {
-    documentUrl = supabase.storage
-      .from("event-documents")
-      .getPublicUrl(document.file_path)
-      .data.publicUrl;
-  }
-}
-
-/* Event date */
 const eventDate = event ? new Date(event.date) : null;
 
 const day = eventDate?.getDate();
-
 const month = eventDate
-  ? new Intl.DateTimeFormat(
-      isEnglish(lang) ? "en-GB" : "bg-BG",
-      { month: "short" }
-    )
+  ? new Intl.DateTimeFormat(isEnglish(lang) ? "en-GB" : "bg-BG", { month: "short" })
       .format(eventDate)
       .toUpperCase()
   : null;
-
 const year = eventDate?.getFullYear();
 ---
 
 <section class="event-section">
   <div class="container">
     <h2>{t.events.upcoming.title}</h2>
-
     {event && translation && (
       <div class="upcoming-card">
         <div class="event-date-box">
@@ -95,35 +60,14 @@ const year = eventDate?.getFullYear();
           <span class="month">{month}</span>
           <span class="year">{year}</span>
         </div>
-
         <div class="event-content">
           <h3>{translation.title}</h3>
-
           <p class="event-location">
-            <MapPin />
-            <a
-              href={event.location}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {translation.place}
-            </a>
+            <MapPin /> <a href={event.location} target="_blank">{translation.place}</a>
           </p>
-
           <p>
             {translation.description}
           </p>
-
-          {documentUrl && translation.document_link_text && (
-            <a
-              href={documentUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="event-document-link"
-            >
-              {translation.document_link_text} →
-            </a>
-          )}
         </div>
       </div>
     )}
