@@ -89,11 +89,10 @@
 
   font-size: 0.85rem;
   color: var(--color-text-light);
-  opacity: 0.8;
 }
 .footer-license a {
   color: var(--color-secondary);
-  text-decoration: none;
+  text-decoration: underline;
 
   transition: color var(--transition-fast);
 }
