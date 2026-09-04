@@ -41,6 +41,7 @@
 .hero-logo {
   flex: 0 0 auto;
   width: clamp(8rem, 12vw, 10rem);
+  aspect-ratio: 537 / 523;
 }
 
 .hero-text {
