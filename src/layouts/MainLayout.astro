@@ -1,6 +1,8 @@
 ---
 import "../styles/global.css";
-import "@fontsource-variable/inter-tight";
+import "../styles/fonts.css";
+import latinFontUrl from "@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2?url";
+import cyrillicFontUrl from "@fontsource-variable/inter-tight/files/inter-tight-cyrillic-wght-normal.woff2?url";
 import Header from "../components/header/Header.astro";
 import Footer from "../components/footer/Footer.astro";
 import Analytics from '@vercel/analytics/astro'
@@ -30,6 +32,15 @@ const {
     content={description}
   />
   <link rel="icon" href="/favicon.ico" />
+
+  <!-- Latin is always needed (nav shows "BG"/"EN" in Latin on every page);
+       Cyrillic is only preloaded on Bulgarian pages. Preloading gives the
+       font-display: optional font (see fonts.css) the best chance of
+       being ready in time, instead of falling back for the whole load. -->
+  <link rel="preload" as="font" type="font/woff2" href={latinFontUrl} crossorigin />
+  {lang === "bg" && (
+    <link rel="preload" as="font" type="font/woff2" href={cyrillicFontUrl} crossorigin />
+  )}
 
   <script>
     import { initializeTheme } from "../lib/theme.js";
