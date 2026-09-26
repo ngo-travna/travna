@@ -25,6 +25,23 @@ interface Props {
 const { trails, lang } = Astro.props;
 const t = getTranslations(lang);
 const isEnglish = lang === "en";
+
+// TrayavnaTour always stays first; everything else is sorted alphabetically
+// by its title in the current language.
+const PINNED_SLUG = "tryavna-tour";
+
+function titleFor(trail: (typeof trails)[number]) {
+  const translation =
+    trail.trail_translations.find((tr) => tr.language === lang) ??
+    trail.trail_translations[0];
+  return translation?.title ?? "";
+}
+
+const sortedTrails = [...trails].sort((a, b) => {
+  if (a.slug === PINNED_SLUG) return -1;
+  if (b.slug === PINNED_SLUG) return 1;
+  return titleFor(a).localeCompare(titleFor(b), lang);
+});
 ---
 
 <section class="trail-list">
@@ -32,11 +49,8 @@ const isEnglish = lang === "en";
     <TrailFilters lang={lang} />
 
     <div class="trail-rows">
-      {trails.map((trail) => {
-        const translation =
-          trail.trail_translations.find((tr) => tr.language === lang) ??
-          trail.trail_translations[0];
-        const title = translation?.title ?? "";
+      {sortedTrails.map((trail) => {
+        const title = titleFor(trail);
 
         return (
           <a
