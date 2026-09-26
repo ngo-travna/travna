@@ -36,7 +36,15 @@ export async function initTrailMap() {
   map.addControl(new maplibregl.NavigationControl(), 'top-right');
   loadGpx(gpx)
     .then((geojson) => {
-      map.on('load', () => {
+      // The map's own 'load' event may already have fired by the time the
+      // GPX file has finished fetching/parsing (GPX files can be slower to
+      // load than the map style/tiles, especially on larger tracks). If we
+      // only ever registered a 'load' listener here, it would silently never
+      // fire in that case and the track line would never be drawn - while
+      // the markers below (added unconditionally) would still show up. So
+      // we add the source/layers immediately when the map is already loaded,
+      // and only fall back to waiting for 'load' when it isn't yet.
+      const addTrailLayers = () => {
         map.addSource('trail', {
           type: 'geojson',
           data: geojson,
@@ -63,7 +71,13 @@ export async function initTrailMap() {
             'line-opacity': 1,
           },
         });
-      });
+      };
+
+      if (map.loaded()) {
+        addTrailLayers();
+      } else {
+        map.on('load', addTrailLayers);
+      }
       const bounds = new maplibregl.LngLatBounds();
 
       for (const feature of geojson.features) {
