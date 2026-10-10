@@ -201,6 +201,22 @@ const en = {
       noResults: 'No trails found',
     },
   },
+  tryavnaTour: {
+    pageTitle: 'TryavnaTour | TRAVNA',
+    hero: {
+      title: 'TryavnaTour',
+      tagline: 'Mountain running, cycling and hiking through the Tryavna Balkan',
+      location: 'Tryavna, Bulgaria',
+      cta: 'See dates & registration',
+    },
+    courses: {
+      title: 'Courses',
+      downloadGpx: 'Download GPX',
+    },
+    gallery: {
+      title: 'Photos',
+    },
+  },
 };
 
 export default en;

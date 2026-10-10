@@ -2,6 +2,7 @@
 import MainLayout from "../../layouts/MainLayout.astro";
 
 import EventHero from "../../components/events/EventHero.astro";
+import TryavnaTourPromo from "../../components/events/TryavnaTourPromo.astro";
 import EventActivities from "../../components/events/EventActivities.astro";
 import CompetitionList from "../../components/events/CompetitionList.astro";
 import UpcomingEvent from "../../components/events/UpcomingEvent.astro";
@@ -19,6 +20,7 @@ const t = getTranslations(lang);
 >
 
   <EventHero lang={lang} />
+  <TryavnaTourPromo lang={lang} />
   <EventActivities lang={lang} />
   <UpcomingEvent lang={lang} />
   <CompetitionList lang={lang} />

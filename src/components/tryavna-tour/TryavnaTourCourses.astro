@@ -1,0 +1,73 @@
+---
+import "./tryavna-tour.css";
+import ElevationProfile from "./ElevationProfile.astro";
+import { Download, TrendingUp, Route } from "../../lib/icons";
+import { loadGpxServer } from "../../lib/gpx";
+import { buildElevationProfile } from "../../lib/elevationProfile";
+import type { TryavnaTourCourse } from "../../types/tryavnaTourCourse";
+import type { Lang } from "../../i18n";
+import { getTranslations } from "../../i18n";
+
+interface Props {
+  courses: TryavnaTourCourse[];
+  lang: Lang;
+}
+
+const { courses, lang } = Astro.props;
+const t = getTranslations(lang);
+const isEnglish = lang === "en";
+
+// Elevation profiles are computed once at build time from each course's GPX
+// file, server-side - no client-side map or charting library needed just to
+// show "how hilly is this route".
+const profiles = await Promise.all(
+  courses.map(async (course) => {
+    if (!course.gpx) return null;
+
+    try {
+      const geojson = await loadGpxServer(course.gpx);
+      return buildElevationProfile(geojson);
+    } catch (error) {
+      console.error(`Failed to build elevation profile for ${course.slug}:`, error);
+      return null;
+    }
+  }),
+);
+---
+
+<section class="tryavna-tour-courses">
+  <div class="container">
+    <h2>{t.tryavnaTour.courses.title}</h2>
+
+    <div class="course-list">
+      {courses.map((course, index) => (
+        <article class="course-card">
+          <div class="course-card-header">
+            <h3>{course.title}</h3>
+            <div class="course-stats">
+              <span>
+                <Route />
+                {course.distanceKm} {isEnglish ? "km" : "км."}
+              </span>
+              <span>
+                <TrendingUp />
+                {course.elevationGain} {isEnglish ? "m D+" : "м. D+"}
+              </span>
+            </div>
+          </div>
+
+          {course.description && <p class="course-description">{course.description}</p>}
+
+          {profiles[index] && <ElevationProfile points={profiles[index]!} lang={lang} />}
+
+          {course.gpx && (
+            <a href={course.gpx} download class="course-gpx-link">
+              <Download />
+              {t.tryavnaTour.courses.downloadGpx}
+            </a>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

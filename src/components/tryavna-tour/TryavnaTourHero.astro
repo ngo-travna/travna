@@ -1,0 +1,50 @@
+---
+import "./tryavna-tour.css";
+import { MapPin, Route, TrendingUp } from "../../lib/icons";
+import type { Lang } from "../../i18n";
+import { getTranslations } from "../../i18n";
+
+interface Props {
+  lang: Lang;
+  heroImage: string | null;
+  courseCount: number;
+  totalDistanceKm: number;
+  totalElevationGain: number;
+}
+
+const { lang, heroImage, courseCount, totalDistanceKm, totalElevationGain } =
+  Astro.props;
+const t = getTranslations(lang);
+const isEnglish = lang === "en";
+---
+
+<section class="tryavna-tour-hero" style={heroImage ? `--hero-image: url(${heroImage})` : undefined}>
+  <div class="tryavna-tour-hero-overlay"></div>
+  <div class="container tryavna-tour-hero-content">
+    <h1>{t.tryavnaTour.hero.title}</h1>
+    <p class="tryavna-tour-hero-tagline">{t.tryavnaTour.hero.tagline}</p>
+
+    <div class="tryavna-tour-hero-stats">
+      <span class="stat">
+        <MapPin />
+        {t.tryavnaTour.hero.location}
+      </span>
+      <span class="stat">
+        <Route />
+        {courseCount}
+        {isEnglish ? "courses" : "трасета"}
+        {totalDistanceKm > 0 && ` · ${totalDistanceKm.toFixed(0)} km`}
+      </span>
+      {totalElevationGain > 0 && (
+        <span class="stat">
+          <TrendingUp />
+          {totalElevationGain.toFixed(0)} {isEnglish ? "m D+" : "м. D+"}
+        </span>
+      )}
+    </div>
+
+    <a href={isEnglish ? "/en/events" : "/events"} class="tryavna-tour-hero-cta">
+      {t.tryavnaTour.hero.cta}
+    </a>
+  </div>
+</section>

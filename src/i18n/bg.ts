@@ -167,6 +167,22 @@ const bg = {
       noResults: 'Няма намерени пътеки',
     },
   },
+  tryavnaTour: {
+    pageTitle: 'ТРЪВНА Тур | ТРЪВНА',
+    hero: {
+      title: 'ТРЪВНА Тур',
+      tagline: 'Обиколката на Трявна — планинско бягане, колоездене и туризъм в Тревненския Балкан',
+      location: 'гр. Трявна',
+      cta: 'Виж дати и регистрация',
+    },
+    courses: {
+      title: 'Трасета',
+      downloadGpx: 'Свали GPX',
+    },
+    gallery: {
+      title: 'Снимки',
+    },
+  },
 };
 
 export default bg;

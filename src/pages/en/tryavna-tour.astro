@@ -1,0 +1,68 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import TryavnaTourHero from "../../components/tryavna-tour/TryavnaTourHero.astro";
+import TryavnaTourCourses from "../../components/tryavna-tour/TryavnaTourCourses.astro";
+import TryavnaTourGallery from "../../components/tryavna-tour/TryavnaTourGallery.astro";
+import { supabase } from "../../lib/supabase";
+import { getTryavnaTourImageUrl } from "../../lib/images";
+import { mapSupabaseCourse } from "../../types/tryavnaTourCourse";
+import type { Lang } from "../../i18n";
+import { getTranslations } from "../../i18n";
+
+const lang: Lang = "en";
+const t = getTranslations(lang);
+
+const { data: courseRows, error: coursesError } = await supabase
+  .from("tryavna_tour_courses")
+  .select(`
+    id,
+    slug,
+    distance_km,
+    elevation_gain,
+    gpx_file,
+    display_order,
+    tryavna_tour_course_translations (
+      language,
+      title,
+      description
+    )
+  `)
+  .order("display_order", { ascending: true });
+
+if (coursesError) {
+  console.error("Error fetching TryavnaTour courses:", coursesError);
+}
+
+const courses = (courseRows ?? []).map((row) => mapSupabaseCourse(row, lang));
+
+const { data: photoRows, error: photosError } = await supabase
+  .from("tryavna_tour_photos")
+  .select("id, image_path, caption, display_order")
+  .order("display_order", { ascending: true });
+
+if (photosError) {
+  console.error("Error fetching TryavnaTour photos:", photosError);
+}
+
+const images = (photoRows ?? []).map((photo) => ({
+  id: photo.id,
+  url: getTryavnaTourImageUrl(photo.image_path),
+  caption: photo.caption,
+}));
+
+const heroImage = images[0]?.url ?? null;
+const totalDistanceKm = courses.reduce((sum, c) => sum + (c.distanceKm ?? 0), 0);
+const totalElevationGain = Math.max(...courses.map((c) => c.elevationGain ?? 0), 0);
+---
+
+<MainLayout title={t.tryavnaTour.pageTitle} lang={lang}>
+  <TryavnaTourHero
+    lang={lang}
+    heroImage={heroImage}
+    courseCount={courses.length}
+    totalDistanceKm={totalDistanceKm}
+    totalElevationGain={totalElevationGain}
+  />
+  <TryavnaTourCourses courses={courses} lang={lang} />
+  <TryavnaTourGallery images={images} lang={lang} />
+</MainLayout>

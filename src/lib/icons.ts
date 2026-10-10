@@ -27,4 +27,7 @@ export {
   TentTree,
   Waypoints,
   ClockArrowUp,
+  Download,
+  TrendingUp,
+  Camera,
 } from 'lucide-astro';
