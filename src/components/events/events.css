@@ -163,6 +163,20 @@
   color: white;
 }
 
+.upcoming-card.is-past {
+  opacity: 0.92;
+}
+
+.event-date-box.is-past {
+  background: var(--color-text-light);
+}
+
+.event-past-note {
+  margin: 0.75rem 0 0;
+  color: var(--color-text-light);
+  font-style: italic;
+}
+
 .day {
   font-size: 3rem;
   font-weight: 800;

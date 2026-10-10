@@ -12,30 +12,51 @@ interface Props {
 const { lang } = Astro.props;
 const t = getTranslations(lang);
 
+const eventColumns = `
+  id,
+  location,
+  date,
+  event_translations (
+    title,
+    description,
+    place,
+    language,
+    document_link_text
+  )
+`;
+
 /* Get the next upcoming event */
-const { data: events, error } = await supabase
+const { data: upcomingEvents, error: upcomingError } = await supabase
   .from("events")
-  .select(`
-    id,
-    location,
-    date,
-    event_translations (
-      title,
-      description,
-      place,
-      language,
-      document_link_text
-    )
-  `)
+  .select(eventColumns)
   .gte("date", new Date().toISOString())
   .order("date", { ascending: true })
   .limit(1);
 
-if (error) {
-  console.error("Error fetching upcoming event:", error);
+if (upcomingError) {
+  console.error("Error fetching upcoming event:", upcomingError);
 }
 
-const event = events?.[0] ?? null;
+let event = upcomingEvents?.[0] ?? null;
+let isUpcoming = Boolean(event);
+
+/* No event scheduled yet — fall back to the most recent past event
+   so the section isn't left empty between editions. */
+if (!event) {
+  const { data: pastEvents, error: pastError } = await supabase
+    .from("events")
+    .select(eventColumns)
+    .lt("date", new Date().toISOString())
+    .order("date", { ascending: false })
+    .limit(1);
+
+  if (pastError) {
+    console.error("Error fetching last event:", pastError);
+  }
+
+  event = pastEvents?.[0] ?? null;
+  isUpcoming = false;
+}
 
 /* Select the correct translation */
 const translation = event
@@ -86,11 +107,15 @@ const year = eventDate?.getFullYear();
 
 <section class="event-section">
   <div class="container">
-    <h2>{t.events.upcoming.title}</h2>
+    <h2>{isUpcoming ? t.events.upcoming.title : t.events.upcoming.lastEventTitle}</h2>
+
+    {!isUpcoming && event && (
+      <p class="event-past-note">{t.events.upcoming.pastNote}</p>
+    )}
 
     {event && translation && (
-      <div class="upcoming-card">
-        <div class="event-date-box">
+      <div class={`upcoming-card ${!isUpcoming ? "is-past" : ""}`}>
+        <div class={`event-date-box ${!isUpcoming ? "is-past" : ""}`}>
           <span class="day">{day}</span>
           <span class="month">{month}</span>
           <span class="year">{year}</span>

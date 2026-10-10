@@ -119,6 +119,8 @@ const bg = {
     },
     upcoming: {
       title: 'Предстоящо събитие',
+      lastEventTitle: 'Последно събитие',
+      pastNote: 'Следващото издание предстои да бъде обявено.',
     },
     archive: {
       title: 'Архив',

@@ -143,6 +143,8 @@ const en = {
 
     upcoming: {
       title: 'Upcoming event',
+      lastEventTitle: 'Latest event',
+      pastNote: 'The next edition will be announced soon.',
     },
 
     archive: {
