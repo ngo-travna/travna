@@ -19,7 +19,7 @@ export function getNavigation(isEnglish: boolean): NavigationItem[] {
       href: isEnglish ? '/en/events' : '/events',
     },
     {
-      label: isEnglish ? 'TryavnaTour 2027' : 'ТРЪВНА Тур 2027',
+      label: isEnglish ? 'Tryavna Tour' : 'Обиколката на Трявна',
       href: isEnglish ? '/en/tryavna-tour' : '/tryavna-tour',
       icon: 'runner',
     },

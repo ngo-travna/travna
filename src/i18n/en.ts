@@ -204,7 +204,11 @@ const en = {
     },
   },
   tryavnaTour: {
-    pageTitle: 'TryavnaTour | TRAVNA',
+    pageTitle: 'Tryavna Tour | TRAVNA',
+    comingSoon: {
+      title: 'Tryavna Tour',
+      text: 'This page is under construction and will be live soon.',
+    },
     hero: {
       title: 'TryavnaTour',
       tagline: 'Mountain running, cycling and hiking through the Tryavna Balkan',

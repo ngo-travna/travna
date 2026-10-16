@@ -1,0 +1,23 @@
+.tour-coming-soon {
+  padding: 5rem 0 6rem;
+  text-align: center;
+}
+
+.tour-coming-soon .runner-icon {
+  width: clamp(7rem, 22vw, 11rem);
+  height: auto;
+  margin-bottom: 2rem;
+  color: var(--color-primary);
+}
+
+.tour-coming-soon h1 {
+  margin-bottom: 1rem;
+}
+
+.tour-coming-soon p {
+  max-width: 40ch;
+  margin: 0 auto;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  color: var(--color-text);
+}
