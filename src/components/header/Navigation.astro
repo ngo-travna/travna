@@ -1,5 +1,6 @@
 ---
 import { getNavigation } from "../../lib/navigation";
+import RunnerIcon from "../icons/RunnerIcon.astro";
 import type { Lang } from "../../i18n";
 
 interface Props {
@@ -15,9 +16,20 @@ const navigation = getNavigation(lang === "en");
 
     {navigation.map((item) => (
       <li>
-        <a href={item.href}>
-          {item.label}
-        </a>
+        {item.icon === "runner" ? (
+          <a
+            href={item.href}
+            class="nav-icon-link"
+            aria-label={item.label}
+            title={item.label}
+          >
+            <RunnerIcon />
+          </a>
+        ) : (
+          <a href={item.href}>
+            {item.label}
+          </a>
+        )}
       </li>
     ))}
   </ul>

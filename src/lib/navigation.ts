@@ -18,5 +18,10 @@ export function getNavigation(isEnglish: boolean): NavigationItem[] {
       label: isEnglish ? 'Events' : 'Събития',
       href: isEnglish ? '/en/events' : '/events',
     },
+    {
+      label: isEnglish ? 'TryavnaTour 2027' : 'ТРЪВНА Тур 2027',
+      href: isEnglish ? '/en/tryavna-tour' : '/tryavna-tour',
+      icon: 'runner',
+    },
   ];
 }

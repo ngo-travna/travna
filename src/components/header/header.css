@@ -95,6 +95,16 @@
   color: var(--color-secondary);
 }
 
+.nav-icon-link {
+  display: inline-flex;
+  align-items: center;
+}
+
+.nav-icon-link .runner-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
 .nav-list a:hover::after {
   width: 100%;
 }
