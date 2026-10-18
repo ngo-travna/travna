@@ -1,6 +1,6 @@
 ---
 import { getNavigation } from "../../lib/navigation";
-import RunnerIcon from "../icons/RunnerIcon.astro";
+import RunnerIcon from "../../assets/icons/runner.svg";
 import type { Lang } from "../../i18n";
 
 interface Props {
@@ -23,7 +23,7 @@ const navigation = getNavigation(lang === "en");
             aria-label={item.label}
             title={item.label}
           >
-            <RunnerIcon />
+            <RunnerIcon class="runner-icon" aria-hidden="true" focusable="false" />
           </a>
         ) : (
           <a href={item.href}>

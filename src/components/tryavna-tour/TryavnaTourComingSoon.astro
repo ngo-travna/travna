@@ -1,6 +1,6 @@
 ---
 import "./coming-soon.css";
-import RunnerIcon from "../icons/RunnerIcon.astro";
+import RunnerIcon from "../../assets/icons/runner.svg";
 import type { Lang } from "../../i18n";
 import { getTranslations } from "../../i18n";
 
@@ -14,7 +14,7 @@ const t = getTranslations(lang);
 
 <section class="tour-coming-soon">
   <div class="container">
-    <RunnerIcon />
+    <RunnerIcon class="runner-icon" aria-hidden="true" focusable="false" />
     <h1>{t.tryavnaTour.comingSoon.title}</h1>
     <p>{t.tryavnaTour.comingSoon.text}</p>
   </div>
