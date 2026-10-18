@@ -38,7 +38,7 @@
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: var(--radius-medium);
+  border-radius: var(--radius-small);
 }
 
 .tour-photos figcaption {
