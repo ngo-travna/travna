@@ -205,6 +205,8 @@ const en = {
   },
   tryavnaTour: {
     pageTitle: 'Tryavna Tour | TRAVNA',
+    running: 'Running',
+    cycling: 'Cycling',
     comingSoon: {
       title: 'Tryavna Tour',
       text: 'This page is under construction and will be live soon.',
