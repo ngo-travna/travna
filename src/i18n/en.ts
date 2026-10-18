@@ -209,19 +209,6 @@ const en = {
       title: 'Tryavna Tour',
       text: 'This page is under construction and will be live soon.',
     },
-    hero: {
-      title: 'TryavnaTour',
-      tagline: 'Mountain running, cycling and hiking through the Tryavna Balkan',
-      location: 'Tryavna, Bulgaria',
-      cta: 'See dates & registration',
-    },
-    courses: {
-      title: 'Courses',
-      downloadGpx: 'Download GPX',
-    },
-    gallery: {
-      title: 'Photos',
-    },
   },
 };
 

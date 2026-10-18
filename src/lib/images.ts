@@ -4,8 +4,3 @@ export function getTrailImageUrl(imagePath: string): string {
   return supabase.storage.from('trail_images').getPublicUrl(imagePath).data
     .publicUrl;
 }
-
-export function getTryavnaTourImageUrl(imagePath: string): string {
-  return supabase.storage.from('tryavna_tour_photos').getPublicUrl(imagePath)
-    .data.publicUrl;
-}
