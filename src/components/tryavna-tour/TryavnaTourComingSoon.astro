@@ -1,9 +1,8 @@
 ---
 import "./coming-soon.css";
 import RunnerIcon from "../../assets/icons/runner.svg";
-import runningPhoto from "../../assets/images/tryavna-tour/running.jpg";
-import cyclingPhoto from "../../assets/images/tryavna-tour/cycling.jpg";
 import { Image } from "astro:assets";
+import { getTryavnaTourImageUrl } from "../../lib/images";
 import type { Lang } from "../../i18n";
 import { getTranslations } from "../../i18n";
 
@@ -15,8 +14,8 @@ const { lang } = Astro.props;
 const t = getTranslations(lang);
 
 const photos = [
-  { src: runningPhoto, caption: t.tryavnaTour.running },
-  { src: cyclingPhoto, caption: t.tryavnaTour.cycling },
+  { src: getTryavnaTourImageUrl("tt-running.jpg"), caption: t.tryavnaTour.running },
+  { src: getTryavnaTourImageUrl("tt-cycling.jpg"), caption: t.tryavnaTour.cycling },
 ];
 ---
 
@@ -31,8 +30,10 @@ const photos = [
           <Image
             src={photo.src}
             alt=""
-            widths={[540, 1080]}
-            sizes="(max-width: 640px) 100vw, 540px"
+            width={1080}
+            height={486}
+            fit="inside"
+            loading="lazy"
           />
           <figcaption>{photo.caption}</figcaption>
         </figure>
