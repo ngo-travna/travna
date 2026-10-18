@@ -23,23 +23,27 @@ const photos = [
   <div class="container">
     <RunnerIcon class="runner-icon" aria-hidden="true" focusable="false" />
     <h1>{t.tryavnaTour.comingSoon.title}</h1>
+  </div>
 
-    <div class="tour-photos">
-      {photos.map((photo) => (
-        <figure>
-          <Image
-            src={photo.src}
-            alt=""
-            width={1080}
-            height={486}
-            fit="inside"
-            loading="lazy"
-          />
-          <figcaption>{photo.caption}</figcaption>
-        </figure>
-      ))}
-    </div>
+  <div class="tour-photos">
+    {photos.map((photo) => (
+      <figure>
+        <Image
+          src={photo.src}
+          alt=""
+          width={1600}
+          height={720}
+          widths={[640, 960, 1600]}
+          sizes="(max-width: 640px) 100vw, 50vw"
+          fit="inside"
+          loading="lazy"
+        />
+        <figcaption>{photo.caption}</figcaption>
+      </figure>
+    ))}
+  </div>
 
+  <div class="container">
     <p>{t.tryavnaTour.comingSoon.text}</p>
   </div>
 </section>

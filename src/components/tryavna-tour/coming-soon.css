@@ -27,6 +27,7 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
   margin: 2.5rem 0;
+  width: 100%;
 }
 
 .tour-photos figure {
@@ -38,7 +39,6 @@
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: var(--radius-medium);
 }
 
 .tour-photos figcaption {
