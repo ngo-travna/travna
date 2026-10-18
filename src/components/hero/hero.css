@@ -98,3 +98,8 @@
 .hero-button:hover {
   background: var(--color-primary);
 }
+
+/* Footer line sits flush against the bottom of the hero image (home page). */
+.hero + .site-footer {
+  margin-top: 0;
+}
