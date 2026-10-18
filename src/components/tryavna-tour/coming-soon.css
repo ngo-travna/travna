@@ -25,7 +25,7 @@
 .tour-photos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
+  gap: 0;
   margin: 2.5rem 2rem;
 }
 
@@ -33,12 +33,20 @@
   margin: 0;
 }
 
+.tour-photos figure + figure {
+  border-left: 2px solid var(--color-heading);
+}
+
 .tour-photos img {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: var(--radius-medium);
+  border-radius: var(--radius-medium) 0 0 var(--radius-medium);
+}
+
+.tour-photos figure + figure img {
+  border-radius: 0 var(--radius-medium) var(--radius-medium) 0;
 }
 
 .tour-photos figcaption {
@@ -52,5 +60,17 @@
   .tour-photos {
     grid-template-columns: 1fr;
     margin-inline: 1rem;
+  }
+
+  .tour-photos figure + figure {
+    border-left: none;
+    border-top: 2px solid var(--color-heading);
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .tour-photos img,
+  .tour-photos figure + figure img {
+    border-radius: var(--radius-medium);
   }
 }
