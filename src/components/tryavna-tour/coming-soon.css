@@ -33,16 +33,12 @@
   margin: 0;
 }
 
-.tour-photos figure + figure {
-  border-left: 2px solid var(--color-heading);
-}
-
 .tour-photos img {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
-  border-radius: var(--radius-medium);
+  /* border-radius: var(--radius-medium); */
 }
 
 .tour-photos figcaption {
@@ -67,6 +63,6 @@
 
   .tour-photos img,
   .tour-photos figure + figure img {
-    border-radius: var(--radius-medium);
+    border-radius: var(--radius-small);
   }
 }
