@@ -1,6 +1,9 @@
 ---
 import "./coming-soon.css";
 import RunnerIcon from "../../assets/icons/runner.svg";
+import runningPhoto from "../../assets/images/tryavna-tour/running.jpg";
+import cyclingPhoto from "../../assets/images/tryavna-tour/cycling.jpg";
+import { Image } from "astro:assets";
 import type { Lang } from "../../i18n";
 import { getTranslations } from "../../i18n";
 
@@ -10,12 +13,32 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = getTranslations(lang);
+
+const photos = [
+  { src: runningPhoto, caption: t.tryavnaTour.running },
+  { src: cyclingPhoto, caption: t.tryavnaTour.cycling },
+];
 ---
 
 <section class="tour-coming-soon">
   <div class="container">
     <RunnerIcon class="runner-icon" aria-hidden="true" focusable="false" />
     <h1>{t.tryavnaTour.comingSoon.title}</h1>
+
+    <div class="tour-photos">
+      {photos.map((photo) => (
+        <figure>
+          <Image
+            src={photo.src}
+            alt=""
+            widths={[540, 1080]}
+            sizes="(max-width: 640px) 100vw, 540px"
+          />
+          <figcaption>{photo.caption}</figcaption>
+        </figure>
+      ))}
+    </div>
+
     <p>{t.tryavnaTour.comingSoon.text}</p>
   </div>
 </section>
