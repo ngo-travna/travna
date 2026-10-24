@@ -32,10 +32,63 @@
   margin-top: 3rem;
 }
 
-.tour-profiles img {
+.profile-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.profile-trigger img {
   width: 100%;
   height: auto;
   border-radius: var(--radius-medium);
+}
+
+.profile-dialog {
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: auto;
+  background: var(--color-background);
+}
+
+.profile-dialog:not([open]) {
+  display: none;
+}
+
+.profile-full {
+  display: block;
+  width: 900px;
+  max-width: none;
+  height: auto;
+}
+
+.profile-close {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-heading);
+  color: var(--color-background);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .profile-trigger {
+    cursor: zoom-in;
+  }
 }
 
 .tour-photos {
