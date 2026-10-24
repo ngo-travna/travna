@@ -109,10 +109,6 @@ const year = eventDate?.getFullYear();
   <div class="container">
     <h2>{isUpcoming ? t.events.upcoming.title : t.events.upcoming.lastEventTitle}</h2>
 
-    {!isUpcoming && event && (
-      <p class="event-past-note">{t.events.upcoming.pastNote}</p>
-    )}
-
     {event && translation && (
       <div class={`upcoming-card ${!isUpcoming ? "is-past" : ""}`}>
         <div class={`event-date-box ${!isUpcoming ? "is-past" : ""}`}>

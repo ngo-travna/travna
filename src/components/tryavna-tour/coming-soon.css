@@ -4,22 +4,91 @@
 }
 
 .tour-coming-soon .runner-icon {
-  width: clamp(7rem, 22vw, 11rem);
+  width: clamp(3.5rem, 9vw, 5rem);
   height: auto;
-  margin-bottom: 2rem;
-  color: var(--color-primary);
+  margin-bottom: 1rem;
+  color: var(--color-heading);
 }
 
 .tour-coming-soon h1 {
   margin-bottom: 1rem;
 }
 
+.tour-coming-soon h2 {
+  margin-bottom: 1rem;
+}
+
 .tour-coming-soon p {
-  max-width: 40ch;
+  max-width: 65ch;
   margin: 0 auto;
   font-size: 1.25rem;
   line-height: 1.6;
   color: var(--color-text);
+}
+
+.tour-profiles {
+  display: grid;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.profile-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+}
+
+.profile-trigger img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-medium);
+}
+
+.profile-dialog {
+  width: 100vw;
+  max-width: none;
+  height: 100dvh;
+  max-height: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: auto;
+  background: var(--color-background);
+}
+
+.profile-dialog:not([open]) {
+  display: none;
+}
+
+.profile-full {
+  display: block;
+  width: 900px;
+  max-width: none;
+  height: auto;
+}
+
+.profile-close {
+  position: fixed;
+  top: 0.75rem;
+  right: 0.75rem;
+  z-index: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 50%;
+  background: var(--color-heading);
+  color: var(--color-background);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .profile-trigger {
+    cursor: zoom-in;
+  }
 }
 
 .tour-photos {

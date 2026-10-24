@@ -171,12 +171,6 @@
   background: var(--color-text-light);
 }
 
-.event-past-note {
-  margin: 0.75rem 0 0;
-  color: var(--color-text-light);
-  font-style: italic;
-}
-
 .day {
   font-size: 3rem;
   font-weight: 800;
