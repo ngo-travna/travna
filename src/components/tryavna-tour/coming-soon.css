@@ -1,17 +1,18 @@
 .tour-coming-soon {
-  padding: 5rem 0 6rem;
+  padding: 2rem 0 5rem;
   text-align: center;
 }
 
 .tour-coming-soon .runner-icon {
-  width: clamp(3.5rem, 9vw, 5rem);
+  width: clamp(4.5rem, 12vw, 6.5rem);
   height: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 0.25rem;
   color: var(--color-heading);
 }
 
 .tour-coming-soon h1 {
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
 }
 
 .tour-coming-soon h2 {
@@ -24,12 +25,26 @@
   font-size: 1.25rem;
   line-height: 1.6;
   color: var(--color-text);
+  text-align: justify;
+}
+
+.tour-coming-soon .tour-note {
+  max-width: none;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  font-style: italic;
+  color: var(--color-text-light);
+  text-align: center;
 }
 
 .tour-profiles {
   display: grid;
   gap: 2rem;
   margin-top: 3rem;
+}
+
+.tour-profile h3 {
+  margin-bottom: 1rem;
 }
 
 .profile-trigger {
