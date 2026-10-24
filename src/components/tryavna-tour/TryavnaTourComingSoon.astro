@@ -17,6 +17,11 @@ const photos = [
   { src: getTryavnaTourImageUrl("tt-running.jpg"), caption: t.tryavnaTour.running },
   { src: getTryavnaTourImageUrl("tt-cycling.jpg"), caption: t.tryavnaTour.cycling },
 ];
+
+const profiles = [
+  { src: getTryavnaTourImageUrl("track-profile-21K.png"), alt: t.tryavnaTour.profiles.km21 },
+  { src: getTryavnaTourImageUrl("track-profile-51K.png"), alt: t.tryavnaTour.profiles.km51 },
+];
 ---
 
 <section class="tour-coming-soon">
@@ -44,6 +49,21 @@ const photos = [
   </div>
 
   <div class="container">
-    <p>{t.tryavnaTour.comingSoon.text}</p>
+    <h2>{t.tryavnaTour.intro.title}</h2>
+    <p>{t.tryavnaTour.intro.text}</p>
+  </div>
+
+  <div class="container tour-profiles">
+    {profiles.map((profile) => (
+      <Image
+        src={profile.src}
+        alt={profile.alt}
+        width={1800}
+        height={940}
+        widths={[640, 960, 1440, 1800]}
+        sizes="(max-width: 1100px) 100vw, 1100px"
+        loading="lazy"
+      />
+    ))}
   </div>
 </section>

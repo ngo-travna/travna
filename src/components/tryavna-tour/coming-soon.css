@@ -4,22 +4,38 @@
 }
 
 .tour-coming-soon .runner-icon {
-  width: clamp(7rem, 22vw, 11rem);
+  width: clamp(3.5rem, 9vw, 5rem);
   height: auto;
-  margin-bottom: 2rem;
-  color: var(--color-primary);
+  margin-bottom: 1rem;
+  color: var(--color-heading);
 }
 
 .tour-coming-soon h1 {
   margin-bottom: 1rem;
 }
 
+.tour-coming-soon h2 {
+  margin-bottom: 1rem;
+}
+
 .tour-coming-soon p {
-  max-width: 40ch;
+  max-width: 65ch;
   margin: 0 auto;
   font-size: 1.25rem;
   line-height: 1.6;
   color: var(--color-text);
+}
+
+.tour-profiles {
+  display: grid;
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.tour-profiles img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-medium);
 }
 
 .tour-photos {
