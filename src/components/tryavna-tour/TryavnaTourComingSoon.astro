@@ -53,7 +53,19 @@ const events = [t.tryavnaTour.family.duathlon, t.tryavnaTour.family.orienteering
 
   <div class="container">
     <h2>{t.tryavnaTour.intro.title}</h2>
-    <p>{t.tryavnaTour.intro.text}</p>
+    <ul class="tour-facts">
+      {t.tryavnaTour.intro.facts.map((fact) => (
+        <li>
+          <strong>{fact.value}</strong>
+          <span>{fact.label}</span>
+        </li>
+      ))}
+    </ul>
+    {t.tryavnaTour.intro.paragraphs.map((text) => <p>{text}</p>)}
+    <p>{t.tryavnaTour.intro.landmarksLead}</p>
+    <ul class="tour-landmarks">
+      {t.tryavnaTour.intro.landmarks.map((name) => <li>{name}</li>)}
+    </ul>
   </div>
 
   <div class="container tour-profiles">
