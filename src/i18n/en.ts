@@ -211,7 +211,7 @@ const en = {
     },
     intro: {
       title: 'Two disciplines, two distances, one event',
-      text: 'Tryavna Tour 2027 is a mountain event in two disciplines, running and cycling, over two distances: 21 and 51 kilometres. It will take place on 18 and 19 September 2027. Both routes start and finish in Tryavna and loop around the town through the surrounding villages and ridges of the Balkan Mountains. The 21 km route climbs more than 600 metres, while the 51 km route climbs almost 2,000 metres and reaches nearly 1,500 metres above sea level.',
+      text: 'Tryavna Tour 2027 is a mountain event in which participants choose a discipline, running or cycling, and a distance, 21 or 51 kilometres. It will take place on 18 and 19 September 2027. Both routes start and finish in Tryavna and loop around the town through the surrounding villages and ridges of the Balkan Mountains. The 21 km route climbs more than 600 metres, while the 51 km route climbs almost 2,000 metres and reaches nearly 1,500 metres above sea level.',
     },
     profiles: {
       km21: 'Map and elevation profile of the 21K route',

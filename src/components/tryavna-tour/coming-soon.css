@@ -110,6 +110,13 @@
   margin-top: 4rem;
 }
 
+.tour-family h2 {
+  font-size: clamp(4rem, 3vw, 2.8rem);
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
 .tour-event {
   margin-top: 2.5rem;
 }
