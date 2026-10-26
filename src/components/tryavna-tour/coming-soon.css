@@ -12,6 +12,7 @@
 
 .tour-coming-soon h1 {
   margin-bottom: 0.5rem;
+  font-size: clamp(2rem, 6vw, 3.25rem);
   line-height: 1.2;
 }
 
@@ -173,7 +174,7 @@
 }
 
 .tour-family h2 {
-  font-size: clamp(4rem, 3vw, 2.8rem);
+  font-size: clamp(2rem, 6vw, 3.25rem);
   line-height: 1.2;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
