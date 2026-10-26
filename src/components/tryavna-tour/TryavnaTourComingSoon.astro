@@ -24,7 +24,11 @@ const profiles = [
   { src: getTryavnaTourImageUrl("track-profile-51K.png"), title: t.tryavnaTour.profiles.title51, alt: t.tryavnaTour.profiles.km51 },
 ];
 
-const events = [t.tryavnaTour.family.duathlon, t.tryavnaTour.family.orienteering];
+const events = [
+  t.tryavnaTour.family.duathlon,
+  t.tryavnaTour.family.orienteering,
+  t.tryavnaTour.family.chess,
+];
 ---
 
 <section class="tour-coming-soon">
@@ -101,7 +105,7 @@ const events = [t.tryavnaTour.family.duathlon, t.tryavnaTour.family.orienteering
     {events.map((event) => (
       <article class="tour-event">
         <h3>{event.title}</h3>
-        <p class="tour-subheading">{event.subtitle}</p>
+        {"subtitle" in event && <p class="tour-subheading">{event.subtitle}</p>}
         <p>{event.text}</p>
       </article>
     ))}

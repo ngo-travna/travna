@@ -244,6 +244,10 @@ const en = {
         subtitle: '7K and 300D+',
         text: 'The “Family orienteering” event has a sporting character. A child and a parent move together as a team that has to navigate and find notable places around Tryavna from a given location. The route runs through hilly terrain.',
       },
+      chess: {
+        title: 'Family chess tournament',
+        text: 'A child and a parent, as a team, play against a child and a parent from another team: child against child, parent against parent. The winning team is determined by the results of the two games. In case of a tie, the result of the children’s game is taken into account.',
+      },
     },
   },
 };
