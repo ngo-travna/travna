@@ -57,7 +57,8 @@ const events = [t.tryavnaTour.family.duathlon, t.tryavnaTour.family.orienteering
   </div>
 
   <div class="container tour-profiles">
-    {profiles.map((profile) => (
+    {profiles.map((profile, index) => (
+      <>
       <div class="tour-profile">
         <h3>{profile.title}</h3>
         <button
@@ -77,8 +78,9 @@ const events = [t.tryavnaTour.family.duathlon, t.tryavnaTour.family.orienteering
           />
         </button>
       </div>
+      {index === 0 && <p class="tour-note">{t.tryavnaTour.profiles.note}</p>}
+      </>
     ))}
-    <p class="tour-note">{t.tryavnaTour.profiles.note}</p>
   </div>
 
   <div class="container tour-family">
