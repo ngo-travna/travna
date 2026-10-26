@@ -217,7 +217,7 @@ const en = {
         { value: '1,488 m', label: 'Highest point' },
       ],
       paragraphs: [
-        'Tryavna Tour 2027 is a mountain event in which participants choose a discipline, running or cycling, and a distance, 21 or 51 kilometres. It will take place on 18 and 19 September 2027.',
+        'Tryavna Tour 2027 is a mountain sports event in which participants choose a discipline, running or cycling, and a distance, 21 or 51 kilometres. It will take place on 18 and 19 September 2027.',
         'Both routes start and finish in Tryavna and loop around the town through the surrounding villages and ridges of the Balkan Mountains. The 21 km route climbs more than 600 metres, while the 51 km route climbs almost 2,000 metres and reaches nearly 1,500 metres above sea level.',
       ],
       landmarksLead: 'The route passes through emblematic places and peaks of the Tryavna Balkan:',
@@ -246,7 +246,8 @@ const en = {
       },
       chess: {
         title: 'Family chess tournament',
-        text: 'A child and a parent, as a team, play against a child and a parent from another team: child against child, parent against parent. The winning team is determined by the results of the two games. In case of a tie, the result of the children’s game is taken into account.',
+        subtitle: '2x2',
+        text: 'Sport demands both physical and mental effort. Chess, like any sport, requires a great deal of dedication and concentration. In the “Family chess tournament”, a child and a parent, as a team, play against a child and a parent from another team: child against child, parent against parent. The winning team is determined by the results of the two games. In case of a tie, the result of the children’s game is taken into account. Let’s play outdoors!',
       },
     },
   },
