@@ -188,6 +188,10 @@
   font-size: 1.75rem;
 }
 
+.tour-event h3 + p {
+  margin-top: 0.75rem;
+}
+
 .tour-coming-soon .tour-subheading {
   margin-bottom: 1rem;
   font-size: 1.125rem;
