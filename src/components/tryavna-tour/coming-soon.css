@@ -106,6 +106,27 @@
   }
 }
 
+.tour-family {
+  margin-top: 4rem;
+}
+
+.tour-event {
+  margin-top: 2.5rem;
+}
+
+.tour-event h3 {
+  margin-bottom: 0.25rem;
+  font-size: 1.75rem;
+}
+
+.tour-coming-soon .tour-subheading {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-heading);
+  text-align: center;
+}
+
 .tour-photos {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

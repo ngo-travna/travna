@@ -222,6 +222,19 @@ const en = {
       open: 'Open full screen',
       close: 'Close',
     },
+    family: {
+      title: 'Family Tryavna Tour',
+      duathlon: {
+        title: 'Duathlon for children and parents',
+        subtitle: '1K running and 6K cycling',
+        text: 'The “Duathlon for children and parents” is a competition in which a child and a parent form one team. The duathlon includes one kilometre of running through the beautiful squares and parks of Tryavna. It is followed by six kilometres of cycling from the town centre to Bozhkovska Polyana and back. Children and parents must stay side by side throughout the whole race.',
+      },
+      orienteering: {
+        title: 'Family orienteering',
+        subtitle: '7K and 300D+',
+        text: 'The “Family orienteering” event has a sporting character. A child and a parent move together as a team that has to navigate and find notable places around Tryavna from a given location. The route runs through hilly terrain.',
+      },
+    },
   },
 };
 

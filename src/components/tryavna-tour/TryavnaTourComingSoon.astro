@@ -22,6 +22,8 @@ const profiles = [
   { src: getTryavnaTourImageUrl("track-profile-21K.png"), title: t.tryavnaTour.profiles.title21, alt: t.tryavnaTour.profiles.km21 },
   { src: getTryavnaTourImageUrl("track-profile-51K.png"), title: t.tryavnaTour.profiles.title51, alt: t.tryavnaTour.profiles.km51 },
 ];
+
+const events = [t.tryavnaTour.family.duathlon, t.tryavnaTour.family.orienteering];
 ---
 
 <section class="tour-coming-soon">
@@ -77,6 +79,17 @@ const profiles = [
       </div>
     ))}
     <p class="tour-note">{t.tryavnaTour.profiles.note}</p>
+  </div>
+
+  <div class="container tour-family">
+    <h2>{t.tryavnaTour.family.title}</h2>
+    {events.map((event) => (
+      <article class="tour-event">
+        <h3>{event.title}</h3>
+        <p class="tour-subheading">{event.subtitle}</p>
+        <p>{event.text}</p>
+      </article>
+    ))}
   </div>
 
   <dialog class="profile-dialog" aria-label={t.tryavnaTour.profiles.open}>
