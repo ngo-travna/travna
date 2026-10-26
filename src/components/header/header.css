@@ -100,9 +100,25 @@
   align-items: center;
 }
 
+.nav-list .nav-icon-link {
+  color: var(--color-secondary);
+}
+
+.nav-list .nav-icon-link:hover {
+  color: var(--color-primary);
+}
+
+html[data-theme='dark'] .nav-list .nav-icon-link {
+  color: var(--color-accent);
+}
+
+html[data-theme='dark'] .nav-list .nav-icon-link:hover {
+  color: var(--color-heading);
+}
+
 .nav-icon-link .runner-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 2rem;
+  height: 2rem;
   transition: transform var(--transition-normal);
 }
 
