@@ -110,6 +110,14 @@
   margin-top: 4rem;
 }
 
+.tour-family .family-icon {
+  display: block;
+  width: clamp(7rem, 18.6vw, 10rem);
+  height: auto;
+  margin: 0 auto 0.25rem;
+  color: var(--color-heading);
+}
+
 .tour-family h2 {
   font-size: clamp(4rem, 3vw, 2.8rem);
   line-height: 1.2;
