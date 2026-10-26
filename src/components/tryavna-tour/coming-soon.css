@@ -25,7 +25,61 @@
   font-size: 1.25rem;
   line-height: 1.6;
   color: var(--color-text);
-  text-align: justify;
+  text-align: left;
+  hyphens: auto;
+}
+
+.tour-coming-soon p + p {
+  margin-top: 1.1rem;
+}
+
+.tour-facts,
+.tour-landmarks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.tour-facts {
+  gap: 1rem 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.tour-facts li {
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid var(--color-heading);
+}
+
+.tour-facts strong {
+  display: block;
+  font-size: 1.75rem;
+  line-height: 1.3;
+  color: var(--color-primary);
+}
+
+.tour-facts span {
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+  color: var(--color-heading);
+}
+
+.tour-landmarks {
+  gap: 0.5rem;
+  max-width: 65ch;
+  margin-top: 1rem;
+}
+
+.tour-landmarks li {
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  font-weight: 600;
+  color: var(--color-primary);
 }
 
 .tour-coming-soon .tour-note {
