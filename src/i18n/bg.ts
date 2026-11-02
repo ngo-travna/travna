@@ -145,6 +145,7 @@ const bg = {
     description: {
       title: 'Описание',
     },
+    overviewMap: 'Карта на всички пътеки',
     map: {
       title: 'Карта на пътеката',
     },

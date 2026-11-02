@@ -1,0 +1,50 @@
+---
+import "./trails-map.css";
+
+interface Props {
+  trails: { slug: string; title: string; gpx: string }[];
+  prefix: string;
+  label: string;
+}
+
+const { trails, prefix, label } = Astro.props;
+---
+
+{trails.length > 0 && (
+  <section class="trails-map">
+    <div class="container">
+      <div
+        id="trails-map"
+        role="region"
+        aria-label={label}
+        data-trails={JSON.stringify(trails)}
+        data-prefix={prefix}
+      ></div>
+    </div>
+  </section>
+)}
+
+<script>
+  import { initTrailsMap } from "../../scripts/trails-map";
+
+  const container = document.getElementById("trails-map");
+
+  if (container) {
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          for (const entry of entries) {
+            if (entry.isIntersecting) {
+              observer.disconnect();
+              initTrailsMap();
+            }
+          }
+        },
+        { rootMargin: "300px" }
+      );
+      observer.observe(container);
+    } else {
+      initTrailsMap();
+    }
+  }
+</script>

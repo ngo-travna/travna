@@ -174,6 +174,7 @@ const en = {
       title: 'Description',
     },
 
+    overviewMap: 'Map of all trails',
     map: {
       title: 'Trail map',
     },
