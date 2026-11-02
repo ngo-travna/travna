@@ -2,7 +2,7 @@
 import "./trails-map.css";
 
 interface Props {
-  trails: { slug: string; title: string; gpx: string }[];
+  trails: { slug: string; title: string }[];
   prefix: string;
   label: string;
 }
@@ -17,6 +17,7 @@ const { trails, prefix, label } = Astro.props;
         id="trails-map"
         role="region"
         aria-label={label}
+        aria-busy="true"
         data-trails={JSON.stringify(trails)}
         data-prefix={prefix}
       ></div>
@@ -30,21 +31,21 @@ const { trails, prefix, label } = Astro.props;
   const container = document.getElementById("trails-map");
 
   if (container) {
-    if ("IntersectionObserver" in window) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          for (const entry of entries) {
-            if (entry.isIntersecting) {
-              observer.disconnect();
-              initTrailsMap();
-            }
-          }
-        },
-        { rootMargin: "300px" }
-      );
-      observer.observe(container);
+    // The map is the first thing on the page, so don't compete with the page's
+    // own rendering: wait until the page has fully loaded and the browser is
+    // idle. The grey placeholder is shown meanwhile.
+    const start = () => {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(() => initTrailsMap(), { timeout: 2000 });
+      } else {
+        setTimeout(initTrailsMap, 200);
+      }
+    };
+
+    if (document.readyState === "complete") {
+      start();
     } else {
-      initTrailsMap();
+      window.addEventListener("load", start, { once: true });
     }
   }
 </script>

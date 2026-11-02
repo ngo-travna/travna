@@ -1,10 +1,9 @@
-import { loadGpx } from '../lib/gpx';
-
 interface MapTrail {
   slug: string;
   title: string;
-  gpx: string;
 }
+
+type Lines = [number, number][][];
 
 // One distinct colour per trail (cycled when there are more trails than colours).
 const COLORS = [
@@ -19,6 +18,15 @@ export async function initTrailsMap() {
   const trails: MapTrail[] = JSON.parse(container.dataset.trails ?? '[]');
   const prefix = container.dataset.prefix ?? '';
   if (trails.length === 0) return;
+
+  // Start downloading the (small, pre-simplified) track data at the same time
+  // as the map library.
+  const overviewPromise: Promise<Record<string, Lines>> = fetch('/trails-overview.json').then(
+    (response) => {
+      if (!response.ok) throw new Error(`Unable to load trails overview: ${response.status}`);
+      return response.json();
+    },
+  );
 
   const [maplibregl] = await Promise.all([
     import('maplibre-gl'),
@@ -37,7 +45,10 @@ export async function initTrailsMap() {
   });
   map.addControl(new maplibregl.NavigationControl(), 'top-right');
 
-  const loaded = await Promise.allSettled(trails.map((trail) => loadGpx(trail.gpx)));
+  const overview = await overviewPromise.catch((err) => {
+    console.error(err);
+    return {} as Record<string, Lines>;
+  });
 
   if (!map.loaded()) {
     await new Promise<void>((resolve) => map.once('load', () => resolve()));
@@ -49,29 +60,23 @@ export async function initTrailsMap() {
     closeOnClick: false,
     className: 'trails-map-popup',
   });
-  const layerIds: string[] = [];
 
-  loaded.forEach((result, index) => {
-    if (result.status !== 'fulfilled') {
-      console.error('Unable to load GPX for', trails[index].slug, result.reason);
-      return;
-    }
+  trails.forEach((trail, index) => {
+    const lines = overview[trail.slug];
+    if (!lines) return;
 
-    const geojson = result.value;
-    const trail = trails[index];
     const id = `trail-${index}`;
     const color = COLORS[index % COLORS.length];
 
-    for (const feature of geojson.features) {
-      const geometry = feature.geometry;
-      if (geometry?.type === 'LineString') {
-        for (const coord of geometry.coordinates) bounds.extend(coord as [number, number]);
-      } else if (geometry?.type === 'MultiLineString') {
-        for (const line of geometry.coordinates) {
-          for (const coord of line) bounds.extend(coord as [number, number]);
-        }
-      }
+    for (const line of lines) {
+      for (const coord of line) bounds.extend(coord);
     }
+
+    const geojson = {
+      type: 'Feature' as const,
+      properties: {},
+      geometry: { type: 'MultiLineString' as const, coordinates: lines },
+    };
 
     map.addSource(id, { type: 'geojson', data: geojson });
     map.addLayer({
@@ -98,7 +103,6 @@ export async function initTrailsMap() {
       filter: ['!=', '$type', 'Point'],
       paint: { 'line-color': '#000000', 'line-width': 16, 'line-opacity': 0 },
     });
-    layerIds.push(id);
 
     map.on('mouseenter', `${id}-hit`, (e) => {
       map.getCanvas().style.cursor = 'pointer';
@@ -119,4 +123,7 @@ export async function initTrailsMap() {
   if (!bounds.isEmpty()) {
     map.fitBounds(bounds, { padding: 40, maxZoom: 14, animate: false });
   }
+
+  container.classList.add('is-ready');
+  container.setAttribute('aria-busy', 'false');
 }

@@ -13,6 +13,33 @@
   border-radius: var(--radius-small);
   overflow: hidden;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  background: linear-gradient(
+    100deg,
+    var(--color-border) 30%,
+    rgba(255, 255, 255, 0.55) 50%,
+    var(--color-border) 70%
+  );
+  background-size: 200% 100%;
+  animation: trails-map-loading 1.6s ease-in-out infinite;
+}
+
+#trails-map.is-ready {
+  animation: none;
+}
+
+@keyframes trails-map-loading {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #trails-map {
+    animation: none;
+  }
 }
 
 @media (max-width: 640px) {

@@ -39,7 +39,6 @@ const mapTrails = (trails ?? [])
       trail.trail_translations.find((tr) => tr.language === lang)?.title ??
       trail.trail_translations[0]?.title ??
       "",
-    gpx: trail.gpx_file as string,
   }));
 ---
 
