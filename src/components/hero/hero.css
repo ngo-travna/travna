@@ -42,7 +42,6 @@
   flex: 0 0 auto;
   width: clamp(8rem, 12vw, 10rem);
   aspect-ratio: 537 / 523;
-  filter: drop-shadow(0 2px 10px rgba(0, 0, 0, 0.35));
 }
 
 .hero-text {
