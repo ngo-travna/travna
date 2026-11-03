@@ -1,20 +1,17 @@
 .trail-gallery {
   padding: 5rem 0;
 }
-
 .trail-gallery h2 {
   margin-bottom: 2rem;
   color: var(--color-text);
   text-align: center;
 }
-
 .gallery-grid {
   display: grid;
   margin-top: 2rem;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
-
 .gallery-image-wrap {
   position: relative;
   width: 100%;
@@ -22,7 +19,6 @@
   overflow: hidden;
   border-radius: var(--radius-small);
 }
-
 .gallery-image {
   position: absolute;
   inset: 0;
@@ -34,7 +30,6 @@
     transform 0.25s ease,
     box-shadow 0.25s ease;
 }
-
 .gallery-image:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
@@ -45,7 +40,6 @@
     grid-template-columns: 1fr;
   }
 }
-
 .lightbox {
   position: fixed;
   inset: 0;
@@ -55,11 +49,9 @@
   align-items: center;
   background: var(--color-background);
 }
-
 .lightbox.hidden {
   display: none;
 }
-
 .lightbox-image {
   position: relative;
   z-index: 1;
@@ -73,15 +65,12 @@
   transform-origin: center center;
   transition: transform 0.15s ease;
 }
-
 .lightbox-image.zoomed {
   cursor: grab;
 }
-
 .lightbox-image.zoomed:active {
   cursor: grabbing;
 }
-
 .lightbox button {
   position: absolute;
   z-index: 2;
@@ -90,20 +79,17 @@
   color: var(--color-text);
   cursor: pointer;
 }
-
 .lightbox-close {
   top: 1.5rem;
   right: 1.5rem;
   font-size: 2rem;
 }
-
 .lightbox-prev {
   top: 50%;
   left: 1.5rem;
   transform: translateY(-50%);
   font-size: 2rem;
 }
-
 .lightbox-next {
   top: 50%;
   right: 1.5rem;
