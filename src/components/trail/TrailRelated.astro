@@ -17,7 +17,9 @@ const t = getTranslations(lang);
 
 <section class="trail-related">
   <div class="container">
+   
     <h2>{t.trails.related.title}</h2>
+    
     <div class="related-list">
       {trails.map((trail) => (
           <a href={trail.href}
@@ -33,5 +35,6 @@ const t = getTranslations(lang);
         </a>
       ))}
     </div>
+
   </div>
 </section>
