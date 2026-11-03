@@ -58,6 +58,7 @@
 }
 
 .hero h1 {
+  margin-bottom: 0.5rem;
   color: #fefae0;
   text-shadow:
     0 2px 16px rgba(0, 0, 0, 0.4),
