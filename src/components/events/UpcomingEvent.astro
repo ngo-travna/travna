@@ -15,6 +15,7 @@ const t = getTranslations(lang);
 const eventColumns = `
   id,
   location,
+  external_url,
   date,
   event_translations (
     title,
@@ -88,6 +89,9 @@ if (event) {
   }
 }
 
+/* The PDF link wins; otherwise fall back to the event's external website. */
+const linkUrl = documentUrl ?? event?.external_url ?? null;
+
 /* Event date */
 const eventDate = event ? new Date(event.date) : null;
 
@@ -135,9 +139,9 @@ const year = eventDate?.getFullYear();
             {translation.description}
           </p>
 
-          {documentUrl && translation.document_link_text && (
+          {linkUrl && translation.document_link_text && (
             <a
-              href={documentUrl}
+              href={linkUrl}
               target="_blank"
               rel="noopener noreferrer"
               class="event-document-link"
